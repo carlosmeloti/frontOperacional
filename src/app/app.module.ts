@@ -44,6 +44,7 @@ import { ModmonitoramentoComponent } from './modmonitoramento/modmonitoramento.c
 import { AppmonitoramentoComponent } from './appmonitoramento/appmonitoramento.component';
 import { AppmonitoramentoverificadorComponent } from './appmonitoramentoverificador/appmonitoramentoverificador.component';
 import { AppavaliacaoComponent } from './appavaliacao/appavaliacao.component';
+import { CadniveldeavaliacaoService } from './cadniveldeavaliacao/cadniveldeavaliacao.service';
 
 
 const routes: Routes = [
@@ -115,7 +116,8 @@ const routes: Routes = [
   providers: [
     NodeService,
     CadamostragemService,
-    CadempresaService
+    CadempresaService,
+    CadniveldeavaliacaoService
   ],
   bootstrap: [AppComponent]
 })
