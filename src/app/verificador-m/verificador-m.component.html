@@ -1,0 +1,136 @@
+<div class="container">
+
+  <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+      <div class="ui-g-12">
+          <h2>Verificador</h2>
+        </div>
+    <p-tabView>
+      <p-tabPanel header="Verificador">
+
+          <div class="ui-g">
+
+              <div class="ui-g-12 ui-fluid">
+                <label style="display: block">Listar Verificadores do Tipo: </label>
+                <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"></p-dropdown>
+              </div>
+              <div class="ui-g-1 ui-fluid">
+                  <label style="display: block">Código: </label>
+                  <input type="text" pInputText  />
+                </div>
+                <div class="ui-g-3 ui-fluid">
+                  <label style="display: block">Código Alfanumérico: </label>
+                  <input type="text" pInputText  />
+                </div>
+                <div class="ui-g-4 ui-fluid">
+                    <label style="display: block">Grau de Conformidade: </label>
+                    <input type="text" pInputText  />
+                </div>
+                <div class="ui-g-4 ui-fluid">
+                    <label style="display: block">Categoria de Avaliação: </label>
+                    <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"></p-dropdown>
+                </div>
+                <div class="ui-g-6 ui-fluid">
+                    <label style="display: block">Verificador: </label>
+                    <textarea pInputTextarea [(ngModel)]="property"></textarea>
+                </div>
+                <div class="ui-g-6 ui-fluid">
+                    <label style="display: block">Limiar: </label>
+                    <textarea pInputTextarea [(ngModel)]="property"></textarea>
+                </div>
+
+
+              <div class="ui-g-10">
+
+              </div>
+
+              <div class="ui-g-2 ui-fluid">
+                <br />
+              <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
+              </div>
+          </div>
+
+          <div class="ui-g">
+              <div class="ui-g-12">
+
+                  <p-table [value]="verificador_m" [paginator]="true" [rows]="5"  [responsive]="true">
+
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th style="width: 70px">Codigo</th>
+                          <th>Cód. Alfanumérico</th>
+                          <th>Grau de Conformidade</th>
+                          <th>Verificador</th>
+                          <th style=" width: 140px"></th>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-verificador>
+                        <tr>
+                          <th>{{material.codigo}}</th>
+                          <th>{{material.nmmaterial}}</th>
+                          <th>
+                              <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
+                              <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                          </th>
+                        </tr>
+                      </ng-template>
+                    </p-table>
+
+              </div>
+          </div>
+
+
+      </p-tabPanel>
+      <p-tabPanel header="Associação de Verificador por Local de Avaliação">
+        <div class="ui-g" >
+
+            <div class="ui-g-12 ui-fluid">
+                <label style="display: block">Verificador: </label>
+                <textarea pInputTextarea></textarea>
+            </div>
+
+          <div class="ui-g-5 ui-fluid">
+              <label style="display: block">Unidade de Avaliação / Local / Sublocal: </label>
+              <label style="display: block">Selecione um Sublocal: </label>
+              <app-arvorelocais></app-arvorelocais>
+          </div>
+          <div class="ui-g-7 ui-fluid" style="padding-top:10px ">
+              <label style="display: block">Verificador: </label>
+              <br />
+              <textarea pInputTextarea></textarea>
+              <label style="display: block">Tipo de Método: </label>
+              <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"></p-dropdown>
+              <label style="display: block">Frequência: </label>
+              <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"></p-dropdown>
+              <label style="display: block">Amostragem: </label>
+              <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1"></p-dropdown>
+              <div class="ui-g-12">
+
+              </div>
+              <p-table [value]="verificador_m" [paginator]="true" [rows]="5"  [responsive]="true">
+
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th style="width: 70px">Codigo</th>
+                      <th>Cód. Alfanumérico</th>
+                      <th>Grau de Conformidade</th>
+                      <th>Verificador</th>
+                      <th style=" width: 140px"></th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-verificador>
+                    <tr>
+                      <th>{{material.codigo}}</th>
+                      <th>{{material.nmmaterial}}</th>
+                      <th>
+                          <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
+                          <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                      </th>
+                    </tr>
+                  </ng-template>
+                </p-table>
+          </div>
+        </div>
+      </p-tabPanel>
+  </p-tabView>
+ </p-card>
+  </div>

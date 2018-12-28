@@ -1,0 +1,88 @@
+<div class="container">
+  <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <h2>Tipo de Verificador</h2>
+        </div>
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Código: </label>
+          <input type="text" pInputText style="width: 50px" />
+        </div>
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Tipo de Verificador: </label>
+          <input type="text" pInputText  />
+        </div>
+
+        <div class="ui-g-3 ui-fluid ">
+        <label style="display: block">Quantidade de Niveis: </label><br />
+          <div class="ui-g" style="width:250px;margin-bottom:10px">
+              <div class="ui-g-12"><p-radioButton name="group1" value="Option 1" label="1"  inputId="opt1"></p-radioButton></div>
+              <div class="ui-g-12"><p-radioButton name="group1" value="Option 2" label="2"  inputId="opt2"></p-radioButton></div>
+              <div class="ui-g-12"><p-radioButton name="group1" value="Option 3" label="3"  inputId="opt3"></p-radioButton></div>
+              <div class="ui-g-12"><p-radioButton name="group1" value="Option 2" label="4"  inputId="opt4"></p-radioButton></div>
+              <div class="ui-g-12"><p-radioButton name="group1" value="Option 3" label="5"  inputId="opt5"></p-radioButton></div>
+          </div>
+        </div>
+
+        <div class="ui-g-9 ui-fluid">
+          <label style="display: block">Definições para: </label><br />
+          <label style="display: block">Nível 1: </label>
+          <input type="text" pInputText />
+          <label style="display: block">Nível 2: </label>
+          <input type="text" pInputText />
+          <label style="display: block">Nível 3:</label>
+          <input type="text" pInputText />
+          <label style="display: block">Nível 4:</label>
+          <input type="text" pInputText />
+          <label style="display: block">Nível 5:</label>
+          <input type="text" pInputText />
+        </div>
+
+
+
+        <div class="ui-g-10">
+
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <br />
+        <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-12">
+
+            <p-table [value]="cadtipoverificador" [paginator]="true" [rows]="5"  [responsive]="true">
+
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th style=" width: 70px">codigo</th>
+                    <th>Tipo Verificador</th>
+                    <th>Quantidade de Níveis</th>
+                    <th style=" width: 140px"></th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-tipoverificador>
+                  <tr>
+                    <th>{{tipoverificador.cdTipoVerificador}}</th>
+                    <th>{{tipoverificador.nmTipoVerificador}}</th>
+                    <th>{{tipoverificador.nrniveis}}</th>
+                    <th>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
+                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                    </th>
+                  </tr>
+                </ng-template>
+              </p-table>
+
+        </div>
+    </div>
+
+
+  </p-card>
+  </div>
+
+
+
+
+

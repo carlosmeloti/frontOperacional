@@ -1,0 +1,41 @@
+<div class="container">
+  <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <h2>Geração de Aplicação a partir de Modelo de Monitoramento</h2>
+        </div>
+        <div class="ui-g-4 ui-fluid">
+          <label style="display: block">Escolha um modelo de Monitoramento: </label>
+          <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [style]="{'width':'370px'}"></p-dropdown>
+        </div>
+        <div class="ui-g-4 ui-fluid">
+          <label style="display: block">Tipo de Verificador: </label>
+          <input type="text" pInputText readonly/>
+        </div>
+        <div class="ui-g-4 ui-fluid">
+          <label style="display: block">Quantidade de Verificadores: </label>
+          <input type="text" pInputText readonly />
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Defina o nome do Monitoramento: </label>
+          <input type="text" pInputText readonly />
+        </div>
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Local onde será aplicado o Monitoramento: </label>
+          <input type="text" pInputText readonly />
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Data de Criação: </label>
+          <p-calendar [(ngModel)]="date3" dateFormat="dd.mm.yy" [showIcon]="true"></p-calendar>
+        </div>
+        <div class="ui-g-8 ui-fluid">
+        </div>
+        <div class="ui-g-2 ui-fluid">
+            <br>
+            <button pButton type="button" label="Gerar nova Aplicação" class="ui-button-raised ui-button-success"></button>
+        </div>
+    </div>
+
+  </p-card>
+</div>
