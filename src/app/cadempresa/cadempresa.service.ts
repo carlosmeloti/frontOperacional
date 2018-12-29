@@ -4,8 +4,10 @@ import { Http, Headers } from '@angular/http';
 import { URLSearchParams } from '@angular/http';
 
 
-export interface cadempresaFiltro {
+export class CadempresaFiltro {
   nmEmpresa : string;
+  page = 0;
+  size = 5;
 }
 
 
@@ -17,11 +19,14 @@ export class CadempresaService {
   constructor(private http: Http) { }
 
 
-  pesquisar(filtro: cadempresaFiltro): Promise<any> {
+  pesquisar(filtro: CadempresaFiltro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+    params.set('page', filtro.page.toString());
+    params.set('size', filtro.size.toString());
 
     if (filtro.nmEmpresa){
       params.set('nmEmpresa', filtro.nmEmpresa);
@@ -29,9 +34,16 @@ export class CadempresaService {
 
     return this.http.get(`${this.cadempresaurl}`, {  headers, search: filtro })
       .toPromise()
-      .then(response => response.json())
-
-
+      .then(response => response.json().content)
     };
+
+    excluir(codigo: number): Promise<void> {
+      const headers = new Headers;
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+      return this.http.delete(`${this.cadempresaurl}/${codigo}`, { headers})
+        .toPromise()
+        .then(() => null);
+    }
 
 }

@@ -26,7 +26,5 @@ export class CadamostragemService {
     return this.http.get(`${this.cadamostragemurl}?resumo`, {  headers, search: filtro })
       .toPromise()
       .then(response => response.json().content)
-
-
     };
 }

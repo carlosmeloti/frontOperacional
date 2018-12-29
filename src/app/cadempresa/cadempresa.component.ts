@@ -1,6 +1,7 @@
-import { CadempresaService } from './cadempresa.service';
+import { CadempresaService, CadempresaFiltro,  } from './cadempresa.service';
 
 import { Component, OnInit} from '@angular/core';
+
 
 
 @Component({
@@ -10,8 +11,10 @@ import { Component, OnInit} from '@angular/core';
 })
 export class CadempresaComponent implements OnInit{
 
+  filtro = new CadempresaFiltro();
   nmEmpresa: string;
   empresas = [];
+  
 
   constructor(private cadempresaService: CadempresaService) {}
 
@@ -20,8 +23,16 @@ export class CadempresaComponent implements OnInit{
   }
 
   pesquisar(){
-    this.cadempresaService.pesquisar({ nmEmpresa: this.nmEmpresa })
+    this.cadempresaService.pesquisar(this.filtro)
       .then(empresa => this.empresas = empresa);
+  }
+
+  excluir(empresa: any){
+    this.cadempresaService.excluir(empresa.codigo)
+      .then(() => {
+        this.pesquisar();
+      });
+
   }
 
 

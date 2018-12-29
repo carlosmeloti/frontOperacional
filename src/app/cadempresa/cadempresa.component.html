@@ -50,17 +50,20 @@
         </div>
 
     </div>
-
     <div class="ui-g">
-        <form  autocomplete="off" (ngSubmit)="pesquisar()">
-        <div class="ui-g-12 ui-fluid">
-            <label style="display: block">Pesquisar por Nome: </label>
-            <input type="text" pInputText name="nmEmpresa" [(ngModel)]="nmEmpresa">
-          </div>
-
+      <div class="ui-g-12">
+          <form  autocomplete="off" (ngSubmit)="pesquisar()">
+              <div class="ui-g-12 ui-fluid">
+                  <label style="display: block">Pesquisar por Nome: </label>
+                  <input type="text" pInputText name="nmEmpresa" [(ngModel)]="filtro.nmEmpresa">
+              </div>
+          </form>
+      </div>
+    </div>
+    <div class="ui-g">
         <div class="ui-g-12">
 
-            <p-table [value]="empresas" [paginator]="true" [rows]="5"  [responsive]="true">
+            <p-table [value]="empresas" [paginator]="true" [rows]="5"  [responsive]="true" #tabela>
 
                 <ng-template pTemplate="header">
                   <tr>
@@ -86,8 +89,10 @@
                     <th>{{empresa.cnpjEmpresa}}</th>
                     <th>{{empresa.diretorioArquivos}}</th>
                     <th>
+                     
                         <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
-                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="excluir(empresa)"></button>
+                    
                     </th>
                   </tr>
                 </ng-template>
@@ -95,7 +100,7 @@
 
 
             </div>
-          </form>
+          
           </div>
 
 
