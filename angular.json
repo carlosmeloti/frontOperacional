@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/ng2-toasty/style-bootstrap.css",
               "src/primeicons/primeicons.css",
               "src/primeng/resources/themes/nova-dark/theme.css",
               "src/primeng/resources/primeng.min.css",

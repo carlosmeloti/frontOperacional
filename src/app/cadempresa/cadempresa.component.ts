@@ -1,6 +1,8 @@
 import { CadempresaService, CadempresaFiltro,  } from './cadempresa.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { LazyLoadEvent } from 'src/primeng/api';
+import { ToastyService } from 'ng2-toasty/src/toasty.service';
+
 
 
 
@@ -18,15 +20,18 @@ export class CadempresaComponent implements OnInit{
   @ViewChild('tabela') grid;
   
 
-  constructor(private cadempresaService: CadempresaService) {}
+  constructor(
+    private cadempresaService: CadempresaService,
+    private toasty: ToastyService
+    ) {}
 
   ngOnInit() {
    // this.pesquisar();
   }
 
-  pesquisar(pagina = 0){
+  pesquisar(page = 0){
     
-    this.filtro.page = pagina;
+    this.filtro.page = page;
     
     this.cadempresaService.pesquisar(this.filtro)
       .then(resultado => {
@@ -36,14 +41,20 @@ export class CadempresaComponent implements OnInit{
       });
   }
   aoMudarPagina(event: LazyLoadEvent){
-    const pagina = event.first / event.rows;
-    this.pesquisar(pagina);
+    const page = event.first / event.rows;
+    this.pesquisar(page);
   }
 
   excluir(empresa: any){
     this.cadempresaService.excluir(empresa.codigo)
       .then(() => {
-        this.grid.first = 0;
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.first = 0;
+          this.pesquisar();
+        }
+        this.toasty.success('Duran Duran excluída com sucesso!');
       });
 
   }

@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastyModule } from 'ng2-toasty';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AccordionModule} from 'primeng/accordion';
@@ -111,6 +113,7 @@ const routes: Routes = [
     TreeModule,
     CheckboxModule,
     CalendarModule,
+    ToastyModule.forRoot(),
     AppRoutingModule
   ],
   providers: [
