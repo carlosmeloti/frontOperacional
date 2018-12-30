@@ -1,6 +1,6 @@
 import { CadempresaService, CadempresaFiltro,  } from './cadempresa.service';
-
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { LazyLoadEvent } from 'src/primeng/api';
 
 
 
@@ -11,30 +11,42 @@ import { Component, OnInit} from '@angular/core';
 })
 export class CadempresaComponent implements OnInit{
 
+  tatalRegistros = 0;
   filtro = new CadempresaFiltro();
   nmEmpresa: string;
   empresas = [];
+  @ViewChild('tabela') grid;
   
 
   constructor(private cadempresaService: CadempresaService) {}
 
   ngOnInit() {
-    this.pesquisar();
+   // this.pesquisar();
   }
 
-  pesquisar(){
+  pesquisar(pagina = 0){
+    
+    this.filtro.page = pagina;
+    
     this.cadempresaService.pesquisar(this.filtro)
-      .then(empresa => this.empresas = empresa);
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.empresas = resultado.cadempresa;
+      
+      });
+  }
+  aoMudarPagina(event: LazyLoadEvent){
+    const pagina = event.first / event.rows;
+    this.pesquisar(pagina);
   }
 
   excluir(empresa: any){
     this.cadempresaService.excluir(empresa.codigo)
       .then(() => {
-        this.pesquisar();
+        this.grid.first = 0;
       });
 
   }
-
 
   }
 

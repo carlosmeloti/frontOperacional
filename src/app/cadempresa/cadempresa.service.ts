@@ -34,8 +34,19 @@ export class CadempresaService {
 
     return this.http.get(`${this.cadempresaurl}`, {  headers, search: filtro })
       .toPromise()
-      .then(response => response.json().content)
+      .then(response => {
+          const responseJson = response.json();
+          const cadempresa = responseJson.content;
+
+          const resultado = {
+            cadempresa,
+            total: responseJson.totalElements
+          };
+          return resultado;
+      })
+
     };
+
 
     excluir(codigo: number): Promise<void> {
       const headers = new Headers;
