@@ -2,9 +2,7 @@ import { CadempresaService, CadempresaFiltro,  } from './cadempresa.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { LazyLoadEvent } from 'src/primeng/api';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
-
-
-
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 
 @Component({
   selector: 'app-cadempresa',
@@ -22,7 +20,8 @@ export class CadempresaComponent implements OnInit{
 
   constructor(
     private cadempresaService: CadempresaService,
-    private toasty: ToastyService
+    private toasty: ToastyService,
+    private confirmation: ConfirmationService
     ) {}
 
   ngOnInit() {
@@ -45,7 +44,17 @@ export class CadempresaComponent implements OnInit{
     this.pesquisar(page);
   }
 
+  confirmarExclusao(empresa: any) {
+    this.confirmation.confirm( {
+      message: 'Tem certeza que deseja excluir?',
+      accept: () =>{
+        this.excluir(empresa);
+      } 
+    });
+  }
+
   excluir(empresa: any){
+    
     this.cadempresaService.excluir(empresa.codigo)
       .then(() => {
         if (this.grid.first === 0) {
@@ -54,7 +63,7 @@ export class CadempresaComponent implements OnInit{
           this.grid.first = 0;
           this.pesquisar();
         }
-        this.toasty.success('Duran Duran excluída com sucesso!');
+        this.toasty.success('Empresa excluída com sucesso!');
       });
 
   }

@@ -27,6 +27,9 @@ import {TreeModule} from 'primeng/tree';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { MenuComponent } from './menu/menu.component';
 import { CadempresaComponent } from './cadempresa/cadempresa.component';
@@ -114,13 +117,15 @@ const routes: Routes = [
     CheckboxModule,
     CalendarModule,
     ToastyModule.forRoot(),
+    ConfirmDialogModule,
     AppRoutingModule
   ],
   providers: [
     NodeService,
     CadamostragemService,
     CadempresaService,
-    CadniveldeavaliacaoService
+    CadniveldeavaliacaoService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
