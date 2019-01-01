@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { URLSearchParams } from '@angular/http';
+import { Cadempresa } from 'src/app/core/model';
 
 
 export class CadempresaFiltro {
@@ -55,6 +56,16 @@ export class CadempresaService {
       return this.http.delete(`${this.cadempresaurl}/${codigo}`, { headers})
         .toPromise()
         .then(() => null);
+    }
+
+    adicionar(cadempresa: Cadempresa): Promise<Cadempresa>{
+      const headers = new Headers;
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+      headers.append('Content-Type', 'application/json');
+
+      return this.http.post(this.cadempresaurl, JSON.stringify(cadempresa), { headers })
+        .toPromise()
+        .then(response => response.json());
     }
 
 }

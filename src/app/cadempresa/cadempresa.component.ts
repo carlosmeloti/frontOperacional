@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { LazyLoadEvent } from 'src/primeng/api';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
+import { Cadempresa } from 'src/app/core/model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cadempresa',
@@ -14,7 +16,9 @@ export class CadempresaComponent implements OnInit{
   tatalRegistros = 0;
   filtro = new CadempresaFiltro();
   nmEmpresa: string;
+  
   empresas = [];
+  empresasSalvar = new Cadempresa();
   @ViewChild('tabela') grid;
   
 
@@ -66,6 +70,17 @@ export class CadempresaComponent implements OnInit{
         this.toasty.success('Empresa excluída com sucesso!');
       });
 
+  }
+
+  salvar(form: FormControl){
+    this.cadempresaService.adicionar(this.empresasSalvar)
+      .then(() => {
+        this.toasty.success("Empresa cadastrada com sucesso!");
+        form.reset();
+        this.empresasSalvar = new Cadempresa();
+        this.pesquisar();
+      })
+    .catch()
   }
 
   }

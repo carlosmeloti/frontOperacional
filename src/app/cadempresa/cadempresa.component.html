@@ -1,55 +1,53 @@
 <div class="container">
-  <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
-    <div class="ui-g">
-
-        <div class="ui-g-12">
-          <h2>Dados Cadastrais / Empresa</h2>
-        </div>
-            <div class="ui-g-8 ui-fluid">
-                <label style="display: block">Código: </label>
-                <input type="text" pInputText style="width: 50px" />
-              </div>
-          <div class="ui-g-4 ui-fluid">
-            <label style="display: block">Pesquisar por Nome: </label>
-            <input type="text" pInputText name="nmEmpresa" [(ngModel)]="nmEmpresa">
+    <p-card [style]="{width: 'px'}" styleClass="ui-card-shadow">
+      <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+      <div class="ui-g">
+          <div class="ui-g-12">
+              <h2>Dados Cadastrais / Empresa</h2>
           </div>
-
-
-        <div class="ui-g-7 ui-fluid">
-          <label style="display: block">Nome da Empresa: </label>
-          <input type="text" pInputText  />
-        </div>
-        <div class="ui-g-5 ui-fluid">
-          <label style="display: block">Nome Abreviado: </label>
-          <input type="text" pInputText  />
-        </div>
-        <div class="ui-g-3 ui-fluid">
-          <label style="display: block">CNPJ: </label>
-          <p-inputMask mask="99.999.999/9999.99" ></p-inputMask>
-        </div>
-        <div class="ui-g-6 ui-fluid ">
-          <label style="display: block">Pessoa de Contato: </label>
-          <input type="text" pInputText />
-        </div>
-        <div class="ui-g-3 ui-fluid">
-          <label style="display: block">Telefone: </label>
-          <p-inputMask mask="(99)99999-9999"></p-inputMask>
-        </div>
-
-        <div class="ui-g-12 ui-fluid">
-          <label style="display: block">Endereço Completo </label>
-          <input type="text" pInputText />
-        </div>
-        <div class="ui-g-10">
-          <label style="display: block">Pasta para arquivos: </label>
-          <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
-        </div>
-        <div class="ui-g-2 ui-fluid">
-          <br />
-        <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
-        </div>
+          <div class="ui-g-12 ui-fluid">
+              <label style="display: block">Código: </label>
+              <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="empresasSalvar.codigo" />
+          </div>
+          <div class="ui-g-7 ui-fluid">
+              <label style="display: block">Nome da Empresa: </label>
+              <input type="text" name="nmEmpresa" pInputText [(ngModel)]="empresasSalvar.nmEmpresa" />
+            </div>
+            <div class="ui-g-5 ui-fluid">
+              <label style="display: block">Nome Abreviado: </label>
+              <input type="text" name="nmAbreviado" pInputText [(ngModel)]="empresasSalvar.nmAbreviado" />
+          </div>
+          <div class="ui-g-3 ui-fluid">
+            <label style="display: block">CNPJ: </label>
+            <p-inputMask name="cnpjEmpresa" mask="99.999.999/9999.99" [(ngModel)]="empresasSalvar.cnpjEmpresa" ></p-inputMask>
+          </div>
+          <div class="ui-g-6 ui-fluid ">
+            <label style="display: block">Pessoa de Contato: </label>
+            <input type="text" name="pessoContato" pInputText [(ngModel)]="empresasSalvar.pessoContato" />
+          </div>
+          <div class="ui-g-3 ui-fluid">
+            <label style="display: block">Telefone: </label>
+            <p-inputMask mask="(99)99999-9999" name="nrTelefone" [(ngModel)]="empresasSalvar.nrTelefone"></p-inputMask>
+          </div>
+  
+          <div class="ui-g-12 ui-fluid">
+            <label style="display: block">Endereço Completo </label>
+            <input type="text" name="enderecoCompleto" pInputText [(ngModel)]="empresasSalvar.enderecoCompleto"/>
+          </div>
+          <div class="ui-g-10">
+            <label style="display: block">Pasta para arquivos: </label>
+            <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
+          </div>
+          <div class="ui-g-2 ui-fluid">
+            <br />
+          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="f.invalid"></button>
+          </div>
+        
+      
+  
 
     </div>
+    </form>
     <div class="ui-g">
       <div class="ui-g-12">
           <form  autocomplete="off" (ngSubmit)="pesquisar()">
