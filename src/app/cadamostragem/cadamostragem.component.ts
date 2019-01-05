@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { CadamostragemService } from './cadamostragem.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CadamostragemService, CadamostragemFiltro } from './cadamostragem.service';
+import { LazyLoadEvent } from 'src/primeng/api';
+import { ToastyService } from 'ng2-toasty/src/toasty.service';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
+import { Cadamostragem } from '../core/model2';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cadamostragem',
@@ -8,19 +13,75 @@ import { CadamostragemService } from './cadamostragem.service';
 })
 export class CadamostragemComponent {
 
-
+  tatalRegistros = 0;
+  filtro = new CadamostragemFiltro();
   nmamostragem: string;
-  cadamostragem=[]
 
-  constructor(private cadamostragemService: CadamostragemService) {}
+  amostragemSalvar = new Cadamostragem();
+  cadamostragem=[
+    {ngModel: 'cadEmpresa.codigo', value: '1'}
+  ]
+  @ViewChild('tabela') grid;
+
+  constructor(
+    private cadamostragemService: CadamostragemService,
+    private toasty: ToastyService,
+    private confirmation: ConfirmationService
+    ) {}
 
   ngOnInit() {
-    this.pesquisar();
+
   }
 
-  pesquisar(){
-    this.cadamostragemService.pesquisar({ nmamostragem: this.nmamostragem })
-      .then(amostragem => this.cadamostragem = amostragem);
+  pesquisar(page = 0){
+
+    this.filtro.page = page;
+
+    this.cadamostragemService.pesquisar(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.cadamostragem = resultado.cadamostragem;
+
+      });
+  }
+  aoMudarPagina(event: LazyLoadEvent){
+    const page = event.first / event.rows;
+    this.pesquisar(page);
+  }
+
+  confirmarExclusao(amostragem: any) {
+    this.confirmation.confirm( {
+      message: 'Tem certeza que deseja excluir?',
+      accept: () =>{
+        this.excluir(amostragem);
+      }
+    });
+  }
+
+  excluir(amostragem: any){
+
+    this.cadamostragemService.excluir(amostragem.codigo)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.first = 0;
+          this.pesquisar();
+        }
+        this.toasty.success('Amostragem excluída com sucesso!');
+      });
+
+  }
+  
+  salvar(form: FormControl){
+    this.cadamostragemService.adicionar(this.amostragemSalvar)
+      .then(() => {
+        this.toasty.success("Amostragem cadastrada com sucesso!");
+        form.reset();
+        this.amostragemSalvar = new Cadamostragem();
+        this.pesquisar();
+      })
+    .catch()
   }
 
 }

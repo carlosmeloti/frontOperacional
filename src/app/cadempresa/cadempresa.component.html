@@ -29,7 +29,7 @@
             <label style="display: block">Telefone: </label>
             <p-inputMask mask="(99)99999-9999" name="nrTelefone" [(ngModel)]="empresasSalvar.nrTelefone"></p-inputMask>
           </div>
-  
+
           <div class="ui-g-12 ui-fluid">
             <label style="display: block">Endereço Completo </label>
             <input type="text" name="enderecoCompleto" pInputText [(ngModel)]="empresasSalvar.enderecoCompleto"/>
@@ -42,9 +42,9 @@
             <br />
           <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="f.invalid"></button>
           </div>
-        
-      
-  
+
+
+
 
     </div>
     </form>
@@ -61,37 +61,37 @@
     <div class="ui-g">
         <div class="ui-g-12">
 
-            <p-table [value]="empresas" [paginator]="true" [rows]="filtro.size"  [responsive]="true" 
+            <p-table [value]="empresas" [paginator]="true" [rows]="filtro.size"  [responsive]="true"
               [lazy]="true" [totalRecords]="tatalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
 
                 <ng-template pTemplate="header">
                   <tr>
-                    <th style=" width: 70px">codigo</th>
-                    <th>Nome da Empresa</th>
-                    <th>Nome Abreviado</th>
-                    <th>Telefone</th>
+                    <th style=" width: 40px">Id</th>
+                    <th style=" width: 150px">Empresa</th>
+                    <th style=" width: 90px">Abreviado</th>
+                    <th style=" width: 110px">Telefone</th>
                     <th>Endereço</th>
-                    <th>Pessoa de Contato</th>
-                    <th>CNPJ</th>
-                    <th>Pasta de Arquivos</th>
-                    <th></th>
+                    <th style=" width: 100px">Contato</th>
+                    <th style=" width: 140px">CNPJ</th>
+                    <th style=" width: 100px">Diretório</th>
+                    <th style=" width: 100px"></th>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-empresa>
                   <tr>
                     <th>{{empresa.codigo}}</th>
-                    <th>{{empresa.nmEmpresa}}</th>
-                    <th>{{empresa.nmAbreviado}}</th>
-                    <th>{{empresa.nrTelefone}}</th>
-                    <th>{{empresa.enderecoCompleto}}</th>
-                    <th>{{empresa.pessoContato}}</th>
-                    <th>{{empresa.cnpjEmpresa}}</th>
-                    <th>{{empresa.diretorioArquivos}}</th>
+                    <th style="text-align: left">{{empresa.nmEmpresa}}</th>
+                    <th style="text-align: left">{{empresa.nmAbreviado}}</th>
+                    <th style="text-align: left">{{empresa.nrTelefone}}</th>
+                    <th style="text-align: left">{{empresa.enderecoCompleto}}</th>
+                    <th style="text-align: left">{{empresa.pessoContato}}</th>
+                    <th style="text-align: left">{{empresa.cnpjEmpresa}}</th>
+                    <th style="text-align: left">{{empresa.diretorioArquivos}}</th>
                     <th>
-                     
+
                         <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="confirmarExclusao(empresa)"></button>
-                    
+
                     </th>
                   </tr>
                 </ng-template>
@@ -99,7 +99,7 @@
 
 
             </div>
-          
+
           </div>
 
 

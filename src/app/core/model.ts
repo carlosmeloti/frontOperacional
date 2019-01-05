@@ -8,4 +8,6 @@ export class Cadempresa {
     cnpjEmpresa: string;
     diretorioArquivos: string;
 }
+
+
             

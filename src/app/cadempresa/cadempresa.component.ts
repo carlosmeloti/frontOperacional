@@ -5,6 +5,7 @@ import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import { Cadempresa } from 'src/app/core/model';
 import { FormControl } from '@angular/forms';
+import { ErrorHandlerService } from '../core/error-handler.service';
 
 @Component({
   selector: 'app-cadempresa',
@@ -16,14 +17,15 @@ export class CadempresaComponent implements OnInit{
   tatalRegistros = 0;
   filtro = new CadempresaFiltro();
   nmEmpresa: string;
-  
+
   empresas = [];
   empresasSalvar = new Cadempresa();
   @ViewChild('tabela') grid;
-  
+
 
   constructor(
     private cadempresaService: CadempresaService,
+    private errorHandler: ErrorHandlerService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService
     ) {}
@@ -33,33 +35,33 @@ export class CadempresaComponent implements OnInit{
   }
 
   pesquisar(page = 0){
-    
+
     this.filtro.page = page;
-    
+
     this.cadempresaService.pesquisar(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.empresas = resultado.cadempresa;
-      
-      });
-  }
-  aoMudarPagina(event: LazyLoadEvent){
-    const page = event.first / event.rows;
-    this.pesquisar(page);
-  }
-
-  confirmarExclusao(empresa: any) {
-    this.confirmation.confirm( {
-      message: 'Tem certeza que deseja excluir?',
-      accept: () =>{
-        this.excluir(empresa);
-      } 
-    });
-  }
-
-  excluir(empresa: any){
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+    }
+    aoMudarPagina(event: LazyLoadEvent){
+      const page = event.first / event.rows;
+      this.pesquisar(page);
+    }
     
-    this.cadempresaService.excluir(empresa.codigo)
+    confirmarExclusao(empresa: any) {
+      this.confirmation.confirm( {
+        message: 'Tem certeza que deseja excluir?',
+        accept: () =>{
+          this.excluir(empresa);
+        }
+      });
+    }
+    
+    excluir(empresa: any){
+      
+      this.cadempresaService.excluir(empresa.codigo)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();
@@ -68,7 +70,8 @@ export class CadempresaComponent implements OnInit{
           this.pesquisar();
         }
         this.toasty.success('Empresa excluída com sucesso!');
-      });
+      }) 
+      .catch(erro => this.errorHandler.handle(erro));
 
   }
 
@@ -80,7 +83,7 @@ export class CadempresaComponent implements OnInit{
         this.empresasSalvar = new Cadempresa();
         this.pesquisar();
       })
-    .catch()
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   }

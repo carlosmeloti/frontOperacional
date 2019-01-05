@@ -50,6 +50,7 @@ import { AppmonitoramentoComponent } from './appmonitoramento/appmonitoramento.c
 import { AppmonitoramentoverificadorComponent } from './appmonitoramentoverificador/appmonitoramentoverificador.component';
 import { AppavaliacaoComponent } from './appavaliacao/appavaliacao.component';
 import { CadniveldeavaliacaoService } from './cadniveldeavaliacao/cadniveldeavaliacao.service';
+import { ErrorHandlerService } from './core/error-handler.service';
 
 
 const routes: Routes = [
@@ -125,7 +126,8 @@ const routes: Routes = [
     CadamostragemService,
     CadempresaService,
     CadniveldeavaliacaoService,
-    ConfirmationService
+    ConfirmationService,
+    ErrorHandlerService
   ],
   bootstrap: [AppComponent]
 })
