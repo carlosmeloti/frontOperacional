@@ -3,8 +3,10 @@ import { CadamostragemService, CadamostragemFiltro } from './cadamostragem.servi
 import { LazyLoadEvent } from 'src/primeng/api';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
-import { Cadamostragem } from '../core/model2';
+import { Cadamostragem } from '../core/model';
 import { FormControl } from '@angular/forms';
+import { CadempresaService } from '../cadempresa/cadempresa.service';
+import { ErrorHandlerService } from '../core/error-handler.service';
 
 @Component({
   selector: 'app-cadamostragem',
@@ -21,16 +23,24 @@ export class CadamostragemComponent {
   cadamostragem=[
     {ngModel: 'cadEmpresa.codigo', value: '1'}
   ]
+  empresas = [
+    {label: 'Exemplo', value: 1}
+  ];
   @ViewChild('tabela') grid;
 
   constructor(
     private cadamostragemService: CadamostragemService,
     private toasty: ToastyService,
-    private confirmation: ConfirmationService
+    private confirmation: ConfirmationService,
+
+    private cadempresaService: CadempresaService,
+    private errorHandler: ErrorHandlerService,
+
+
     ) {}
 
   ngOnInit() {
-
+    
   }
 
   pesquisar(page = 0){
@@ -83,5 +93,7 @@ export class CadamostragemComponent {
       })
     .catch()
   }
+
+ 
 
 }

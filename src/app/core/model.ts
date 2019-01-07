@@ -9,5 +9,11 @@ export class Cadempresa {
     diretorioArquivos: string;
 }
 
+export class Cadamostragem {
+    codigo: number;
+    cadEmpresa = new Cadempresa();
+    nmamostragem: string;
+}
+
 
             

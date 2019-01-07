@@ -68,4 +68,14 @@ export class CadempresaService {
         .then(response => response.json());
     }
 
+    listarTodas(): Promise<any> {
+     const headers = new Headers;
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+      headers.append('Content-Type', 'application/json');
+  
+      return this.http.get(this.cadempresaurl, { headers })
+        .toPromise()
+        .then(response => response.json());
+  }
+
 }

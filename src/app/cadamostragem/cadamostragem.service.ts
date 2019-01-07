@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { URLSearchParams } from '@angular/http';
-import { Cadamostragem } from '../core/model2';
+import { Cadamostragem } from '../core/model';
 
 
 
-export class CadamostragemFiltro {
+export class CadamostragemFiltro { 
   nmamostragem : string;
   page = 0;
   size = 5;
