@@ -15,5 +15,16 @@ export class Cadamostragem {
     nmamostragem: string;
 }
 
+export class Cadfrequencia {
+  codigo: number;
+  cadEmpresa = new Cadempresa();
+  nmFrequencia: string;
+}
 
-            
+export class Cadtipodemetodo {
+  codigo: number;
+  cadEmpresa = new Cadempresa();
+  tipometodo: string;
+}
+
+

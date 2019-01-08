@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { CadtipodemetodoFiltro, CadtipodemetodoService } from './cadtipodemetodo.service';
+import { Cadtipodemetodo } from '../core/model';
+import { LazyLoadEvent } from 'src/primeng/api';
+import { ToastyService } from 'ng2-toasty/src/toasty.service';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
+import { FormControl } from '@angular/forms';
+import { ErrorHandlerService } from '../core/error-handler.service';
 
 @Component({
   selector: 'app-cadtipodemetodo',
@@ -7,35 +14,78 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadtipodemetodoComponent {
 
-  cadtipodemetodo = [
-    {
-      "codigo": 1,
-      "tipometodo": "Análise de mapas e/ou documentação no campo"
-      },
-      {
-      "codigo": 2,
-      "tipometodo": "Análise de mapas e/ou documentação no escritório"
-      },
-      {
-      "codigo": 3,
-      "tipometodo": "Entrevistas com funcionários"
-      },
-      {
-      "codigo": 4,
-      "tipometodo": "Medição em campo"
-      },
-      {
-      "codigo": 5,
-      "tipometodo": "Medição no acampamento"
-      },
-      {
-      "codigo": 6,
-      "tipometodo": "Observação em campo"
-      },
-      {
-      "codigo": 7,
-      "tipometodo": "Observação no acampamento"
+  tatalRegistros = 0;
+  filtro = new CadtipodemetodoFiltro();
+  nmFrequencia: string;
+
+  tipodemetodoSalvar = new Cadtipodemetodo();
+  empresas = [
+    {label: 'Exemplo', value: 1}
+  ];
+  @ViewChild('tabela') grid;
+
+  cadtipodemetodo = []
+
+  constructor(
+    private cadtipodemetodoService: CadtipodemetodoService,
+    private toasty: ToastyService,
+    private confirmation: ConfirmationService,
+    private errorHandler: ErrorHandlerService,
+  ){}
+
+  ngOnInit() {
+
+  }
+  pesquisar(page = 0){
+
+    this.filtro.page = page;
+
+    this.cadtipodemetodoService.pesquisar(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.cadtipodemetodo = resultado.cadtipodemetodo;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+  aoMudarPagina(event: LazyLoadEvent){
+    const page = event.first / event.rows;
+    this.pesquisar(page);
+  }
+
+  confirmarExclusao(tipodemetodo: any) {
+    this.confirmation.confirm( {
+      message: 'Tem certeza que deseja excluir?',
+      accept: () =>{
+        this.excluir(tipodemetodo);
       }
-  ]
+    });
+  }
+
+  excluir(tipometodo: any){
+
+    this.cadtipodemetodoService.excluir(tipometodo.codigo)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.first = 0;
+          this.pesquisar();
+        }
+        this.toasty.success('Frequencia excluída com sucesso!');
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+
+  }
+  salvar(form: FormControl){
+    this.cadtipodemetodoService.adicionar(this.tipodemetodoSalvar)
+      .then(() => {
+        this.toasty.success("Tipo de metodo cadastrado com sucesso!");
+        form.reset();
+        this.tipodemetodoSalvar = new Cadtipodemetodo();
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 }

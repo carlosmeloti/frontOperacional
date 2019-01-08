@@ -1,3 +1,5 @@
+import { CadtipodemetodoService } from './cadtipodemetodo/cadtipodemetodo.service';
+import { CadfrequenciaService } from './cadfrequencia/cadfrequencia.service';
 import { CadamostragemService } from './cadamostragem/cadamostragem.service';
 import { CadempresaService } from './cadempresa/cadempresa.service';
 import { Routes, RouterModule } from '@angular/router';
@@ -124,6 +126,8 @@ const routes: Routes = [
   providers: [
     NodeService,
     CadamostragemService,
+    CadtipodemetodoService,
+    CadfrequenciaService,
     CadempresaService,
     CadniveldeavaliacaoService,
     ConfirmationService,

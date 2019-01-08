@@ -20,9 +20,7 @@ export class CadamostragemComponent {
   nmamostragem: string;
 
   amostragemSalvar = new Cadamostragem();
-  cadamostragem=[
-    {ngModel: 'cadEmpresa.codigo', value: '1'}
-  ]
+  cadamostragem=[]
   empresas = [
     {label: 'Exemplo', value: 1}
   ];
@@ -33,14 +31,13 @@ export class CadamostragemComponent {
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
 
-    private cadempresaService: CadempresaService,
     private errorHandler: ErrorHandlerService,
 
 
     ) {}
 
   ngOnInit() {
-    
+
   }
 
   pesquisar(page = 0){
@@ -52,7 +49,8 @@ export class CadamostragemComponent {
         this.tatalRegistros = resultado.total;
         this.cadamostragem = resultado.cadamostragem;
 
-      });
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
   aoMudarPagina(event: LazyLoadEvent){
     const page = event.first / event.rows;
@@ -79,10 +77,11 @@ export class CadamostragemComponent {
           this.pesquisar();
         }
         this.toasty.success('Amostragem excluída com sucesso!');
-      });
+      })
+      .catch(erro => this.errorHandler.handle(erro));
 
   }
-  
+
   salvar(form: FormControl){
     this.cadamostragemService.adicionar(this.amostragemSalvar)
       .then(() => {
@@ -91,9 +90,9 @@ export class CadamostragemComponent {
         this.amostragemSalvar = new Cadamostragem();
         this.pesquisar();
       })
-    .catch()
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
- 
+
 
 }

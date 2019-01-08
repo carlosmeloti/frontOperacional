@@ -11,10 +11,9 @@
         </div>
         <div class="ui-g-8 ui-fluid">
           <label>Empresa</label>
-          <p-dropdown name="empresas" [options]="empresas"
-            [autoWidth]="false"
-            [(ngModel)]="amostragemSalvar.cadEmpresa.codigo" required></p-dropdown>
-      </div>
+          <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
+            [autoWidth]="false" [(ngModel)]="amostragemSalvar.cadEmpresa.codigo" required></p-dropdown>
+         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Amostragem: </label>
           <input type="text" name="nmamostragem" pInputText [(ngModel)]="amostragemSalvar.nmamostragem" />
