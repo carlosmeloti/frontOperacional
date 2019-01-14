@@ -1,3 +1,5 @@
+import { CadtipodeverificadorService } from './cadtipodeverificador/cadtipodeverificador.service';
+import { CadmaterialService } from './cadmaterial/cadmaterial.service';
 import { CadtipodemetodoService } from './cadtipodemetodo/cadtipodemetodo.service';
 import { CadfrequenciaService } from './cadfrequencia/cadfrequencia.service';
 import { CadamostragemService } from './cadamostragem/cadamostragem.service';
@@ -58,6 +60,7 @@ import { ErrorHandlerService } from './core/error-handler.service';
 const routes: Routes = [
   { path: 'inicio', component:InicioComponent},
   { path: 'cadempresa', component:CadempresaComponent},
+  { path: 'cadempresa/:codigo', component:CadempresaComponent},
   { path: 'cadamostragem', component:CadamostragemComponent},
   { path: 'cadfrequencia', component:CadfrequenciaComponent},
   { path: 'cadniveldeavaliacao', component:CadniveldeavaliacaoComponent},
@@ -129,6 +132,8 @@ const routes: Routes = [
     CadtipodemetodoService,
     CadfrequenciaService,
     CadempresaService,
+    CadmaterialService,
+    CadtipodeverificadorService,
     CadniveldeavaliacaoService,
     ConfirmationService,
     ErrorHandlerService

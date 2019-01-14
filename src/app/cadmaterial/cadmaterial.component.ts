@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CadmaterialFiltro, CadmaterialService } from './cadmaterial.service';
+import { Cadmaterial } from '../core/model';
+import { LazyLoadEvent } from 'src/primeng/api';
+import { ToastyService } from 'ng2-toasty/src/toasty.service';
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
+import { FormControl } from '@angular/forms';
+import { ErrorHandlerService } from '../core/error-handler.service';
 
 @Component({
   selector: 'app-cadmaterial',
@@ -7,99 +14,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadmaterialComponent {
 
-  cadmaterial=[
-    {
-      "codigo": 1,
-      "nmmaterial": "GPS"
-      },
-      {
-      "codigo": 2,
-      "nmmaterial": "Trena 50m"
-      },
-      {
-      "codigo": 3,
-      "nmmaterial": "Fita métrica"
-      },
-      {
-      "codigo": 4,
-      "nmmaterial": "Bússola"
-      },
-      {
-      "codigo": 5,
-      "nmmaterial": "Mapa da UMF"
-      },
-      {
-      "codigo": 6,
-      "nmmaterial": "Mapa da UPA"
-      },
-      {
-      "codigo": 7,
-      "nmmaterial": "Mapa da UT"
-      },
-      {
-      "codigo": 8,
-      "nmmaterial": "Mapa de arraste"
-      },
-      {
-      "codigo": 9,
-      "nmmaterial": "Mapa de derruba"
-      },
-      {
-      "codigo": 10,
-      "nmmaterial": "Dados do inventário florestal"
-      },
-      {
-      "codigo": 11,
-      "nmmaterial": "PMFS"
-      },
-      {
-      "codigo": 12,
-      "nmmaterial": "POA ano vigente"
-      },
-      {
-      "codigo": 13,
-      "nmmaterial": "POAs anos anteriores"
-      },
-      {
-      "codigo": 14,
-      "nmmaterial": "Dados de parcelas de monitoramento"
-      },
-      {
-      "codigo": 15,
-      "nmmaterial": "Documentação (acordos, atas, convênios, parcerias, etc.)"
-      },
-      {
-      "codigo": 16,
-      "nmmaterial": "Documentação (pagamentos de funcionários e fornecedores)"
-      },
-      {
-      "codigo": 17,
-      "nmmaterial": "Documentação (planilha de custos)"
-      },
-      {
-      "codigo": 18,
-      "nmmaterial": "Documentação (ATPF, AUTEX e demais autorizações)"
-      },
-      {
-      "codigo": 19,
-      "nmmaterial": "Documentação (freqüência e rendimento de funcionários)"
-      },
-      {
-      "codigo": 20,
-      "nmmaterial": "Documentação (pesquisas, estatísticas, etc.)"
-      },
-      {
-      "codigo": 21,
-      "nmmaterial": "Documentação (segurança do trabalho)"
-      },
-      {
-      "codigo": 22,
-      "nmmaterial": "Legislação pertinente"
-      },
-      {
-      "codigo": 23,
-      "nmmaterial": "Cronograma de atividades"
-      }
-  ]
+  tatalRegistros = 0;
+  filtro = new CadmaterialFiltro();
+  nmmaterial: string;
 
+  materialSalvar = new Cadmaterial();
+  empresas = [
+    {label: 'Exemplo', value: 1}
+  ];
+  @ViewChild('tabela') grid;
+
+  cadmaterial=[]
+
+  constructor(
+    private cadmaterialService: CadmaterialService,
+    private toasty: ToastyService,
+    private confirmation: ConfirmationService,
+    private errorHandler: ErrorHandlerService,
+  ){}
+
+  ngOnInit() {
+
+  }
+  pesquisar(page = 0){
+
+    this.filtro.page = page;
+
+    this.cadmaterialService.pesquisar(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.cadmaterial = resultado.cadmaterial;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+  aoMudarPagina(event: LazyLoadEvent){
+    const page = event.first / event.rows;
+    this.pesquisar(page);
+  }
+
+  confirmarExclusao(material: any) {
+    this.confirmation.confirm( {
+      message: 'Tem certeza que deseja excluir?',
+      accept: () =>{
+        this.excluir(material);
+      }
+    });
+  }
+
+  excluir(material: any){
+
+    this.cadmaterialService.excluir(material.codigo)
+      .then(() => {
+        if (this.grid.first === 0) {
+          this.pesquisar();
+        } else {
+          this.grid.first = 0;
+          this.pesquisar();
+        }
+        this.toasty.success('Material excluído com sucesso!');
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+
+  }
+  salvar(form: FormControl){
+    this.cadmaterialService.adicionar(this.materialSalvar)
+      .then(() => {
+        this.toasty.success("Material cadastrado com sucesso!");
+        form.reset();
+        this.materialSalvar = new Cadmaterial();
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 }

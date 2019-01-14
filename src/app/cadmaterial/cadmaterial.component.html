@@ -1,16 +1,22 @@
 <div class="container">
   <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+      <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
     <div class="ui-g">
         <div class="ui-g-12">
           <h2>Material</h2>
         </div>
-        <div class="ui-g-12 ui-fluid">
+        <div class="ui-g-4 ui-fluid">
           <label style="display: block">Código: </label>
           <input type="text" pInputText style="width: 50px" />
         </div>
+        <div class="ui-g-8 ui-fluid">
+          <label>Empresa</label>
+          <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
+            [autoWidth]="false" [(ngModel)]="materialSalvar.cadEmpresa.codigo" required></p-dropdown>
+      </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Material: </label>
-          <input type="text" pInputText  />
+          <input type="text" name="nmmaterial" pInputText [(ngModel)]="materialSalvar.nmmaterial" />
         </div>
 
         <div class="ui-g-10">
@@ -18,14 +24,24 @@
         </div>
         <div class="ui-g-2 ui-fluid">
           <br />
-        <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
+        <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success"></button>
         </div>
     </div>
-
+    </form>
     <div class="ui-g">
         <div class="ui-g-12">
-
-            <p-table [value]="cadmaterial" [paginator]="true" [rows]="5"  [responsive]="true">
+          <form  autocomplete="off" (ngSubmit)="pesquisar()">
+            <div class="ui-g-12 ui-fluid">
+                <label style="display: block">Pesquisar Material: </label>
+                <input type="text" pInputText name="nmmaterial" [(ngModel)]="filtro.nmmaterial">
+              </div>
+        </form>
+        </div>
+      </div>
+    <div class="ui-g">
+        <div class="ui-g-12">
+                <p-table [value]="cadmaterial" [paginator]="true" [rows]="filtro.size"  [responsive]="true"
+                [lazy]="true" [totalRecords]="tatalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
 
                 <ng-template pTemplate="header">
                   <tr>
@@ -37,10 +53,10 @@
                 <ng-template pTemplate="body" let-material>
                   <tr>
                     <th>{{material.codigo}}</th>
-                    <th>{{material.nmmaterial}}</th>
+                    <th style="text-align: left">{{material.nmmaterial}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
-                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Material" tooltipPosition="top"></a>
+                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Material" tooltipPosition="top" (click)="confirmarExclusao(material)"></button>
                     </th>
                   </tr>
                 </ng-template>

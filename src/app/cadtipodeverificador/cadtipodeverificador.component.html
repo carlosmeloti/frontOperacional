@@ -1,5 +1,6 @@
 <div class="container">
   <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+     <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
     <div class="ui-g">
         <div class="ui-g-12">
           <h2>Tipo de Verificador</h2>
@@ -48,28 +49,51 @@
         <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
         </div>
     </div>
+    </form>
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <form  autocomplete="off" (ngSubmit)="pesquisar()">
+            <div class="ui-g-12 ui-fluid">
+                <label style="display: block">Pesquisar Tipo de Verificador: </label>
+                <input type="text" pInputText name="nmTipoVerificador" [(ngModel)]="filtro.nmTipoVerificador">
+              </div>
+        </form>
+        </div>
+      </div>
 
     <div class="ui-g">
         <div class="ui-g-12">
 
-            <p-table [value]="cadtipoverificador" [paginator]="true" [rows]="5"  [responsive]="true">
+
+                <p-table [value]="cadtipodeverificador" [paginator]="true" [rows]="filtro.size"  [responsive]="true"
+                [lazy]="true" [totalRecords]="tatalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
 
                 <ng-template pTemplate="header">
                   <tr>
-                    <th style=" width: 70px">codigo</th>
+                    <th style=" width: 70px">Código</th>
                     <th>Tipo Verificador</th>
-                    <th>Quantidade de Níveis</th>
+                    <th style=" width: 100px">Qtd. Níveis</th>
+                    <th style=" width: 100px"> Nível 1</th>
+                    <th style=" width: 100px">Nível 2</th>
+                    <th style=" width: 100px">Nível 3</th>
+                    <th style=" width: 100px">Nível 4</th>
+                    <th style=" width: 100px">Nível 5</th>
                     <th style=" width: 140px"></th>
                   </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-tipoverificador>
+                <ng-template pTemplate="body" let-tipodeverificador>
                   <tr>
-                    <th>{{tipoverificador.cdTipoVerificador}}</th>
-                    <th>{{tipoverificador.nmTipoVerificador}}</th>
-                    <th>{{tipoverificador.nrniveis}}</th>
+                    <th>{{tipodeverificador.cdTipoVerificador}}</th>
+                    <th style="text-align: left">{{tipodeverificador.nmTipoVerificador}}</th>
+                    <th>{{tipodeverificador.nrniveis}}</th>
+                    <th>{{tipodeverificador.rotulonivel1}}</th>
+                    <th>{{tipodeverificador.rotulonivel2}}</th>
+                    <th>{{tipodeverificador.rotulonivel3}}</th>
+                    <th>{{tipodeverificador.rotulonivel4}}</th>
+                    <th>{{tipodeverificador.rotulonivel5}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
-                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Verificador" tooltipPosition="top"></a>
+                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Tipo de Verificador" tooltipPosition="top"></button>
                     </th>
                   </tr>
                 </ng-template>

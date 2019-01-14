@@ -3,7 +3,7 @@
       <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
       <div class="ui-g">
           <div class="ui-g-12">
-              <h2>Dados Cadastrais / Empresa</h2>
+              <h2>Dados Cadastrais / Empresa {{ editando ? ' - Editando - ' : '' }}</h2>
           </div>
           <div class="ui-g-12 ui-fluid">
               <label style="display: block">Código: </label>
@@ -34,14 +34,23 @@
             <label style="display: block">Endereço Completo </label>
             <input type="text" name="enderecoCompleto" pInputText [(ngModel)]="empresasSalvar.enderecoCompleto"/>
           </div>
-          <div class="ui-g-10">
-            <label style="display: block">Pasta para arquivos: </label>
-            <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
-          </div>
+          <div class="ui-g-12 ">
+              <label style="display: block">Pasta para arquivos: </label>
+              <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
+            </div>
+
           <div class="ui-g-2 ui-fluid">
+              <br />
+              <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="f.invalid"></button>
+            </div>
+
+          <div *ngIf="editando" class="ui-g-2 ui-fluid ">
             <br />
-          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="f.invalid"></button>
+            <h3><strong><a routerLink="/cadempresa">Sair da edição</a></strong></h3>
           </div>
+
+
+
 
 
 
@@ -89,7 +98,7 @@
                     <th style="text-align: left">{{empresa.diretorioArquivos}}</th>
                     <th>
 
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/cadempresa', empresa.codigo]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="confirmarExclusao(empresa)"></button>
 
                     </th>
