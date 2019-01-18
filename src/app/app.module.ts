@@ -64,6 +64,7 @@ const routes: Routes = [
   { path: 'cadamostragem', component:CadamostragemComponent},
   { path: 'cadamostragem/:codigo', component:CadamostragemComponent},
   { path: 'cadfrequencia', component:CadfrequenciaComponent},
+  { path: 'cadfrequencia/:codigo', component:CadfrequenciaComponent},
   { path: 'cadniveldeavaliacao', component:CadniveldeavaliacaoComponent},
   { path: 'cadniveldeavaliacao/:codigo', component:CadniveldeavaliacaoComponent},
   { path: 'cadtipodemetodo', component:CadtipodemetodoComponent},

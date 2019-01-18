@@ -6,6 +6,7 @@ import { ConfirmationService } from 'primeng/components/common/confirmationservi
 import { Cadfrequencia } from '../core/model';
 import { FormControl } from '@angular/forms';
 import { ErrorHandlerService } from '../core/error-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadfrequencia',
@@ -31,11 +32,33 @@ export class CadfrequenciaComponent {
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
+    private route: ActivatedRoute,
   ){}
 
   ngOnInit() {
+    //console.log(this.route.snapshot.params['codigo']);
 
+    const codigoFrequencia = this.route.snapshot.params['codigo'];
+
+    //se houver um id entra no metodo de carregar valores
+    if(codigoFrequencia){
+      this.carregarFrequencia(codigoFrequencia);
+    }
   }
+
+  get editando(){
+    return Boolean(this.frequenciaSalvar.codigo)
+  }
+
+  //Metodo para carregar valores
+  carregarFrequencia(codigo: number){
+    this.cadfrequenciaService.buscarPorCodigo(codigo)
+      .then(frequencia => {
+        this.frequenciaSalvar = frequencia;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
   pesquisar(page = 0){
 
     this.filtro.page = page;
@@ -78,15 +101,57 @@ export class CadfrequenciaComponent {
 
   }
   salvar(form: FormControl){
-    this.cadfrequenciaService.adicionar(this.frequenciaSalvar)
-      .then(() => {
-        this.toasty.success("Frequencia cadastrada com sucesso!");
-        form.reset();
-        this.frequenciaSalvar = new Cadfrequencia();
-        this.pesquisar();
-      })
-      .catch(erro => this.errorHandler.handle(erro));
+
+    if(this.editando){
+      this.confirmarAlterar(form);
+    } else {
+      this.confirmarSalvar(form);
+    }
+
   }
+
+
+      confirmarSalvar(frequencia: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja salvar?',
+          accept: () =>{
+            this.adicionarFrequencia(frequencia);
+          }
+        });
+      }
+
+      confirmarAlterar(frequencia: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja alterar?',
+          accept: () =>{
+            this.atualizarFrequencia(frequencia);
+          }
+        });
+      }
+
+      adicionarFrequencia(form: FormControl){
+        this.cadfrequenciaService.adicionar(this.frequenciaSalvar)
+          .then(() => {
+            this.toasty.success("Frequencia cadastrada com sucesso!");
+            form.reset();
+            this.frequenciaSalvar = new Cadfrequencia();
+            this.pesquisar();
+          })
+          .catch(erro => this.errorHandler.handle(erro));
+      }
+
+      atualizarFrequencia(form: FormControl){
+        this.cadfrequenciaService.atualizar(this.frequenciaSalvar)
+        .then(frequencia => {
+          this.frequenciaSalvar = frequencia;
+
+          this.toasty.success('Frequencia alterada com sucesso!');
+
+        })
+      .catch(erro => this.errorHandler.handle(erro));
+      }
+
+  
 
 
 }

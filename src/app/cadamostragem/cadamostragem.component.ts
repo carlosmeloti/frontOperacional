@@ -154,8 +154,4 @@ export class CadamostragemComponent {
       .catch(erro => this.errorHandler.handle(erro));
       }
 
-
-
-
-
 }

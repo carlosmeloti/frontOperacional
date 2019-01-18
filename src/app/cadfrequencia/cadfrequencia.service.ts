@@ -62,5 +62,43 @@ export class CadfrequenciaService {
         .toPromise()
         .then(response => response.json());
     }
+    listarTodas(): Promise<any> {
+      const headers = new Headers;
+       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+       headers.append('Content-Type', 'application/json');
+
+       return this.http.get(this.cadfrequenciaURL, { headers })
+         .toPromise()
+         .then(response => response.json());
+   }
+
+   atualizar(cadfrequencia: Cadfrequencia): Promise<Cadfrequencia>{
+     const headers = new Headers;
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+     headers.append('Content-Type', 'application/json');
+
+     return this.http.put(`${this.cadfrequenciaURL}/${cadfrequencia.codigo}`,
+         JSON.stringify(cadfrequencia), { headers })
+       .toPromise()
+       .then(response => {
+         const cadfrequenciaAlterada = response.json() as Cadfrequencia;
+
+
+         return cadfrequenciaAlterada;
+       });
+ }
+
+   buscarPorCodigo(codigo: number): Promise<Cadfrequencia> {
+     const headers = new Headers();
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+     return this.http.get(`${this.cadfrequenciaURL}/${codigo}`, { headers })
+       .toPromise()
+       .then(response => {
+         const cadfrequencia = response.json() as Cadfrequencia;
+
+         return cadfrequencia;
+       });
+ }
 
 }
