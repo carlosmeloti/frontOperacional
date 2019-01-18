@@ -1,45 +1,50 @@
 <div class="container">
   <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+   <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
     <div class="ui-g">
         <div class="ui-g-12">
-          <h2>Categoria de Avaliação</h2>
+          <h2>Categoria de Avaliação  {{ editando ? ' - Editando - ' : '' }}</h2>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" pInputText style="width: 50px" />
+          <input type="text" name="codigo" pInputText style="width: 50px"  [(ngModel)]="cadnivelavaliacaoSalvar.codigo" />
         </div>
         <div class="ui-g-10 ui-fluid">
           <label style="display: block">Categoria de Avaliação: </label>
-          <input type="text" pInputText  />
+          <input type="text" name="nmnivelavaliacao" pInputText [(ngModel)]="cadnivelavaliacaoSalvar.nmnivelavaliacao" />
         </div>
         <div class="ui-g-2 ui-fluid">
           <label style="display: block">Sigla: </label>
-          <input type="text" pInputText />
+          <input type="text" name="sigla" pInputText [(ngModel)]="cadnivelavaliacaoSalvar.sigla" />
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Descrição: </label>
-          <textarea pInputTextarea></textarea>
+          <textarea pInputTextarea name="txdescricao" [(ngModel)]="cadnivelavaliacaoSalvar.txdescricao"></textarea>
         </div>
 
-        <div class="ui-g-10">
 
-        </div>
-        <div class="ui-g-2 ui-fluid">
+        <div  class="ui-g-2 ui-fluid">
+            <br />
+            <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!editando"></button>
+          </div>
+
+        <div *ngIf="editando" class="ui-g-2 ui-fluid ">
           <br />
-        <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
+          <h3><strong><a routerLink="/cadniveldeavaliacao">Sair da edição</a></strong></h3>
         </div>
     </div>
-
+    </form>
     <div class="ui-g">
         <form  autocomplete="off" (ngSubmit)="pesquisar()">
             <div class="ui-g-12 ui-fluid">
                 <label style="display: block">Pesquisar por Nome: </label>
-                <input type="text" pInputText name="nmnivelavaliacao" [(ngModel)]="nmnivelavaliacao">
+                <input type="text" pInputText name="nmnivelavaliacao" [(ngModel)]="filtro.nmnivelavaliacao">
               </div>
 
         <div class="ui-g-12">
 
-            <p-table [value]="cadnivelavaliacao" [paginator]="true" [rows]="10"  [responsive]="true">
+                <p-table [value]="cadnivelavaliacao" [paginator]="true" [rows]="filtro.size"  [responsive]="true"
+                [lazy]="true" [totalRecords]="tatalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
 
                 <ng-template pTemplate="header">
                   <tr>
@@ -57,7 +62,7 @@
                     <th>{{nivelavaliacao.sigla}}</th>
                     <th style="text-align: left">{{nivelavaliacao.txdescricao}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Categoria de Avaliação" tooltipPosition="top"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Categoria de Avaliação" tooltipPosition="top" [routerLink]="['/cadniveldeavaliacao', nivelavaliacao.codigo]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Categoria de Avaliação" tooltipPosition="top"></button>
                     </th>
                   </tr>
@@ -65,7 +70,7 @@
               </p-table>
 
         </div>
-    </form>    
+    </form>
     </div>
 
 

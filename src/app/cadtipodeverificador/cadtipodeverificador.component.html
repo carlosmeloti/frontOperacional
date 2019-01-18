@@ -3,51 +3,41 @@
      <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
     <div class="ui-g">
         <div class="ui-g-12">
-          <h2>Tipo de Verificador</h2>
+          <h2>Tipo de Verificador {{ editando ? ' - Editando - ' : '' }}</h2>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" pInputText style="width: 50px" />
+          <input type="text" name="cdTipoVerificador" pInputText style="width: 50px" [(ngModel)]="tipodeverificadoraSalvar.cdTipoVerificador"/>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Tipo de Verificador: </label>
-          <input type="text" pInputText  />
+          <input type="text" name="nmTipoVerificador" pInputText  [(ngModel)]="tipodeverificadoraSalvar.nmTipoVerificador"/>
         </div>
 
-        <div class="ui-g-3 ui-fluid ">
-        <label style="display: block">Quantidade de Niveis: </label><br />
-          <div class="ui-g" style="width:250px;margin-bottom:10px">
-              <div class="ui-g-12"><p-radioButton name="group1" value="Option 1" label="1"  inputId="opt1"></p-radioButton></div>
-              <div class="ui-g-12"><p-radioButton name="group1" value="Option 2" label="2"  inputId="opt2"></p-radioButton></div>
-              <div class="ui-g-12"><p-radioButton name="group1" value="Option 3" label="3"  inputId="opt3"></p-radioButton></div>
-              <div class="ui-g-12"><p-radioButton name="group1" value="Option 2" label="4"  inputId="opt4"></p-radioButton></div>
-              <div class="ui-g-12"><p-radioButton name="group1" value="Option 3" label="5"  inputId="opt5"></p-radioButton></div>
-          </div>
-        </div>
 
-        <div class="ui-g-9 ui-fluid">
+
+        <div class="ui-g-12 ui-fluid">
           <label style="display: block">Definições para: </label><br />
           <label style="display: block">Nível 1: </label>
-          <input type="text" pInputText />
+          <input type="text" name="rotulonivel1" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel1" />
           <label style="display: block">Nível 2: </label>
-          <input type="text" pInputText />
+          <input type="text" name="rotulonivel2" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel2" />
           <label style="display: block">Nível 3:</label>
-          <input type="text" pInputText />
+          <input type="text" name="rotulonivel3" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel3" />
           <label style="display: block">Nível 4:</label>
-          <input type="text" pInputText />
+          <input type="text"name="rotulonivel4" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel4" />
           <label style="display: block">Nível 5:</label>
-          <input type="text" pInputText />
+          <input type="text" name="rotulonivel5" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel5" />
         </div>
-
-
-
-        <div class="ui-g-10">
-
-        </div>
-        <div class="ui-g-2 ui-fluid">
+        <div  class="ui-g-2 ui-fluid">
           <br />
-        <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
+          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!editando"></button>
         </div>
+
+      <div *ngIf="editando" class="ui-g-2 ui-fluid ">
+        <br />
+        <h3><strong><a routerLink="/cadtipodeverificador">Sair da edição</a></strong></h3>
+      </div>
     </div>
     </form>
     <div class="ui-g">
@@ -92,7 +82,7 @@
                     <th>{{tipodeverificador.rotulonivel4}}</th>
                     <th>{{tipodeverificador.rotulonivel5}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Verificador" tooltipPosition="top"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Verificador" tooltipPosition="top" [routerLink]="['/cadtipodeverificador', tipodeverificador.cdTipoVerificador]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Tipo de Verificador" tooltipPosition="top"></button>
                     </th>
                   </tr>

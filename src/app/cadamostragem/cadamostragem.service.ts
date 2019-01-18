@@ -5,7 +5,7 @@ import { Cadamostragem } from '../core/model';
 
 
 
-export class CadamostragemFiltro { 
+export class CadamostragemFiltro {
   nmamostragem : string;
   page = 0;
   size = 5;
@@ -61,6 +61,46 @@ export class CadamostragemService {
         .toPromise()
         .then(response => response.json());
     }
+
+    listarTodas(): Promise<any> {
+      const headers = new Headers;
+       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+       headers.append('Content-Type', 'application/json');
+
+       return this.http.get(this.cadamostragemurl, { headers })
+         .toPromise()
+         .then(response => response.json());
+   }
+
+   atualizar(cadamostragem: Cadamostragem): Promise<Cadamostragem>{
+     const headers = new Headers;
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+     headers.append('Content-Type', 'application/json');
+
+     return this.http.put(`${this.cadamostragemurl}/${cadamostragem.codigo}`,
+         JSON.stringify(cadamostragem), { headers })
+       .toPromise()
+       .then(response => {
+         const cadamostragemAlterada = response.json() as Cadamostragem;
+
+
+         return cadamostragemAlterada;
+       });
+ }
+
+   buscarPorCodigo(codigo: number): Promise<Cadamostragem> {
+     const headers = new Headers();
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+     return this.http.get(`${this.cadamostragemurl}/${codigo}`, { headers })
+       .toPromise()
+       .then(response => {
+         const cadamostragem = response.json() as Cadamostragem;
+
+         return cadamostragem;
+       });
+ }
+
 
 
 

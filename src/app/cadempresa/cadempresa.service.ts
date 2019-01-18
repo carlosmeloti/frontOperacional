@@ -78,6 +78,22 @@ export class CadempresaService {
         .then(response => response.json());
   }
 
+  atualizar(cadempresa: Cadempresa): Promise<Cadempresa>{
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put(`${this.cadempresaurl}/${cadempresa.codigo}`,
+        JSON.stringify(cadempresa), { headers })
+      .toPromise()
+      .then(response => {
+        const cadempresaAlterada = response.json() as Cadempresa;
+
+
+        return cadempresaAlterada;
+      });
+}
+
   buscarPorCodigo(codigo: number): Promise<Cadempresa> {
     const headers = new Headers();
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');

@@ -36,21 +36,24 @@ export class CadempresaComponent implements OnInit{
    // this.pesquisar();
    const codigoEmpresa = this.route.snapshot.params['codigo'];
 
+   //se houver um id entra no metodo de carregar valores
    if(codigoEmpresa){
       this.carregarEmpresa(codigoEmpresa);
    }
+
 
   }
 
   get editando(){
     return Boolean(this.empresasSalvar.codigo)
   }
-
+//Metodo para carregar valores
   carregarEmpresa(codigo: number){
     this.cadempresaService.buscarPorCodigo(codigo)
       .then(empresa => {
         this.empresasSalvar = empresa;
       })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   pesquisar(page = 0){
@@ -69,14 +72,6 @@ export class CadempresaComponent implements OnInit{
       this.pesquisar(page);
     }
 
-    confirmarExclusao(empresa: any) {
-      this.confirmation.confirm( {
-        message: 'Tem certeza que deseja excluir?',
-        accept: () =>{
-          this.excluir(empresa);
-        }
-      });
-    }
 
     excluir(empresa: any){
 
@@ -92,9 +87,45 @@ export class CadempresaComponent implements OnInit{
       })
       .catch(erro => this.errorHandler.handle(erro));
 
-  }
+    }
 
-  salvar(form: FormControl){
+    salvar(form: FormControl){
+
+      if(this.editando){
+        this.confirmarAlterar(form);
+      } else {
+        this.confirmarSalvar(form);
+      }
+
+    }
+        confirmarExclusao(empresa: any) {
+          this.confirmation.confirm( {
+            message: 'Tem certeza que deseja excluir?',
+            accept: () =>{
+              this.excluir(empresa);
+            }
+          });
+        }
+
+        confirmarSalvar(empresa: any) {
+          this.confirmation.confirm( {
+            message: 'Tem certeza que deseja salvar?',
+            accept: () =>{
+              this.adicionarEmpresa(empresa);
+            }
+          });
+        }
+
+        confirmarAlterar(empresa: any) {
+          this.confirmation.confirm( {
+            message: 'Tem certeza que deseja alterar?',
+            accept: () =>{
+              this.atualizarEmpresa(empresa);
+            }
+          });
+        }
+
+  adicionarEmpresa(form: FormControl){
     this.cadempresaService.adicionar(this.empresasSalvar)
       .then(() => {
         this.toasty.success("Empresa cadastrada com sucesso!");
@@ -103,6 +134,17 @@ export class CadempresaComponent implements OnInit{
         this.pesquisar();
       })
       .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  atualizarEmpresa(form: FormControl){
+    this.cadempresaService.atualizar(this.empresasSalvar)
+    .then(empresa => {
+      this.empresasSalvar = empresa;
+
+      this.toasty.success('Empresa alterada com sucesso!');
+
+    })
+  .catch(erro => this.errorHandler.handle(erro));
   }
 
   }

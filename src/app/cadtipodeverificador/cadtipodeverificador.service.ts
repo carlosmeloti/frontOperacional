@@ -63,4 +63,33 @@ export class CadtipodeverificadorService {
         .toPromise()
         .then(response => response.json());
     }
+
+    atualizar(cadtipodeverificador: Cadtipodeverificador): Promise<Cadtipodeverificador>{
+      const headers = new Headers;
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+      headers.append('Content-Type', 'application/json');
+
+      return this.http.put(`${this.cadtipodeverificadorURL}/${cadtipodeverificador.cdTipoVerificador}`,
+          JSON.stringify(cadtipodeverificador), { headers })
+        .toPromise()
+        .then(response => {
+          const cadtipodeverificadorAlterado = response.json() as Cadtipodeverificador;
+
+
+          return cadtipodeverificadorAlterado;
+        });
+  }
+
+    buscarPorCodigo(codigo: number): Promise<Cadtipodeverificador> {
+      const headers = new Headers();
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+      return this.http.get(`${this.cadtipodeverificadorURL}/${codigo}`, { headers })
+        .toPromise()
+        .then(response => {
+          const cadtipodeverificador = response.json() as Cadtipodeverificador;
+
+          return cadtipodeverificador;
+        });
+  }
 }

@@ -44,4 +44,11 @@ export class Cadtipodeverificador {
   rotulonivel5: string;
 }
 
+export class Cadniveldeavaliacao {
+  codigo: number;
+  nmnivelavaliacao: string;
+  sigla: string;
+  txdescricao: string;
+}
+
 

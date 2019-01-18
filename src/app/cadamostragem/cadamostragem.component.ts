@@ -7,6 +7,7 @@ import { Cadamostragem } from '../core/model';
 import { FormControl } from '@angular/forms';
 import { CadempresaService } from '../cadempresa/cadempresa.service';
 import { ErrorHandlerService } from '../core/error-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadamostragem',
@@ -30,14 +31,34 @@ export class CadamostragemComponent {
     private cadamostragemService: CadamostragemService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
-
-    private errorHandler: ErrorHandlerService,
+    private route: ActivatedRoute,
+    private errorHandler: ErrorHandlerService
 
 
     ) {}
 
   ngOnInit() {
+    //console.log(this.route.snapshot.params['codigo']);
 
+    const codigoAmostragem = this.route.snapshot.params['codigo'];
+
+   //se houver um id entra no metodo de carregar valores
+   if(codigoAmostragem){
+      this.carregarAmostragem(codigoAmostragem);
+   }
+  }
+
+  get editando(){
+    return Boolean(this.amostragemSalvar.codigo)
+  }
+
+  //Metodo para carregar valores
+  carregarAmostragem(codigo: number){
+    this.cadamostragemService.buscarPorCodigo(codigo)
+      .then(amostragem => {
+        this.amostragemSalvar = amostragem;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   pesquisar(page = 0){
@@ -83,15 +104,57 @@ export class CadamostragemComponent {
   }
 
   salvar(form: FormControl){
-    this.cadamostragemService.adicionar(this.amostragemSalvar)
-      .then(() => {
-        this.toasty.success("Amostragem cadastrada com sucesso!");
-        form.reset();
-        this.amostragemSalvar = new Cadamostragem();
-        this.pesquisar();
-      })
-      .catch(erro => this.errorHandler.handle(erro));
+
+    if(this.editando){
+      this.confirmarAlterar(form);
+    } else {
+      this.confirmarSalvar(form);
+    }
+
   }
+
+
+      confirmarSalvar(amostragem: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja salvar?',
+          accept: () =>{
+            this.adicionarAmostragem(amostragem);
+          }
+        });
+      }
+
+      confirmarAlterar(amostragem: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja alterar?',
+          accept: () =>{
+            this.atualizarAmostragem(amostragem);
+          }
+        });
+      }
+
+      adicionarAmostragem(form: FormControl){
+        this.cadamostragemService.adicionar(this.amostragemSalvar)
+          .then(() => {
+            this.toasty.success("Amostragem cadastrada com sucesso!");
+            form.reset();
+            this.amostragemSalvar = new Cadamostragem();
+            this.pesquisar();
+          })
+          .catch(erro => this.errorHandler.handle(erro));
+      }
+
+      atualizarAmostragem(form: FormControl){
+        this.cadamostragemService.atualizar(this.amostragemSalvar)
+        .then(amostragem => {
+          this.amostragemSalvar = amostragem;
+
+          this.toasty.success('Amostragem alterada com sucesso!');
+
+        })
+      .catch(erro => this.errorHandler.handle(erro));
+      }
+
+
 
 
 

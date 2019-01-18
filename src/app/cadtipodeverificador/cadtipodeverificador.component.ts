@@ -6,6 +6,7 @@ import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import { FormControl } from '@angular/forms';
 import { ErrorHandlerService } from '../core/error-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -31,11 +32,32 @@ export class CadtipodeverificadorComponent {
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
+    private route: ActivatedRoute
   ){}
 
   ngOnInit() {
+    const cdTipoVerificador = this.route.snapshot.params['codigo'];
 
+    if(cdTipoVerificador){
+      this.carregarTipoVerificador(cdTipoVerificador);
+   }
   }
+
+
+  get editando(){
+    return Boolean(this.tipodeverificadoraSalvar.cdTipoVerificador)
+  }
+
+  carregarTipoVerificador(codigo: number){
+    this.cadtipodeverificadorService.buscarPorCodigo(codigo)
+      .then(tipodeverificador => {
+        this.tipodeverificadoraSalvar = tipodeverificador ;
+      })
+
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+
   pesquisar(page = 0){
 
     this.filtro.page = page;
@@ -62,6 +84,7 @@ export class CadtipodeverificadorComponent {
     });
   }
 
+
   excluir(cadtipodeverificador: any){
 
     this.cadtipodeverificadorService.excluir(cadtipodeverificador.codigo)
@@ -78,15 +101,47 @@ export class CadtipodeverificadorComponent {
 
   }
   salvar(form: FormControl){
+
+    if(this.editando){
+      this.confirmarAlteracao(form);
+    } else {
+      this.adicionarTipodeverificador(form);
+    }
+
+  }
+
+  adicionarTipodeverificador(form: FormControl){
     this.cadtipodeverificadorService.adicionar(this.tipodeverificadoraSalvar)
       .then(() => {
-        this.toasty.success("Frequencia cadastrada com sucesso!");
+        this.toasty.success("Tipo de verificador cadastrado com sucesso!");
         form.reset();
         this.tipodeverificadoraSalvar = new Cadtipodeverificador();
         this.pesquisar();
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
+
+  confirmarAlteracao(cadtipodeverificador: any) {
+    this.confirmation.confirm( {
+      message: 'Tem certeza que deseja alterar?',
+      accept: () =>{
+        this.atualizarTipodeverificador(cadtipodeverificador);
+      }
+    });
+  }
+
+  atualizarTipodeverificador(form: FormControl){
+    this.cadtipodeverificadorService.atualizar(this.tipodeverificadoraSalvar)
+    .then(tipodeverificador => {
+      this.tipodeverificadoraSalvar = tipodeverificador;
+
+      this.toasty.success('Tipo de verificador alterado com sucesso!');
+
+    })
+  .catch(erro => this.errorHandler.handle(erro));
+  }
+
+
 
 
 
