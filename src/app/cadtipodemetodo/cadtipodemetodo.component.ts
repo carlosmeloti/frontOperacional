@@ -6,6 +6,7 @@ import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import { FormControl } from '@angular/forms';
 import { ErrorHandlerService } from '../core/error-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadtipodemetodo',
@@ -31,11 +32,36 @@ export class CadtipodemetodoComponent {
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
+    private route: ActivatedRoute,
   ){}
 
   ngOnInit() {
 
+    //console.log(this.route.snapshot.params['codigo']);
+
+    const codigoTipoDeMetodo= this.route.snapshot.params['codigo'];
+
+    //se houver um id entra no metodo de carregar valores
+    if(codigoTipoDeMetodo){
+      this.carregarTipoDeMetodo(codigoTipoDeMetodo);
+    }
+
   }
+
+  get editando(){
+    return Boolean(this.tipodemetodoSalvar.codigo)
+  }
+
+  //Metodo para carregar valores
+  carregarTipoDeMetodo(codigo: number){
+    this.cadtipodemetodoService.buscarPorCodigo(codigo)
+      .then(tipodemetodo => {
+        this.tipodemetodoSalvar = tipodemetodo;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+
   pesquisar(page = 0){
 
     this.filtro.page = page;
@@ -77,15 +103,57 @@ export class CadtipodemetodoComponent {
       .catch(erro => this.errorHandler.handle(erro));
 
   }
+
   salvar(form: FormControl){
-    this.cadtipodemetodoService.adicionar(this.tipodemetodoSalvar)
-      .then(() => {
-        this.toasty.success("Tipo de metodo cadastrado com sucesso!");
-        form.reset();
-        this.tipodemetodoSalvar = new Cadtipodemetodo();
-        this.pesquisar();
-      })
-      .catch(erro => this.errorHandler.handle(erro));
+
+    if(this.editando){
+      this.confirmarAlterar(form);
+    } else {
+      this.confirmarSalvar(form);
+    }
+
   }
+
+
+      confirmarSalvar(tipodemetodo: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja salvar?',
+          accept: () =>{
+            this.adicionarTipoDeMetodo(tipodemetodo);
+          }
+        });
+      }
+
+      confirmarAlterar(tipodemetodo: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja alterar?',
+          accept: () =>{
+            this.atualizarTipoDeMetodo(tipodemetodo);
+          }
+        });
+      }
+
+      adicionarTipoDeMetodo(form: FormControl){
+        this.cadtipodemetodoService.adicionar(this.tipodemetodoSalvar)
+          .then(() => {
+            this.toasty.success("Tipo de metodo cadastrado com sucesso!");
+            form.reset();
+            this.tipodemetodoSalvar = new Cadtipodemetodo();
+            this.pesquisar();
+          })
+          .catch(erro => this.errorHandler.handle(erro));
+      }
+
+      atualizarTipoDeMetodo(form: FormControl){
+        this.cadtipodemetodoService.atualizar(this.tipodemetodoSalvar)
+        .then(tipodemetodo => {
+          this.tipodemetodoSalvar = tipodemetodo;
+
+          this.toasty.success('Tipo de metodo alterado com sucesso!');
+
+        })
+      .catch(erro => this.errorHandler.handle(erro));
+      }
+
 
 }

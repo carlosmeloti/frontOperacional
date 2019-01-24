@@ -1,32 +1,50 @@
+import { CadtipodeverificadorService } from './../cadtipodeverificador/cadtipodeverificador.service';
 import { Component, OnInit, Injectable } from '@angular/core';
-import {SelectItem} from 'primeng/api';
+
+import { ErrorHandlerService } from '../core/error-handler.service';
+import { VerificadorMService, CadverificadorFiltro } from './verificador-m.service';
 
 
-interface City {
-  name: string;
-  code: string;
-}
+
+
 
 @Component({
   selector: 'app-verificador-m',
   templateUrl: './verificador-m.component.html',
   styleUrls: ['./verificador-m.component.css']
 })
-export class VerificadorMComponent {
+export class VerificadorMComponent implements OnInit  {
 
-  cities1: SelectItem[];
-  selectedCity1: City;
+  verificadorm = [];
+  cadtipodeverificador=[];
 
-  constructor() {
-    this.cities1 = [
-      {label:'Tipo de Verificador', value:null},
-      {label:'Monitoramento Operacional', value:{id:1, name: 'New York', code: 'NY'}},
-      {label:'Avaliação de Impactos', value:{id:2, name: 'Rome', code: 'RM'}},
-      {label:'Vistoria de PMFS', value:{id:3, name: 'London', code: 'LDN'}},
-      {label:'Certificação Florestal', value:{id:4, name: 'Istanbul', code: 'IST'}},
-      {label:'Avaliação de Sustentabilidade ( Pesquisa )', value:{id:5, name: 'Paris', code: 'PRS'}}
-  ];
+  filtro = new CadverificadorFiltro;
+
+  constructor(
+    private verificadorMService: VerificadorMService,
+    private tipoDeVerificadores: CadtipodeverificadorService,
+    private errorHandler: ErrorHandlerService
+
+  ) {}
+
+  ngOnInit() {
+    this.pesquisar();
+    this.carregarTipoDeVerificadores();
+  }
+  pesquisar(){
+
+    this.verificadorMService.pesquisar()
+      .then(verificadores => this.verificadorm = verificadores);
+
+  }
+
+  carregarTipoDeVerificadores() {
+    return this.tipoDeVerificadores.listarTodas()
+      .then(tipoDeVerificadores => {
+        this.cadtipodeverificador = tipoDeVerificadores.map(c => ({ label: c.nmTipoVerificador, value: c.cdTipoVerificador }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
 }
 
-}
 
+}

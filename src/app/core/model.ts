@@ -51,4 +51,17 @@ export class Cadniveldeavaliacao {
   txdescricao: string;
 }
 
+export class Verificador_m {
+  codigo: number;
+  cadEmpresa = new Cadempresa();
+  cadTipodeverificador = new Cadtipodeverificador();
+  cadNiveldeavaliacao = new Cadniveldeavaliacao();
+  codalfa: string;
+  nmverificador: string;
+  limiar: string;
+  p01_graco: number;
+
+}
+
+
 

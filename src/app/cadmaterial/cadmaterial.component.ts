@@ -6,6 +6,7 @@ import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import { FormControl } from '@angular/forms';
 import { ErrorHandlerService } from '../core/error-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadmaterial',
@@ -31,11 +32,32 @@ export class CadmaterialComponent {
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
+    private route: ActivatedRoute,
   ){}
 
   ngOnInit() {
+ //console.log(this.route.snapshot.params['codigo']);
 
-  }
+ const codigoMaterial = this.route.snapshot.params['codigo'];
+
+ //se houver um id entra no metodo de carregar valores
+ if(codigoMaterial){
+   this.carregarMaterial(codigoMaterial);
+ }
+}
+
+get editando(){
+ return Boolean(this.materialSalvar.codigo)
+}
+
+//Metodo para carregar valores
+carregarMaterial(codigo: number){
+ this.cadmaterialService.buscarPorCodigo(codigo)
+   .then(meterial => {
+     this.materialSalvar = meterial;
+   })
+   .catch(erro => this.errorHandler.handle(erro));
+}
   pesquisar(page = 0){
 
     this.filtro.page = page;
@@ -77,14 +99,56 @@ export class CadmaterialComponent {
       .catch(erro => this.errorHandler.handle(erro));
 
   }
+
   salvar(form: FormControl){
-    this.cadmaterialService.adicionar(this.materialSalvar)
-      .then(() => {
-        this.toasty.success("Material cadastrado com sucesso!");
-        form.reset();
-        this.materialSalvar = new Cadmaterial();
-        this.pesquisar();
-      })
-      .catch(erro => this.errorHandler.handle(erro));
+
+    if(this.editando){
+      this.confirmarAlterar(form);
+    } else {
+      this.confirmarSalvar(form);
+    }
+
   }
+
+
+      confirmarSalvar(material: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja salvar?',
+          accept: () =>{
+            this.adicionarMaterial(material);
+          }
+        });
+      }
+
+      confirmarAlterar(material: any) {
+        this.confirmation.confirm( {
+          message: 'Tem certeza que deseja alterar?',
+          accept: () =>{
+            this.atualizarMaterial(material);
+          }
+        });
+      }
+      adicionarMaterial(form: FormControl){
+        this.cadmaterialService.adicionar(this.materialSalvar)
+          .then(() => {
+            this.toasty.success("Material cadastrado com sucesso!");
+            form.reset();
+            this.materialSalvar = new Cadmaterial();
+            this.pesquisar();
+          })
+          .catch(erro => this.errorHandler.handle(erro));
+      }
+
+      atualizarMaterial(form: FormControl){
+        this.cadmaterialService.atualizar(this.materialSalvar)
+        .then(material => {
+          this.materialSalvar = material;
+
+          this.toasty.success('Material alterado com sucesso!');
+
+        })
+      .catch(erro => this.errorHandler.handle(erro));
+      }
+
+
 }

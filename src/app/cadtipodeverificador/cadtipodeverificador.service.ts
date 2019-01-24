@@ -92,4 +92,14 @@ export class CadtipodeverificadorService {
           return cadtipodeverificador;
         });
   }
+
+  listarTodas(): Promise<any> {
+    const headers = new Headers;
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+     headers.append('Content-Type', 'application/json');
+
+     return this.http.get(this.cadtipodeverificadorURL, { headers })
+       .toPromise()
+       .then(response => response.json().content);
+ }
 }

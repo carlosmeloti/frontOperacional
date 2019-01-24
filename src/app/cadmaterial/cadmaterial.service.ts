@@ -63,4 +63,43 @@ export class CadmaterialService {
         .then(response => response.json());
     }
 
+    listarTodas(): Promise<any> {
+      const headers = new Headers;
+       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+       headers.append('Content-Type', 'application/json');
+
+       return this.http.get(this.cadmaterialURL, { headers })
+         .toPromise()
+         .then(response => response.json());
+   }
+
+   atualizar(cadmaterial: Cadmaterial): Promise<Cadmaterial>{
+     const headers = new Headers;
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+     headers.append('Content-Type', 'application/json');
+
+     return this.http.put(`${this.cadmaterialURL}/${cadmaterial.codigo}`,
+         JSON.stringify(cadmaterial), { headers })
+       .toPromise()
+       .then(response => {
+         const cadmaterialAlterada = response.json() as Cadmaterial;
+
+
+         return cadmaterialAlterada;
+       });
+ }
+
+   buscarPorCodigo(codigo: number): Promise<Cadmaterial> {
+     const headers = new Headers();
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+     return this.http.get(`${this.cadmaterialURL}/${codigo}`, { headers })
+       .toPromise()
+       .then(response => {
+         const cadmaterial = response.json() as Cadmaterial;
+
+         return cadmaterial;
+       });
+ }
+
 }

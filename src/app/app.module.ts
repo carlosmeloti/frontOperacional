@@ -55,6 +55,7 @@ import { AppmonitoramentoverificadorComponent } from './appmonitoramentoverifica
 import { AppavaliacaoComponent } from './appavaliacao/appavaliacao.component';
 import { CadniveldeavaliacaoService } from './cadniveldeavaliacao/cadniveldeavaliacao.service';
 import { ErrorHandlerService } from './core/error-handler.service';
+import { VerificadorMService } from './verificador-m/verificador-m.service';
 
 
 const routes: Routes = [
@@ -68,9 +69,11 @@ const routes: Routes = [
   { path: 'cadniveldeavaliacao', component:CadniveldeavaliacaoComponent},
   { path: 'cadniveldeavaliacao/:codigo', component:CadniveldeavaliacaoComponent},
   { path: 'cadtipodemetodo', component:CadtipodemetodoComponent},
+  { path: 'cadtipodemetodo/:codigo', component:CadtipodemetodoComponent},
   { path: 'cadtipodeverificador', component:CadtipodeverificadorComponent},
   { path: 'cadtipodeverificador/:codigo', component:CadtipodeverificadorComponent},
   { path: 'cadmaterial', component:CadmaterialComponent},
+  { path: 'cadmaterial/:codigo', component:CadmaterialComponent},
   { path: 'verificador_m', component:VerificadorMComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
   { path: 'niveishierarquicos', component:NiveishierarquicosComponent},
@@ -140,6 +143,7 @@ const routes: Routes = [
     CadtipodeverificadorService,
     CadniveldeavaliacaoService,
     ConfirmationService,
+    VerificadorMService,
     ErrorHandlerService
   ],
   bootstrap: [AppComponent]

@@ -61,4 +61,43 @@ export class CadtipodemetodoService {
         .toPromise()
         .then(response => response.json());
     }
+    listarTodas(): Promise<any> {
+      const headers = new Headers;
+       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+       headers.append('Content-Type', 'application/json');
+
+       return this.http.get(this.cadtipodemetodoURL, { headers })
+         .toPromise()
+         .then(response => response.json());
+   }
+
+   atualizar(cadtipodemetodo: Cadtipodemetodo): Promise<Cadtipodemetodo>{
+     const headers = new Headers;
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+     headers.append('Content-Type', 'application/json');
+
+     return this.http.put(`${this.cadtipodemetodoURL}/${cadtipodemetodo.codigo}`,
+         JSON.stringify(cadtipodemetodo), { headers })
+       .toPromise()
+       .then(response => {
+         const cadtipodemetodoAlterada = response.json() as Cadtipodemetodo;
+
+
+         return cadtipodemetodoAlterada;
+       });
+ }
+
+   buscarPorCodigo(codigo: number): Promise<Cadtipodemetodo> {
+     const headers = new Headers();
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+     return this.http.get(`${this.cadtipodemetodoURL}/${codigo}`, { headers })
+       .toPromise()
+       .then(response => {
+         const cadtipodemetodo = response.json() as Cadtipodemetodo;
+
+         return cadtipodemetodo;
+
+    });
+ }
 }

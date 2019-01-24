@@ -3,11 +3,11 @@
       <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
     <div class="ui-g">
         <div class="ui-g-12">
-          <h2>Tipo de Método</h2>
+          <h2>Tipo de Método {{ editando ? ' - Editando - ' : '' }} </h2>
         </div>
         <div class="ui-g-4 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" pInputText style="width: 50px" />
+          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="tipodemetodoSalvar.codigo"  />
         </div>
         <div class="ui-g-8 ui-fluid">
             <label>Empresa</label>
@@ -16,16 +16,18 @@
            </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Tipo de Método: </label>
-          <input type="text" name="nmamostragem" pInputText [(ngModel)]="tipodemetodoSalvar.tipometodo" />
+          <input type="text" name="tipometodo" pInputText [(ngModel)]="tipodemetodoSalvar.tipometodo" />
         </div>
 
-        <div class="ui-g-10">
-
-        </div>
         <div class="ui-g-2 ui-fluid">
           <br />
-        <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success"></button>
+          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!tipodemetodoSalvar.tipometodo"></button>
         </div>
+
+      <div *ngIf="editando" class="ui-g-2 ui-fluid ">
+        <br />
+        <h3><strong><a routerLink="/cadtipodemetodo">Sair da edição</a></strong></h3>
+      </div>
     </div>
   </form>
   <div class="ui-g">
@@ -57,7 +59,7 @@
                     <th>{{tipodemetodo.codigo}}</th>
                     <th style="text-align: left">{{tipodemetodo.tipometodo}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Metodo" tooltipPosition="top"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Metodo" tooltipPosition="top" [routerLink]="['/cadtipodemetodo', tipodemetodo.codigo]" ></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Tipo de Metodo" tooltipPosition="top" (click)="confirmarExclusao(tipodemetodo)"></button>
                     </th>
                   </tr>
