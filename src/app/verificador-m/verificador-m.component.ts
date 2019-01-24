@@ -3,6 +3,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 
 import { ErrorHandlerService } from '../core/error-handler.service';
 import { VerificadorMService, CadverificadorFiltro } from './verificador-m.service';
+import { Verificador_m } from '../core/model';
 
 
 
@@ -17,6 +18,7 @@ export class VerificadorMComponent implements OnInit  {
 
   verificadorm = [];
   cadtipodeverificador=[];
+  verificadorMSalvar = new Verificador_m;
 
   filtro = new CadverificadorFiltro;
 

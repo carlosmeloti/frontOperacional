@@ -94,7 +94,7 @@ export class CadtipodeverificadorService {
   }
 
   listarTodas(): Promise<any> {
-    const headers = new Headers;
+     const headers = new Headers;
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 

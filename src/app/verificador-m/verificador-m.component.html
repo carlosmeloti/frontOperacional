@@ -7,31 +7,31 @@
         </div>
               <div class="ui-g-12 ui-fluid">
                 <label style="display: block">Listar Verificadores do Tipo: </label>
-                <p-dropdown name="cadtipodeverificador" [options]="cadtipodeverificador" [(ngModel)]="cadtipodeverificador" ></p-dropdown>
+                <p-dropdown name="cadtipodeverificador" [style]="{'width':'320px'}" [options]="cadtipodeverificador" [(ngModel)]="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador" ></p-dropdown>
               </div>
               <div class="ui-g-1 ui-fluid">
                   <label style="display: block">Código: </label>
-                  <input name="codigo" type="text" pInputText  />
+                  <input name="codigo" type="text" [(ngModel)]="verificadorMSalvar.codigo" pInputText  />
                 </div>
                 <div class="ui-g-3 ui-fluid">
                   <label style="display: block">Código Alfanumérico: </label>
-                  <input name="codalfa" type="text" pInputText  />
+                  <input name="codalfa" type="text" [(ngModel)]="verificadorMSalvar.codalfa" pInputText  />
                 </div>
                 <div class="ui-g-4 ui-fluid">
                     <label style="display: block">Grau de Conformidade: </label>
-                    <input name="p01_graco" type="text" pInputText  />
+                    <input name="p01_graco" type="text" [(ngModel)]="verificadorMSalvar.p01_graco" pInputText  />
                 </div>
                 <div class="ui-g-4 ui-fluid">
                     <label style="display: block">Categoria de Avaliação: </label>
-                    <input name="nmNivelAvaliacao" type="text" pInputText  />
+                    <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.nmNivelAvaliacao" pInputText  />
                 </div>
                 <div class="ui-g-6 ui-fluid">
                     <label style="display: block">Verificador: </label>
-                    <textarea name="nmverificador" pInputTextarea [(ngModel)]="property"></textarea>
+                    <textarea name="nmverificador" pInputTextarea [(ngModel)]="verificadorMSalvar.nmverificador"></textarea>
                 </div>
                 <div class="ui-g-6 ui-fluid">
                     <label style="display: block">Limiar: </label>
-                    <textarea name="limiar" pInputTextarea [(ngModel)]="property"></textarea>
+                    <textarea name="limiar" pInputTextarea [(ngModel)]="verificadorMSalvar.limiar"></textarea>
                 </div>
 
 
