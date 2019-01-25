@@ -15,7 +15,7 @@ export class CadempresaFiltro {
 @Injectable()
 export class CadempresaService {
 
-  cadempresaurl = 'http://localhost:8080/cadempresa';
+  cadempresaurl = 'http://10.132.90.58:8080/cadempresa';
 
   constructor(private http: Http) { }
 

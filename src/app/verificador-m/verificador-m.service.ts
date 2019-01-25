@@ -16,18 +16,68 @@ export class VerificadorMService {
 
   constructor(private http: Http) { }
 
-  pesquisar(): Promise<any> {
+    pesquisarMon(): Promise<any> {
 
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
 
-    return this.http.get(`${this.cadverificadormURL}`, {  headers })
+    return this.http.get(`${this.cadverificadormURL}?nmTipoVerificador=Mon`, {  headers })
     .toPromise()
       .then(response => response.json());
 
     }
+    pesquisarImp(): Promise<any> {
+
+      const headers = new Headers;
+
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+      return this.http.get(`${this.cadverificadormURL}?nmTipoVerificador=Impac`, {  headers })
+      .toPromise()
+        .then(response => response.json());
+
+      }
+
+      pesquisarPMFS(): Promise<any> {
+
+        const headers = new Headers;
+
+        headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+        return this.http.get(`${this.cadverificadormURL}?nmTipoVerificador=PMFS`, {  headers })
+        .toPromise()
+          .then(response => response.json());
+
+        }
+        pesquisarCerti(): Promise<any> {
+
+          const headers = new Headers;
+
+          headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+          return this.http.get(`${this.cadverificadormURL}?nmTipoVerificador=Certi`, {  headers })
+          .toPromise()
+            .then(response => response.json());
+
+          }
+
+          pesquisarSuste(): Promise<any> {
+
+            const headers = new Headers;
+
+            headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+            return this.http.get(`${this.cadverificadormURL}?nmTipoVerificador=Suste`, {  headers })
+            .toPromise()
+              .then(response => response.json());
+
+            }
 
 
 
