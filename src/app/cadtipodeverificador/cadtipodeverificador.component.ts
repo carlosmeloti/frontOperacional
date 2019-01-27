@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { CadtipodeverificadorFiltro, CadtipodeverificadorService } from './cadtipodeverificador.service';
-import { Cadtipodeverificador } from '../core/model';
+import { Cadtipodeverificador } from "../core/model";
 import { LazyLoadEvent } from 'src/primeng/api';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';

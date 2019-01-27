@@ -7,21 +7,21 @@
         </div>
 
               <div class="ui-g-4 ">
-                <label style="display: block">Listar Verificadores do Tipo: </label>
-                <p-dropdown name="cadtipodeverificador" [style]="{'width':'320px'}" [options]="cadtipodeverificador"  placeholder="Selecione Tipo de Verificador" [showClear]="true" [(ngModel)]="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador" ></p-dropdown>
+                <label style="display: block">Listar Verificadores do Tipo: </label>                                                                                                                                                      
+                <p-dropdown name="cadtipodeverificador" [style]="{'width':'320px'}" [options]="cadtipodeverificador"  placeholder="Selecione Tipo de Verificador" [showClear]="true" [(ngModel)]="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador" ></p-dropdown>
               </div>
                 <div class="ui-g-8 ">
                   <br />
-                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 1" type="button" style="width: 200px" pButton label="Buscar Verificadores" (click)="pesquisarMon()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 2" type="button" pButton label="Buscar Verificadores" (click)="pesquisarImp()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 3" type="button" pButton label="Buscar Verificadores" (click)="pesquisarPMFS()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 4" type="button" pButton label="Buscar Verificadores" (click)="pesquisarCerti()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 5" type="button" pButton label="Buscar Verificadores" (click)="pesquisarSuste()"></button>
+                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 1" type="button" style="width: 200px" pButton label="Buscar Verificadores" (click)="pesquisarMon()"></button>
+                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 2" type="button" pButton label="Buscar Verificadores" (click)="pesquisarImp()"></button>
+                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 3" type="button" pButton label="Buscar Verificadores" (click)="pesquisarPMFS()"></button>
+                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 4" type="button" pButton label="Buscar Verificadores" (click)="pesquisarCerti()"></button>
+                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 5" type="button" pButton label="Buscar Verificadores" (click)="pesquisarSuste()"></button>
               </div>
               <!--<div class="ui-g-4 ">
                   <br />
                   <h3><strong><a *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 1" routerLink="/verificador_m">Sair da edição</a></strong></h3>
-                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 2" type="button" pButton label="Buscar Verificadores" (click)="pesquisarImp()"></button>
+                <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 2" type="button" pButton label="Buscar Ve rificadores" (click)="pesquisarImp()"></button>
                 <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 3" type="button" pButton label="Buscar Verificadores" (click)="pesquisarPMFS()"></button>
                 <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 4" type="button" pButton label="Buscar Verificadores" (click)="pesquisarCerti()"></button>
                 <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 5" type="button" pButton label="Buscar Verificadores" (click)="pesquisarSuste()"></button>
@@ -97,7 +97,7 @@
                           <th>{{verificador.p01_graco}}</th>
                           <th style="text-align: left">{{verificador.nmverificador}}</th>
                           <th>
-                              <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"></a>
+                              <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"  [routerLink]="['/verificador_m', verificador.id]"></a>
                               <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
                           </th>
                         </tr>

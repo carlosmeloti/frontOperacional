@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Verificador_m } from '../core/model';
+
 import { Http, Headers } from '@angular/http';
+import { Verificador_m } from 'src/app/core/model';
 
 export class CadverificadorFiltro{
   nmTipoVerificador : string;
@@ -8,7 +9,7 @@ export class CadverificadorFiltro{
 }
 
 @Injectable()
-export class VerificadorMService {
+export class VerificadorMEditandoService {
 
   verificadormURL = 'http://localhost:8080/verificador_m';
 
@@ -112,3 +113,4 @@ export class VerificadorMService {
 
 
 }
+

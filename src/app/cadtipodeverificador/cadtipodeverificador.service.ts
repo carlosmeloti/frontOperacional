@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { URLSearchParams } from '@angular/http';
-import { Cadtipodeverificador } from '../core/model';
+import { Cadtipodeverificador } from "../core/model";
 
 
 export class CadtipodeverificadorFiltro{
@@ -13,7 +13,7 @@ export class CadtipodeverificadorFiltro{
 @Injectable()
 export class CadtipodeverificadorService {
 
-  cadtipodeverificadorURL = 'http://10.132.90.58:8080/cadtipodeverificador';
+  cadtipodeverificadorURL = 'http://localhost:8080/cadtipodeverificador';
 
 
   constructor(private http: Http) { }

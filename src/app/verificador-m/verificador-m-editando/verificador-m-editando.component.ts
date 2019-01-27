@@ -1,27 +1,38 @@
-import { CadtipodeverificadorService } from './../cadtipodeverificador/cadtipodeverificador.service';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ErrorHandlerService } from '../core/error-handler.service';
-import { VerificadorMService, CadverificadorFiltro } from './verificador-m.service';
-import { Verificador_m } from '../core/model';
+
 import { ActivatedRoute } from '@angular/router';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
+import { Verificador_m } from 'src/app/core/model';
+import { CadverificadorFiltro } from '../verificador-m.service';
+
+import { CadtipodeverificadorService } from 'src/app/cadtipodeverificador/cadtipodeverificador.service';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { VerificadorMEditandoService } from './verificador-m-editando.service';
 
 
 
 
 
 @Component({
-  selector: 'app-verificador-m',
-  templateUrl: './verificador-m.component.html',
-  styleUrls: ['./verificador-m.component.css']
+  selector: 'app-verificador-m-editando',
+  templateUrl: './verificador-m-editando.component.html',
+  styleUrls: ['./verificador-m-editando.component.css']
 })
-export class VerificadorMComponent implements OnInit  {
+export class VerificadorMEditandoComponent implements OnInit  {
 
 
 
   verificadorm = [];
-  cadtipodeverificador = [];
+  cadtipodeverificador = [
+    {label: 'Monitoramento Operacional', value: 1},
+    {label: 'Avaliação de impactos', value: 2},
+    {label: 'Vistoria de PMFS', value: 3},
+    {label: 'Certificação Florestal', value: 4},
+    {label: 'Avaliação de sustentabilidade (pesquisa)', value: 5}
+
+  ];
 
   verificadorMSalvar = new Verificador_m;
 
@@ -30,7 +41,7 @@ export class VerificadorMComponent implements OnInit  {
 
   @ViewChild('tabela') grid;
   constructor(
-    private verificadorMService: VerificadorMService,
+    private verificadorMService: VerificadorMEditandoService,
     private toasty: ToastyService,
     private tipoDeVerificadores: CadtipodeverificadorService,
     private errorHandler: ErrorHandlerService,
@@ -114,3 +125,4 @@ salvar(form: FormControl){
 
 
 }
+

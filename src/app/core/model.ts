@@ -52,9 +52,10 @@ export class Cadniveldeavaliacao {
 }
 
 export class Verificador_m {
+  id: number;
   codigo: number;
   cadEmpresa = new Cadempresa();
-  cadTipodeverificador = new Cadtipodeverificador();
+  cadTipoDeVerificador = new Cadtipodeverificador();
   cadNiveldeavaliacao = new Cadniveldeavaliacao();
   codalfa: string;
   nmverificador: string;
