@@ -79,6 +79,8 @@ export class VerificadorMService {
 
             }
 
+           
+
             buscarPorCodigo(id: number): Promise<Verificador_m> {
               const headers = new Headers();
               headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');

@@ -98,7 +98,7 @@ export class VerificadorMEditandoService {
             headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
             headers.append('Content-Type', 'application/json');
         
-            return this.http.put(`${this.verificadormURL}/${verificador_m.nmverificador}`,
+            return this.http.put(`${this.verificadormURL}/${verificador_m.id}`,
                 JSON.stringify(verificador_m), { headers })
               .toPromise()
               .then(response => {

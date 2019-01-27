@@ -1,7 +1,7 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
+import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import { ActivatedRoute } from '@angular/router';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { Verificador_m } from 'src/app/core/model';
@@ -45,6 +45,7 @@ export class VerificadorMEditandoComponent implements OnInit  {
     private toasty: ToastyService,
     private tipoDeVerificadores: CadtipodeverificadorService,
     private errorHandler: ErrorHandlerService,
+    private confirmation: ConfirmationService,
     private route: ActivatedRoute
 
 
@@ -58,10 +59,13 @@ export class VerificadorMEditandoComponent implements OnInit  {
    const codigoVerificadorM = this.route.snapshot.params['codigo'];
   
   //  se houver um id entra no metodo de carregar valores
-   if(codigoVerificadorM){
+  
+  if(codigoVerificadorM){
       this.carregarVerificadorM(codigoVerificadorM);
    }
   }
+
+ 
 
   get editando(){
     return Boolean(this.verificadorMSalvar.codigo)
@@ -112,7 +116,16 @@ carregarVerificadorM(id: number){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
-salvar(form: FormControl){
+salvar(verificador: any) {
+  this.confirmation.confirm( {
+    message: 'Tem certeza que deseja alterar?',
+    accept: () =>{
+      this.alterarVerificador(verificador);
+    }
+  });
+}
+
+alterarVerificador(form: FormControl){
   this.verificadorMService.atualizar(this.verificadorMSalvar)
   .then(verificador => {
     this.verificadorMSalvar = verificador;

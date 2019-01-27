@@ -83,6 +83,7 @@ export class VerificadorMComponent implements OnInit  {
   .then(verificadores => this.verificadorm = verificadores);
   }
 
+  
 
   carregarTipoDeVerificadores() {
     return this.tipoDeVerificadores.listarTodas()

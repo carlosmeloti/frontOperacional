@@ -62,20 +62,11 @@
 
               <div class="ui-g-2 ui-fluid">
                 <br />
-              <button pButton type="button" label="Salvar" class="ui-button-raised ui-button-success"></button>
+              <button pButton type="button" label="Salvar" [disabled]="true" class="ui-button-raised ui-button-success"></button>
               </div>
           </div>
           </form>
-          <div class="ui-g">
-            <div class="ui-g-12">
-              <form  autocomplete="off" (ngSubmit)="pesquisar()">
-                <div class="ui-g-12 ui-fluid">
-                    <label style="display: block">Pesquisar Tipo de Verificador: </label>
-                    <input type="text" pInputText name="nmTipoDeVerificador" [(ngModel)]="filtro.nmTipoDeVerificador">
-                  </div>
-            </form>
-            </div>
-          </div>
+         
           <div class="ui-g">
               <div class="ui-g-12">
 
@@ -97,8 +88,9 @@
                           <th>{{verificador.p01_graco}}</th>
                           <th style="text-align: left">{{verificador.nmverificador}}</th>
                           <th>
-                              <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"  [routerLink]="['/verificador_m', verificador.id]"></a>
-                              <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top"></button>
+                              <a pButton icon="pi pi-pencil" pTooltip="Editar Verificador" tooltipPosition="top"  [routerLink]="['/verificador_m', verificador.id]"></a>
+                              <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Verificador
+                              " tooltipPosition="top"></button>
                           </th>
                         </tr>
                       </ng-template>
