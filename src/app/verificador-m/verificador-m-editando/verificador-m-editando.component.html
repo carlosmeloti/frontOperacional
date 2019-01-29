@@ -5,17 +5,14 @@
           <div class="ui-g-12">
             <h2>Verificadores {{ editando ? ' - Editando - ' : '' }}</h2>
           </div>
-          <div class="ui-g-4">
+          <div class="ui-g-12 ui-fluid">
               <label style="display: block">Tipo de Verificador: </label>
-                    <p-dropdown name="tipodeverificador" [options]="cadtipodeverificador" [(ngModel)]="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador">  </p-dropdown> 
-                    
+                    <p-dropdown name="tipodeverificador" [options]="cadtipodeverificador" [(ngModel)]="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador">  </p-dropdown>
+
             </div>
-            <div class="ui-g-8">
-              <br />
-              <h3><strong><a routerLink="/verificador_m">Sair da edição</a></strong></h3>
-            </div>
-            
-                
+
+
+
                 <!--<div class="ui-g-4 ">
                     <br />
                     <h3><strong><a *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 1" routerLink="/verificador_m">Sair da edição</a></strong></h3>
@@ -24,9 +21,9 @@
                   <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 4" type="button" pButton label="Buscar Verificadores" (click)="pesquisarCerti()"></button>
                   <button *ngIf="verificadorMSalvar.cadTipodeverificador.cdTipoVerificador == 5" type="button" pButton label="Buscar Verificadores" (click)="pesquisarSuste()"></button>
                 </div>-->
-  
-  
-  
+
+
+
                 <div class="ui-g-1 ui-fluid">
                     <label style="display: block">Código: </label>
                     <input name="codigo" type="text" [(ngModel)]="verificadorMSalvar.codigo" pInputText  />
@@ -41,7 +38,7 @@
                   </div>
                   <div class="ui-g-4 ui-fluid">
                       <label style="display: block">Categoria de Avaliação: </label>
-                      <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.nmNivelAvaliacao" pInputText  />
+                      <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.cadNivelDeAvaliacao.nmnivelavaliacao" pInputText  />
                   </div>
                   <div class="ui-g-6 ui-fluid">
                       <label style="display: block">Verificador: </label>
@@ -51,33 +48,30 @@
                       <label style="display: block">Limiar: </label>
                       <textarea name="limiar" autoResize="autoResize" pInputTextarea [(ngModel)]="verificadorMSalvar.limiar"></textarea>
                   </div>
-  
-  
-                <div class="ui-g-10">
-  
-                </div>
-  
+
+
+
+
                 <div class="ui-g-2 ui-fluid">
                   <br />
                 <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success"></button>
                 </div>
+                <div class="ui-g-3 ui-fluid">
+                  <br />
+                <button pButton type="button" label="Associar Verificador por Local" class="ui-button-raised ui-button-primary"></button>
+                </div>
+                <div class="ui-g-2 ui-fluid">
+                  <br />
+                  <h3><strong><a routerLink="/verificador_m">Sair da edição</a></strong></h3>
+                </div>
             </div>
             </form>
-            <div class="ui-g">
-              <div class="ui-g-12">
-                <form  autocomplete="off" (ngSubmit)="pesquisar()">
-                  <div class="ui-g-12 ui-fluid">
-                      <label style="display: block">Pesquisar Tipo de Verificador: </label>
-                      <input type="text" pInputText name="nmTipoDeVerificador" [(ngModel)]="filtro.nmTipoDeVerificador">
-                    </div>
-              </form>
-              </div>
-            </div>
+
             <div class="ui-g">
                 <div class="ui-g-12">
-  
+
                     <p-table [value]="verificadorm" [paginator]="true" [rows]="5"  [responsive]="true">
-  
+
                         <ng-template pTemplate="header">
                           <tr>
                             <th style="width: 70px">Codigo</th>
@@ -100,9 +94,9 @@
                           </tr>
                         </ng-template>
                       </p-table>
-  
+
                 </div>
             </div>
    </p-card>
     </div>
-  
+

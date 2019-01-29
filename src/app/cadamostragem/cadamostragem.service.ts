@@ -14,7 +14,7 @@ export class CadamostragemFiltro {
 @Injectable()
 export class CadamostragemService {
 
-  cadamostragemurl = 'http://localhost:8080/cadamostragem';
+  cadamostragemurl = 'http://locahost:8080/cadamostragem';
 
   constructor(private http: Http) { }
 

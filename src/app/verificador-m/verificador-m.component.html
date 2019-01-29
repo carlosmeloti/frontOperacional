@@ -7,7 +7,7 @@
         </div>
 
               <div class="ui-g-4 ">
-                <label style="display: block">Listar Verificadores do Tipo: </label>                                                                                                                                                      
+                <label style="display: block">Listar Verificadores do Tipo: </label>
                 <p-dropdown name="cadtipodeverificador" [style]="{'width':'320px'}" [options]="cadtipodeverificador"  placeholder="Selecione Tipo de Verificador" [showClear]="true" [(ngModel)]="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador" ></p-dropdown>
               </div>
                 <div class="ui-g-8 ">
@@ -56,17 +56,19 @@
                 </div>
 
 
-              <div class="ui-g-10">
 
-              </div>
 
               <div class="ui-g-2 ui-fluid">
                 <br />
               <button pButton type="button" label="Salvar" [disabled]="true" class="ui-button-raised ui-button-success"></button>
               </div>
+              <div class="ui-g-3 ui-fluid">
+                <br />
+              <button pButton type="button" label="Associar Verificador por Local" [disabled]="true" class="ui-button-raised ui-button-primary"></button>
+              </div>
           </div>
           </form>
-         
+
           <div class="ui-g">
               <div class="ui-g-12">
 

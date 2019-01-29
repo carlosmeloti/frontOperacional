@@ -79,17 +79,17 @@ export class VerificadorMService {
 
             }
 
-           
+
 
             buscarPorCodigo(id: number): Promise<Verificador_m> {
               const headers = new Headers();
               headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
-         
+
               return this.http.get(`${this.verificadormURL}/${id}`, { headers })
                 .toPromise()
                 .then(response => {
                   const cadverificadorm = response.json() as Verificador_m;
-         
+
                   return cadverificadorm;
                 });
           }
@@ -98,14 +98,14 @@ export class VerificadorMService {
             const headers = new Headers;
             headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
             headers.append('Content-Type', 'application/json');
-        
+
             return this.http.put(`${this.verificadormURL}/${verificador_m.nmverificador}`,
                 JSON.stringify(verificador_m), { headers })
               .toPromise()
               .then(response => {
                 const verificador_mAlterada = response.json() as Verificador_m;
-        
-        
+
+
                 return verificador_mAlterada;
               });
         }

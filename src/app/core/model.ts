@@ -56,7 +56,7 @@ export class Verificador_m {
   codigo: number;
   cadEmpresa = new Cadempresa();
   cadTipoDeVerificador = new Cadtipodeverificador();
-  cadNiveldeavaliacao = new Cadniveldeavaliacao();
+  cadNivelDeAvaliacao = new Cadniveldeavaliacao();
   codalfa: string;
   nmverificador: string;
   limiar: string;

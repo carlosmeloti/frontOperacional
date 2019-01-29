@@ -58,6 +58,8 @@ import { ErrorHandlerService } from './core/error-handler.service';
 import { VerificadorMService } from './verificador-m/verificador-m.service';
 import { VerificadorMEditandoComponent } from './verificador-m/verificador-m-editando/verificador-m-editando.component';
 import { VerificadorMEditandoService } from './verificador-m/verificador-m-editando/verificador-m-editando.service';
+import { VerificadorMAssociarComponent } from './verificador-m/verificador-m-associar/verificador-m-associar.component';
+import { VerificadorMAssociarService } from './verificador-m/verificador-m-associar/verificador-m-associar.service';
 
 
 const routes: Routes = [
@@ -78,6 +80,7 @@ const routes: Routes = [
   { path: 'cadmaterial/:codigo', component:CadmaterialComponent},
   { path: 'verificador_m', component:VerificadorMComponent},
   { path: 'verificador_m/:codigo', component:VerificadorMEditandoComponent},
+  { path: 'verificador_m/associar/:codigo', component:VerificadorMAssociarComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
   { path: 'niveishierarquicos', component:NiveishierarquicosComponent},
   { path: 'modmonitoramento', component:ModmonitoramentoComponent},
@@ -108,7 +111,8 @@ const routes: Routes = [
     AppmonitoramentoComponent,
     AppmonitoramentoverificadorComponent,
     AppavaliacaoComponent,
-    VerificadorMEditandoComponent
+    VerificadorMEditandoComponent,
+    VerificadorMAssociarComponent
 
   ],
   imports: [
@@ -149,7 +153,9 @@ const routes: Routes = [
     ConfirmationService,
     VerificadorMService,
     VerificadorMEditandoService,
+    VerificadorMAssociarService,
     ErrorHandlerService
+    
   ],
   bootstrap: [AppComponent]
 })
