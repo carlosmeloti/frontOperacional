@@ -64,5 +64,11 @@ export class Verificador_m {
 
 }
 
+export class Modlocal1 {
+  codigo: number;
+  cadEmpresa = new Cadempresa();
+  nmlocal1: string;
+}
+
 
 

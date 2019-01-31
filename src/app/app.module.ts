@@ -61,6 +61,10 @@ import { VerificadorMEditandoService } from './verificador-m/verificador-m-edita
 import { VerificadorMAssociarComponent } from './verificador-m/verificador-m-associar/verificador-m-associar.component';
 import { VerificadorMAssociarService } from './verificador-m/verificador-m-associar/verificador-m-associar.service';
 
+import { Modlocal1Component } from './modlocal1/modlocal1.component';
+import { Modlocal1Service } from './modlocal1/modlocal1.service';
+import { Modlocal2Component } from './modlocal2/modlocal2.component';
+
 
 const routes: Routes = [
   { path: 'inicio', component:InicioComponent},
@@ -87,6 +91,8 @@ const routes: Routes = [
   { path: 'appmonitoramento', component:AppmonitoramentoComponent},
   { path: 'appmonitoramentoverificador', component:AppmonitoramentoverificadorComponent},
   { path: 'appavaliacao', component:AppavaliacaoComponent},
+  { path: 'modlocal1', component:Modlocal1Component},
+  { path: 'modlocal1/:codigo', component:Modlocal1Component},
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
 
@@ -112,7 +118,9 @@ const routes: Routes = [
     AppmonitoramentoverificadorComponent,
     AppavaliacaoComponent,
     VerificadorMEditandoComponent,
-    VerificadorMAssociarComponent
+    VerificadorMAssociarComponent,
+    Modlocal1Component,
+    Modlocal2Component
 
   ],
   imports: [
@@ -154,8 +162,9 @@ const routes: Routes = [
     VerificadorMService,
     VerificadorMEditandoService,
     VerificadorMAssociarService,
+    Modlocal1Service,
     ErrorHandlerService
-    
+
   ],
   bootstrap: [AppComponent]
 })

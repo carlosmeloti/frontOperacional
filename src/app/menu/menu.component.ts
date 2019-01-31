@@ -60,8 +60,8 @@ export class MenuComponent implements OnInit {
                 routerLink: '/verificador_m'
               },
               {
-                label: 'Unidade, Local e Sublocal de Avaliação',
-                routerLink: '/unidadelocalsublocal'
+                label: 'Unidade de Avaliação',
+                routerLink: '/modlocal1'
               },
               {
                 label: 'Nível Hierárquivo ( Assunto, etapa, Item e subitem)',
