@@ -64,6 +64,10 @@ export class MenuComponent implements OnInit {
                 routerLink: '/modlocal1'
               },
               {
+                label: 'Local de Avaliação',
+                routerLink: '/modlocal2'
+              },
+              {
                 label: 'Nível Hierárquivo ( Assunto, etapa, Item e subitem)',
                 routerLink: '/niveishierarquicos'
               },

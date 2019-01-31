@@ -70,5 +70,12 @@ export class Modlocal1 {
   nmlocal1: string;
 }
 
+export class Modlocal2 {
+  codigo: number;
+  cadEmpresa = new Cadempresa();
+  modlocal1 = new Modlocal1();
+  nmlocal2: string;
+}
+
 
 

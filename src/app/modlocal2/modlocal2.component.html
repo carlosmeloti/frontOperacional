@@ -1,3 +1,85 @@
-<p>
-  modlocal2 works!
-</p>
+<div class="container">
+  <p-card  [style]="{width: 'px'}" styleClass="ui-card-shadow">
+   <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <h2>Local de Avaliação {{ editando ? ' - Editando - ' : '' }}</h2>
+        </div>
+        <div class="ui-g-2 ui-fluid">
+          <label style="display: block">Código: </label>
+          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="modLocal2Salvar.codigo" />
+        </div>
+
+        <div class="ui-g-4 ui-fluid">
+            <label>Empresa</label>
+            <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
+              [autoWidth]="false" [(ngModel)]="modLocal2Salvar.cadEmpresa.codigo" required></p-dropdown>
+        </div>
+        <div class="ui-g-4 ui-fluid">
+          <label>Unidade de Avaliação</label>
+          <p-dropdown name="modlocal1" [options]="modlocal1" placeholder="Selecione"
+            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.modlocal1.codigo" required></p-dropdown>
+      </div>
+      <div class="ui-g-2 ui-fluid">
+        <br />
+        <button  type="button"  pButton label="Buscar" (click)="pesquisarLocal(modLocal2Salvar.modlocal1.codigo)"></button>
+      </div>
+
+        <div class="ui-g-12 ui-fluid">
+          <label style="display: block">Local de Avaliação: </label>
+          <input type="text" name="nmlocal1" pInputText [(ngModel)]="modLocal2Salvar.nmlocal2" />
+        </div>
+
+
+        <div class="ui-g-2 ui-fluid">
+          <br />
+          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!modLocal2Salvar.nmlocal2"></button>
+        </div>
+
+      <div *ngIf="editando" class="ui-g-2 ui-fluid ">
+        <br />
+        <h3><strong><a routerLink="/modlocal1">Sair da edição</a></strong></h3>
+      </div>
+    </div>
+    </form>
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <form  autocomplete="off" (ngSubmit)="pesquisar()">
+            <div class="ui-g-12 ui-fluid">
+                <label style="display: block">Pesquisar Unidade de Avaliação: </label>
+                <input type="text" pInputText name="nmlocal2" [(ngModel)]="filtro.nmlocal2">
+              </div>
+        </form>
+        </div>
+      </div>
+
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-table [value]="modlocal2" [paginator]="true" [rows]="filtro.size"  [responsive]="true"
+            [lazy]="true" [totalRecords]="tatalRegistros" (onLazyLoad)="aoMudarPagina($event)" #tabela>
+
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th style="width: 70px">Codigo</th>
+                    <th>Unidade de Avaliação</th>
+                    <th style=" width: 140px"></th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-modlocal2>
+                  <tr>
+                    <th>{{modlocal2.codigo}}</th>
+                    <th style="text-align: left">{{modlocal2.nmlocal2}}</th>
+                    <th>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/modlocal2', modlocal2.codigo]" ></a>
+                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Unidade de Avaliação" tooltipPosition="top" (click)="confirmarExclusao(modlocal1)"></button>
+                    </th>
+                  </tr>
+                </ng-template>
+              </p-table>
+
+        </div>
+    </div>
+
+
+  </p-card>
+  </div>

@@ -64,6 +64,7 @@ import { VerificadorMAssociarService } from './verificador-m/verificador-m-assoc
 import { Modlocal1Component } from './modlocal1/modlocal1.component';
 import { Modlocal1Service } from './modlocal1/modlocal1.service';
 import { Modlocal2Component } from './modlocal2/modlocal2.component';
+import { Modlocal2Service } from './modlocal2/modlocal2.service';
 
 
 const routes: Routes = [
@@ -93,6 +94,8 @@ const routes: Routes = [
   { path: 'appavaliacao', component:AppavaliacaoComponent},
   { path: 'modlocal1', component:Modlocal1Component},
   { path: 'modlocal1/:codigo', component:Modlocal1Component},
+  { path: 'modlocal2', component:Modlocal2Component},
+  { path: 'modlocal2/:codigo', component:Modlocal2Component},
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
 
@@ -163,6 +166,7 @@ const routes: Routes = [
     VerificadorMEditandoService,
     VerificadorMAssociarService,
     Modlocal1Service,
+    Modlocal2Service,
     ErrorHandlerService
 
   ],

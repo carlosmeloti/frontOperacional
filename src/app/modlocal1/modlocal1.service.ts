@@ -63,6 +63,7 @@ export class Modlocal1Service {
         .toPromise()
         .then(response => response.json());
     }
+
     listarTodas(): Promise<any> {
       const headers = new Headers;
        headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
@@ -70,7 +71,7 @@ export class Modlocal1Service {
 
        return this.http.get(this.modlocal1URL, { headers })
          .toPromise()
-         .then(response => response.json());
+         .then(response => response.json().content);
    }
 
    atualizar(modlocal1: Modlocal1): Promise<Modlocal1>{

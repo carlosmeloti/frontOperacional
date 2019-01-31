@@ -3,7 +3,7 @@ import { Modlocal1Filtro, Modlocal1Service } from './modlocal1.service';
 import { LazyLoadEvent } from 'src/primeng/api';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
-import { Cadfrequencia, Modlocal1 } from '../core/model';
+import { Modlocal1 } from '../core/model';
 import { FormControl } from '@angular/forms';
 import { ErrorHandlerService } from '../core/error-handler.service';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ export class Modlocal1Component implements OnInit {
 
   tatalRegistros = 0;
   filtro = new Modlocal1Filtro();
-  nmFrequencia: string;
+
 
   modLocal1Salvar = new Modlocal1();
   empresas = [
