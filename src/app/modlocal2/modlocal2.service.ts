@@ -5,7 +5,8 @@ import { Modlocal2 } from '../core/model';
 
 
 export class Modlocal2Filtro{
-  nmlocal2 : string;
+  modlocal1 : string;
+  nmlocal1 : string;
   page = 0;
   size = 5;
 }
@@ -22,7 +23,7 @@ export class Modlocal2Service {
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.modlocal2URL}?cdLocal1=${modlocal2.modlocal1.codigo}`, {  headers })
+    return this.http.get(`${this.modlocal2URL}?cdLocal1=${modlocal2.modlocal1}`, {  headers })
       .toPromise()
         .then(response => response.json());
 
@@ -35,8 +36,8 @@ export class Modlocal2Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    if (filtro.nmlocal2){
-      params.set('nmlocal2', filtro.nmlocal2);
+    if (filtro.modlocal1){
+      params.set('modlocal1', filtro.modlocal1);
 
   }
 

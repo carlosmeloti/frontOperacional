@@ -53,7 +53,11 @@ export class Modlocal2Component implements OnInit {
   get editando(){
     return Boolean(this.modLocal2Salvar.codigo)
   }
-
+  
+  pesquisarLocal(modlocal1){
+    this.modLocal2Service.pesquisar(modlocal1)
+    .then(modlocal2 => this.modlocal2 = modlocal2);
+}
   
 
   //Metodo para carregar valores
@@ -64,6 +68,7 @@ export class Modlocal2Component implements OnInit {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
+
 
   pesquisar(page = 0){
 
@@ -77,6 +82,8 @@ export class Modlocal2Component implements OnInit {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
+
+  
   aoMudarPagina(event: LazyLoadEvent){
     const page = event.first / event.rows;
     this.pesquisar(page);
