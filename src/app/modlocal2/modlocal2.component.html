@@ -18,11 +18,11 @@
         <div class="ui-g-4 ui-fluid">
           <label>Unidade de Avaliação</label>
           <p-dropdown name="modlocal1" [options]="modlocal1" placeholder="Selecione"
-            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.modlocal1" required></p-dropdown>
+            [autoWidth]="false" [(ngModel)]="filtro.nmlocal1" required></p-dropdown>
       </div>
       <div class="ui-g-2 ui-fluid">
         <br />
-        <button  type="button"  pButton label="Buscar" (click)="pesquisarLocal(modLocal2Salvar.modlocal1.codigo)"></button>
+        <button  type="button"  pButton label="Buscar" (click)="pesquisar()"></button>
       </div>
 
         <div class="ui-g-12 ui-fluid">
@@ -47,7 +47,7 @@
           <form  autocomplete="off" (ngSubmit)="pesquisar()">
             <div class="ui-g-12 ui-fluid">
                 <label style="display: block">Pesquisar Unidade de Avaliação: </label>
-                <input type="text" pInputText name="nmlocal2" [(ngModel)]="filtro.modLocal2Salvar.modlocal1.nmlocal1">
+                <input type="text" pInputText name="nmlocal2" [(ngModel)]="filtro.nmlocal2">
               </div>
         </form>
         </div>

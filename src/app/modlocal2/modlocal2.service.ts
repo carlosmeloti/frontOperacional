@@ -5,8 +5,9 @@ import { Modlocal2 } from '../core/model';
 
 
 export class Modlocal2Filtro{
-  modlocal1 : string;
+  
   nmlocal1 : string;
+  codigo : string;
   page = 0;
   size = 5;
 }
@@ -18,17 +19,7 @@ export class Modlocal2Service {
 
   constructor(private http: Http) { }
 
-  pesquisarLocal(modlocal2: Modlocal2): Promise<Modlocal2>{
-    const headers = new Headers;
-    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
-    headers.append('Content-Type', 'application/json');
-
-    return this.http.get(`${this.modlocal2URL}?cdLocal1=${modlocal2.modlocal1}`, {  headers })
-      .toPromise()
-        .then(response => response.json());
-
-  
-  }
+ 
   pesquisar(filtro: Modlocal2Filtro): Promise<any> {
 
     const params = new URLSearchParams;
@@ -36,12 +27,9 @@ export class Modlocal2Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    if (filtro.modlocal1){
-      params.set('modlocal1', filtro.modlocal1);
+  
 
-  }
-
-    return this.http.get(`${this.modlocal2URL}?cdLocal1=`, {  headers, search: filtro })
+    return this.http.get(`${this.modlocal2URL}?cdLocal1=${filtro.nmlocal1}`, {  headers })
     .toPromise()
       .then(response => {
 
