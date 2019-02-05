@@ -68,6 +68,10 @@ export class MenuComponent implements OnInit {
                 routerLink: '/modlocal2'
               },
               {
+                label: 'Sublocal',
+                routerLink: '/unidadelocalsublocal'
+              },
+              {
                 label: 'Nível Hierárquivo ( Assunto, etapa, Item e subitem)',
                 routerLink: '/niveishierarquicos'
               },

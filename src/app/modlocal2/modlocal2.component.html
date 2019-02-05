@@ -10,11 +10,11 @@
           <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="modLocal2Salvar.codigo" />
         </div>
 
-        <div class="ui-g-4 ui-fluid">
-            <label>Empresa</label>
-            <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-              [autoWidth]="false" [(ngModel)]="modLocal2Salvar.cadEmpresa.codigo" required></p-dropdown>
-        </div>
+        <div class="ui-g-8 ui-fluid">
+          <label>Empresa</label>
+          <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
+            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.cadEmpresa.codigo" required></p-dropdown>
+      </div>
         <div class="ui-g-4 ui-fluid">
           <label>Unidade de Avaliação</label>
           <p-dropdown name="modlocal1" [options]="modlocal1" placeholder="Selecione"
@@ -27,7 +27,7 @@
 
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Local de Avaliação: </label>
-          <input type="text" name="nmlocal1" pInputText [(ngModel)]="modLocal2Salvar.nmlocal2" />
+          <input type="text" name="local2" pInputText [(ngModel)]="modLocal2Salvar.nmlocal2" />
         </div>
 
 
@@ -42,16 +42,7 @@
       </div>
     </div>
     </form>
-    <div class="ui-g">
-        <div class="ui-g-12">
-          <form  autocomplete="off" (ngSubmit)="pesquisar()">
-            <div class="ui-g-12 ui-fluid">
-                <label style="display: block">Pesquisar Unidade de Avaliação: </label>
-                <input type="text" pInputText name="nmlocal2" [(ngModel)]="filtro.nmlocal2">
-              </div>
-        </form>
-        </div>
-      </div>
+
 
     <div class="ui-g">
         <div class="ui-g-12">
