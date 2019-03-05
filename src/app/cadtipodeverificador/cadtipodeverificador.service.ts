@@ -5,7 +5,7 @@ import { Cadtipodeverificador } from "../core/model";
 
 
 export class CadtipodeverificadorFiltro{
-  nmTipoVerificador : string;
+  nmTipoDeVerificador : string;
   page = 0;
   size = 5;
 }
@@ -13,7 +13,7 @@ export class CadtipodeverificadorFiltro{
 @Injectable()
 export class CadtipodeverificadorService {
 
-  cadtipodeverificadorURL = 'http://localhost:8080/cadtipodeverificador';
+  cadtipodeverificadorURL = 'http://10.132.90.58:8080/cadtipodeverificador';
 
 
   constructor(private http: Http) { }
@@ -25,8 +25,8 @@ export class CadtipodeverificadorService {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    if (filtro.nmTipoVerificador){
-      params.set('nmTipoVerificador', filtro.nmTipoVerificador);
+    if (filtro.nmTipoDeVerificador){
+      params.set('nmTipoDeVerificador', filtro.nmTipoDeVerificador);
 
   }
 
@@ -69,7 +69,7 @@ export class CadtipodeverificadorService {
       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
       headers.append('Content-Type', 'application/json');
 
-      return this.http.put(`${this.cadtipodeverificadorURL}/${cadtipodeverificador.cdTipoVerificador}`,
+      return this.http.put(`${this.cadtipodeverificadorURL}/${cadtipodeverificador.cdTipoDeVerificador}`,
           JSON.stringify(cadtipodeverificador), { headers })
         .toPromise()
         .then(response => {

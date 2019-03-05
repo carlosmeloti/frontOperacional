@@ -12,7 +12,7 @@ export class CadmaterialFiltro{
 @Injectable()
 export class CadmaterialService {
 
-  cadmaterialURL = 'http://localhost:8080/cadmaterial';
+  cadmaterialURL = 'http://10.132.90.58:8080/cadmaterial';
 
 
   constructor(private http: Http) { }
@@ -78,7 +78,7 @@ export class CadmaterialService {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.cadmaterialURL}/${cadmaterial.codigo}`,
+     return this.http.put(`${this.cadmaterialURL}/${cadmaterial.cdMaterial}`,
          JSON.stringify(cadmaterial), { headers })
        .toPromise()
        .then(response => {

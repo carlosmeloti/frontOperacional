@@ -1,5 +1,5 @@
 export class Cadempresa {
-    codigo: number;
+    cdEmpresa: number;
     nmEmpresa: string;
     nmAbreviado: string;
     nrTelefone: string;
@@ -10,52 +10,52 @@ export class Cadempresa {
 }
 
 export class Cadamostragem {
-    codigo: number;
-    cadEmpresa = new Cadempresa();
-    nmamostragem: string;
+    cdAmostragem: number;
+    cdEmpresa = new Cadempresa();
+    nmAmostragem: string;
 }
 
+
 export class Cadfrequencia {
-  codigo: number;
-  cadEmpresa = new Cadempresa();
+  cdFrequencia: number;
+  cdEmpresa = new Cadempresa();
   nmFrequencia: string;
 }
 
 export class Cadtipodemetodo {
-  codigo: number;
-  cadEmpresa = new Cadempresa();
-  tipometodo: string;
+  cdTipoDeMetodo: number;
+  cdEmpresa = new Cadempresa();
+  nmTipoDeMetodo: string;
 }
 
 export class Cadmaterial {
-  codigo: number;
-  cadEmpresa = new Cadempresa();
-  nmmaterial: string;
+  cdMaterial: number;
+  cdEmpresa = new Cadempresa();
+  nmMaterial: string;
 }
 
 export class Cadtipodeverificador {
-  cdTipoVerificador: number;
-  nmTipoVerificador: string;
-  nrniveis: number;
-  rotulonivel1: string;
-  rotulonivel2: string;
-  rotulonivel3: string;
-  rotulonivel4: string;
-  rotulonivel5: string;
+  cdTipoDeVerificador: number;
+  nmTipoDeVerificador: string;
+  nrNiveis: number;
+  rotuloNivel1: string;
+  rotuloNivel2: string;
+  rotuloNivel3: string;
+  rotuloNivel4: string;
+  rotuloNivel5: string;
 }
 
 export class Cadniveldeavaliacao {
-  codigo: number;
-  nmnivelavaliacao: string;
+  cdNivelDeAvaliacao: number;
+  nmNivelDeAvaliacao: string;
   sigla: string;
-  txdescricao: string;
+  txDescricao: string;
 }
 
 export class Verificador_m {
-  id: number;
-  codigo: number;
-  cadEmpresa = new Cadempresa();
-  cadTipoDeVerificador = new Cadtipodeverificador();
+  cdEmpresa = new Cadempresa();
+  cdTipoDeVerificador =  new Cadtipodeverificador();
+  cdVerificador: number;
   cadNivelDeAvaliacao = new Cadniveldeavaliacao();
   codalfa: string;
   nmverificador: string;
@@ -63,6 +63,8 @@ export class Verificador_m {
   p01_graco: number;
 
 }
+
+
 
 export class Modlocal1 {
   codigo: number;

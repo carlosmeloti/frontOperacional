@@ -7,7 +7,7 @@
           </div>
           <div class="ui-g-12 ui-fluid">
               <label style="display: block">Tipo de Verificador: </label>
-                    <p-dropdown name="tipodeverificador" [options]="cadtipodeverificador" [(ngModel)]="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador">  </p-dropdown>
+                    <p-dropdown name="tipodeverificador" [options]="cadtipodeverificador" [(ngModel)]="verificadorMSalvar.cdTipoDeVerificador">  </p-dropdown>
 
             </div>
 
@@ -26,7 +26,7 @@
 
                 <div class="ui-g-1 ui-fluid">
                     <label style="display: block">Código: </label>
-                    <input name="codigo" type="text" [(ngModel)]="verificadorMSalvar.codigo" pInputText  />
+                    <input name="codigo" type="text" [(ngModel)]="verificadorMSalvar.cdVerificador" pInputText  />
                   </div>
                   <div class="ui-g-3 ui-fluid">
                     <label style="display: block">Código Alfanumérico: </label>
@@ -38,7 +38,7 @@
                   </div>
                   <div class="ui-g-4 ui-fluid">
                       <label style="display: block">Categoria de Avaliação: </label>
-                      <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.cadNivelDeAvaliacao.nmnivelavaliacao" pInputText  />
+                      <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.cadNivelDeAvaliacao.nmNivelDeAvaliacao" pInputText  />
                   </div>
                   <div class="ui-g-6 ui-fluid">
                       <label style="display: block">Verificador: </label>
@@ -83,14 +83,14 @@
                         </ng-template>
                         <ng-template pTemplate="body" let-verificador>
                           <tr>
-                            <th>{{verificador.codigo}}</th>
-                            <th>{{verificador.codalfa}}</th>
-                            <th>{{verificador.p01_graco}}</th>
-                            <th style="text-align: left">{{verificador.nmverificador}}</th>
-                            <th>
-                                <a pButton icon="pi pi-pencil" pTooltip="Editar Verificador" tooltipPosition="top" [routerLink]="['/verificador_m', verificador.id]"></a>
-                                <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Verificador" tooltipPosition="top"></button>
-                            </th>
+                            <th>{{verificador.cdVerificador}}</th>
+                          <th>{{verificador.codalfa}}</th>
+                          <th>{{verificador.p01_graco}}</th>
+                          <th style="text-align: left">{{verificador.nmverificador}}</th>
+                          <th>
+                              <a pButton icon="pi pi-pencil" pTooltip="Editar Verificador" tooltipPosition="top"  [routerLink]="['/verificador_m', verificador.cdVerificador]"></a>
+                              <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Verificador" tooltipPosition="top"></button>
+                          </th>
                           </tr>
                         </ng-template>
                       </p-table>

@@ -51,18 +51,18 @@ export class VerificadorMAssociarComponent implements OnInit {
 
      // this.pesquisar();
    const codigoVerificadorM = this.route.snapshot.params['codigo'];
-  
+
   //  se houver um id entra no metodo de carregar valores
-  
+
   if(codigoVerificadorM){
       this.carregarVerificadorM(codigoVerificadorM);
    }
   }
 
- 
+
 
   get editando(){
-    return Boolean(this.verificadorMSalvar.codigo)
+    return Boolean(this.verificadorMSalvar.cdVerificador)
   }
 
 

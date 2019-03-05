@@ -57,18 +57,18 @@ export class VerificadorMEditandoComponent implements OnInit  {
 
      // this.pesquisar();
    const codigoVerificadorM = this.route.snapshot.params['codigo'];
-  
+
   //  se houver um id entra no metodo de carregar valores
-  
+
   if(codigoVerificadorM){
       this.carregarVerificadorM(codigoVerificadorM);
    }
   }
 
- 
+
 
   get editando(){
-    return Boolean(this.verificadorMSalvar.codigo)
+    return Boolean(this.verificadorMSalvar.cdVerificador)
   }
 
 
@@ -102,7 +102,7 @@ export class VerificadorMEditandoComponent implements OnInit  {
   carregarTipoDeVerificadores() {
     return this.tipoDeVerificadores.listarTodas()
       .then(tipoDeVerificadores => {
-        this.cadtipodeverificador = tipoDeVerificadores.map(c => ({ label: c.nmTipoVerificador, value: c.cdTipoVerificador }));
+        this.cadtipodeverificador = tipoDeVerificadores.map(c => ({ label: c.nmTipoDeVerificador, value: c.cdTipoDeVerificador }));
       })
       .catch(erro => this.errorHandler.handle(erro));
 }

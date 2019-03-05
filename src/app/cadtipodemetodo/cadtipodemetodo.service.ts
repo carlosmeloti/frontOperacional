@@ -11,7 +11,7 @@ export class CadtipodemetodoFiltro{
 
 @Injectable()
 export class CadtipodemetodoService {
-  cadtipodemetodoURL = 'http://localhost:8080/cadtipodemetodo';
+  cadtipodemetodoURL = 'http://10.132.90.58:8080/cadtipodemetodo';
 
 
   constructor(private http: Http) { }
@@ -76,7 +76,7 @@ export class CadtipodemetodoService {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.cadtipodemetodoURL}/${cadtipodemetodo.codigo}`,
+     return this.http.put(`${this.cadtipodemetodoURL}/${cadtipodemetodo.cdTipoDeMetodo}`,
          JSON.stringify(cadtipodemetodo), { headers })
        .toPromise()
        .then(response => {

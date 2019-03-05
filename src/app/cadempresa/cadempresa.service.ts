@@ -15,7 +15,7 @@ export class CadempresaFiltro {
 @Injectable()
 export class CadempresaService {
 
-  cadempresaurl = 'http://localhost:8080/cadempresa';
+  cadempresaurl = 'http://10.132.90.58:8080/cadempresa';
 
   constructor(private http: Http) { }
 
@@ -49,11 +49,11 @@ export class CadempresaService {
     };
 
 
-    excluir(codigo: number): Promise<void> {
+    excluir(cdEmpresa: number): Promise<void> {
       const headers = new Headers;
       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-      return this.http.delete(`${this.cadempresaurl}/${codigo}`, { headers})
+      return this.http.delete(`${this.cadempresaurl}/${cdEmpresa}`, { headers})
         .toPromise()
         .then(() => null);
     }
@@ -83,7 +83,7 @@ export class CadempresaService {
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.put(`${this.cadempresaurl}/${cadempresa.codigo}`,
+    return this.http.put(`${this.cadempresaurl}/${cadempresa.cdEmpresa}`,
         JSON.stringify(cadempresa), { headers })
       .toPromise()
       .then(response => {
@@ -94,11 +94,11 @@ export class CadempresaService {
       });
 }
 
-  buscarPorCodigo(codigo: number): Promise<Cadempresa> {
+  buscarPorCodigo(cdEmpresa: number): Promise<Cadempresa> {
     const headers = new Headers();
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.cadempresaurl}/${codigo}`, { headers })
+    return this.http.get(`${this.cadempresaurl}/${cdEmpresa}`, { headers })
       .toPromise()
       .then(response => {
         const cadempresa = response.json() as Cadempresa;

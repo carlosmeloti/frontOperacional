@@ -21,9 +21,11 @@ export class Modlocal2Component implements OnInit {
 
 
   modLocal2Salvar = new Modlocal2();
+
   empresas = [
     {label: 'Exemplo', value: 1}
   ];
+
   @ViewChild('tabela') grid;
 
   modlocal1=[];
@@ -50,12 +52,10 @@ export class Modlocal2Component implements OnInit {
     }
   }
 
-  get editando(){
-    return Boolean(this.modLocal2Salvar.codigo)
-  }
-  
-  
-  
+
+
+
+
 
   //Metodo para carregar valores
   carregarModlocal2(codigo: number){
@@ -80,10 +80,10 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  
+
   aoMudarPagina(event: LazyLoadEvent){
     const page = event.first / event.rows;
-    
+
   }
 
   confirmarExclusao(modlocal2: any) {
@@ -110,37 +110,21 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
 
   }
-  salvar(form: FormControl){
+  salvar(modlocal2: any){
 
-    if(this.editando){
-      this.confirmarAlterar(form);
-    } else {
-      this.confirmarSalvar(form);
-    }
+    this.confirmation.confirm( {
+      message: 'Tem certeza que deseja salvar?',
+      accept: () =>{
+        this.adicionarModLocal2(modlocal2);
+      }
+    });
 
   }
 
 
-      confirmarSalvar(modlocal2: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja salvar?',
-          accept: () =>{
-            this.adicionarModLocal2(modlocal2);
-          }
-        });
-      }
-
-      confirmarAlterar(modlocal2: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja alterar?',
-          accept: () =>{
-            this.atualizarModLocal2(modlocal2);
-          }
-        });
-      }
 
       adicionarModLocal2(form: FormControl){
-        this.modLocal2Service.adicionar(this.modLocal2Salvar)
+        this.modLocal2Service.adicionar(this.filtro)
           .then(() => {
             this.toasty.success("Local de Avaliação cadastrada com sucesso!");
             form.reset();
@@ -150,16 +134,7 @@ export class Modlocal2Component implements OnInit {
           .catch(erro => this.errorHandler.handle(erro));
       }
 
-      atualizarModLocal2(form: FormControl){
-        this.modLocal2Service.atualizar(this.modLocal2Salvar)
-        .then(modlocal2 => {
-          this.modLocal2Salvar = modlocal2;
 
-          this.toasty.success('Local de Avaliação alterada com sucesso!');
-
-        })
-      .catch(erro => this.errorHandler.handle(erro));
-      }
 
       carregarUnidadeDeAvaliacao() {
         return this.modLocal1Service.listarTodas()

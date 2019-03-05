@@ -7,21 +7,21 @@
         </div>
         <div class="ui-g-4 ui-fluid">
           <label style="display: block">Código: {{ editando ? ' - Editando - ' : '' }} </label>
-          <input type="text" name="codigo" style="width: 50px" [(ngModel)]="materialSalvar.codigo" />
+          <input type="text" name="codigo" style="width: 50px" [(ngModel)]="materialSalvar.cdMaterial" />
         </div>
         <div class="ui-g-8 ui-fluid">
           <label>Empresa</label>
           <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-            [autoWidth]="false" [(ngModel)]="materialSalvar.cadEmpresa.codigo" required></p-dropdown>
+            [autoWidth]="false" [(ngModel)]="materialSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>
       </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Material: </label>
-          <input type="text" name="nmmaterial" pInputText [(ngModel)]="materialSalvar.nmmaterial" />
+          <input type="text" name="nmmaterial" pInputText [(ngModel)]="materialSalvar.nmMaterial" />
         </div>
 
         <div class="ui-g-2 ui-fluid">
           <br />
-          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!materialSalvar.nmmaterial"></button>
+          <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!materialSalvar.nmMaterial"></button>
         </div>
 
       <div *ngIf="editando" class="ui-g-2 ui-fluid ">
@@ -35,7 +35,7 @@
           <form  autocomplete="off" (ngSubmit)="pesquisar()">
             <div class="ui-g-12 ui-fluid">
                 <label style="display: block">Pesquisar Material: </label>
-                <input type="text" pInputText name="nmmaterial" [(ngModel)]="filtro.nmmaterial">
+                <input type="text" pInputText name="nmmaterial" [(ngModel)]="filtro.nmMaterial">
               </div>
         </form>
         </div>
@@ -54,10 +54,10 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-material>
                   <tr>
-                    <th>{{material.codigo}}</th>
-                    <th style="text-align: left">{{material.nmmaterial}}</th>
+                    <th>{{material.cdMaterial}}</th>
+                    <th style="text-align: left">{{material.nmMaterial}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Material" tooltipPosition="top" [routerLink]="['/cadmaterial', material.codigo]"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Material" tooltipPosition="top" [routerLink]="['/cadmaterial', material.cdMaterial]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Material" tooltipPosition="top" (click)="confirmarExclusao(material)"></button>
                     </th>
                   </tr>

@@ -4,7 +4,7 @@ import { URLSearchParams } from '@angular/http';
 import { Cadniveldeavaliacao } from '../core/model';
 
 export class CadniveldeavaliacaoFiltro {
-  nmnivelavaliacao : string;
+  nmNivelDeAvaliacao : string;
   page = 0;
   size = 5;
 }
@@ -12,7 +12,7 @@ export class CadniveldeavaliacaoFiltro {
 @Injectable()
 export class CadniveldeavaliacaoService {
 
-  cadniveldeavaliacaourl = "http://localhost:8080/cadniveldeavaliacao";
+  cadniveldeavaliacaourl = "http://10.132.90.58:8080/cadniveldeavaliacao";
   constructor(private http : Http) { }
 
   pesquisar(filtro: CadniveldeavaliacaoFiltro): Promise<any> {
@@ -24,8 +24,8 @@ export class CadniveldeavaliacaoService {
     params.set('page', filtro.page.toString());
     params.set('size', filtro.size.toString());
 
-    if (filtro.nmnivelavaliacao){
-      params.set('nmnivelavaliacao', filtro.nmnivelavaliacao);
+    if (filtro.nmNivelDeAvaliacao){
+      params.set('nmNivelDeAvaliacao', filtro.nmNivelDeAvaliacao);
     }
 
     return this.http.get(`${this.cadniveldeavaliacaourl}`, {  headers, search: filtro })
@@ -58,7 +58,7 @@ export class CadniveldeavaliacaoService {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.cadniveldeavaliacaourl}/${cadniveldeavaliacao.codigo}`,
+     return this.http.put(`${this.cadniveldeavaliacaourl}/${cadniveldeavaliacao.cdNivelDeAvaliacao}`,
          JSON.stringify(cadniveldeavaliacao), { headers })
        .toPromise()
        .then(response => {
@@ -69,11 +69,11 @@ export class CadniveldeavaliacaoService {
        });
  }
 
-   buscarPorCodigo(codigo: number): Promise<Cadniveldeavaliacao> {
+   buscarPorCodigo(cdNivelDeAvaliacao: number): Promise<Cadniveldeavaliacao> {
      const headers = new Headers();
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-     return this.http.get(`${this.cadniveldeavaliacaourl}/${codigo}`, { headers })
+     return this.http.get(`${this.cadniveldeavaliacaourl}/${cdNivelDeAvaliacao}`, { headers })
        .toPromise()
        .then(response => {
          const cadniveldeavaliacao = response.json() as Cadniveldeavaliacao;

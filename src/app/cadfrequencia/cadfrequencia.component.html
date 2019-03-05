@@ -7,12 +7,12 @@
         </div>
         <div class="ui-g-4 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="frequenciaSalvar.codigo" />
+          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="frequenciaSalvar.cdFrequencia" />
         </div>
         <div class="ui-g-8 ui-fluid">
             <label>Empresa</label>
             <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-              [autoWidth]="false" [(ngModel)]="frequenciaSalvar.cadEmpresa.codigo" required></p-dropdown>
+              [autoWidth]="false" [(ngModel)]="frequenciaSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Frequência: </label>
@@ -49,16 +49,16 @@
                 <ng-template pTemplate="header">
                   <tr>
                     <th style="width: 70px">Codigo</th>
-                    <th>FrequÊncia</th>
+                    <th>Frequência</th>
                     <th style=" width: 140px"></th>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-frequencia>
                   <tr>
-                    <th>{{frequencia.codigo}}</th>
+                    <th>{{frequencia.cdFrequencia}}</th>
                     <th style="text-align: left">{{frequencia.nmFrequencia}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/cadfrequencia', frequencia.codigo]" ></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/cadfrequencia', frequencia.cdFrequencia]" ></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="confirmarExclusao(frequencia)"></button>
                     </th>
                   </tr>

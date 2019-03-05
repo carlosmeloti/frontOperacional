@@ -19,7 +19,7 @@ export class CadtipodeverificadorComponent {
 
   tatalRegistros = 0;
   filtro = new CadtipodeverificadorFiltro();
-  nmTipoVerificador: string;
+  nmTipoDeVerificador: string;
 
   tipodeverificadoraSalvar = new Cadtipodeverificador();
 
@@ -36,16 +36,16 @@ export class CadtipodeverificadorComponent {
   ){}
 
   ngOnInit() {
-    const cdTipoVerificador = this.route.snapshot.params['codigo'];
+    const cdTipoDeVerificador = this.route.snapshot.params['codigo'];
 
-    if(cdTipoVerificador){
-      this.carregarTipoVerificador(cdTipoVerificador);
+    if(cdTipoDeVerificador){
+      this.carregarTipoVerificador(cdTipoDeVerificador);
    }
   }
 
 
   get editando(){
-    return Boolean(this.tipodeverificadoraSalvar.cdTipoVerificador)
+    return Boolean(this.tipodeverificadoraSalvar.cdTipoDeVerificador)
   }
 
   carregarTipoVerificador(codigo: number){

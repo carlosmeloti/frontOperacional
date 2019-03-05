@@ -47,7 +47,7 @@ export class CadfrequenciaComponent {
   }
 
   get editando(){
-    return Boolean(this.frequenciaSalvar.codigo)
+    return Boolean(this.frequenciaSalvar.cdFrequencia)
   }
 
   //Metodo para carregar valores
@@ -87,7 +87,7 @@ export class CadfrequenciaComponent {
 
   excluir(frequencia: any){
 
-    this.cadfrequenciaService.excluir(frequencia.codigo)
+    this.cadfrequenciaService.excluir(frequencia.cdFrequencia)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();
@@ -151,7 +151,7 @@ export class CadfrequenciaComponent {
       .catch(erro => this.errorHandler.handle(erro));
       }
 
-  
+
 
 
 }

@@ -18,7 +18,7 @@ export class CadamostragemComponent {
 
   tatalRegistros = 0;
   filtro = new CadamostragemFiltro();
-  nmamostragem: string;
+  nmAmostragem: string;
 
   amostragemSalvar = new Cadamostragem();
   cadamostragem=[]
@@ -49,12 +49,12 @@ export class CadamostragemComponent {
   }
 
   get editando(){
-    return Boolean(this.amostragemSalvar.codigo)
+    return Boolean(this.amostragemSalvar.cdAmostragem)
   }
 
   //Metodo para carregar valores
-  carregarAmostragem(codigo: number){
-    this.cadamostragemService.buscarPorCodigo(codigo)
+  carregarAmostragem(cdAmostragem: number){
+    this.cadamostragemService.buscarPorCodigo(cdAmostragem)
       .then(amostragem => {
         this.amostragemSalvar = amostragem;
       })
@@ -89,7 +89,7 @@ export class CadamostragemComponent {
 
   excluir(amostragem: any){
 
-    this.cadamostragemService.excluir(amostragem.codigo)
+    this.cadamostragemService.excluir(amostragem.cdAmostragem)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

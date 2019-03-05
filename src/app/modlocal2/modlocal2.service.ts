@@ -5,7 +5,7 @@ import { Modlocal2 } from '../core/model';
 
 
 export class Modlocal2Filtro{
-  
+
   nmlocal1 : string;
   codigo : string;
   page = 0;
@@ -14,12 +14,12 @@ export class Modlocal2Filtro{
 
 @Injectable()
 export class Modlocal2Service {
-  modlocal2URL = 'http://localhost:8080/localdeavaliacao';
+  modlocal2URL = 'http://10.132.90.58:8080/localdeavaliacao';
 
 
   constructor(private http: Http) { }
 
- 
+
   pesquisar(filtro: Modlocal2Filtro): Promise<any> {
 
     const params = new URLSearchParams;
@@ -27,7 +27,7 @@ export class Modlocal2Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-  
+
 
     return this.http.get(`${this.modlocal2URL}?cdLocal1=${filtro.nmlocal1}`, {  headers })
     .toPromise()
@@ -53,15 +53,16 @@ export class Modlocal2Service {
         .then(() => null);
     }
 
-    adicionar(modlocal2: Modlocal2): Promise<Modlocal2>{
+    adicionar(filtro: Modlocal2Filtro): Promise<Modlocal2>{
       const headers = new Headers;
       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
       headers.append('Content-Type', 'application/json');
 
-      return this.http.post(this.modlocal2URL, JSON.stringify(modlocal2), { headers })
+      return this.http.post(`${this.modlocal2URL}?cdLocal1=${filtro.nmlocal1}`, { headers })
         .toPromise()
-        .then(response => response.json());
+        .then(response => response.json().content);
     }
+
     listarTodas(): Promise<any> {
       const headers = new Headers;
        headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');

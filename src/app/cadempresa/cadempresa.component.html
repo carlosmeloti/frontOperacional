@@ -7,7 +7,7 @@
           </div>
           <div class="ui-g-12 ui-fluid">
               <label style="display: block">Código: </label>
-              <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="empresasSalvar.codigo" />
+              <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="empresasSalvar.cdEmpresa" />
           </div>
           <div class="ui-g-7 ui-fluid">
               <label style="display: block">Nome da Empresa: </label>
@@ -82,7 +82,7 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-empresa>
                   <tr>
-                    <th>{{empresa.codigo}}</th>
+                    <th>{{empresa.cdEmpresa}}</th>
                     <th style="text-align: left">{{empresa.nmEmpresa}}</th>
                     <th style="text-align: left">{{empresa.nmAbreviado}}</th>
                     <th style="text-align: left">{{empresa.nrTelefone}}</th>
@@ -92,7 +92,7 @@
                     <th style="text-align: left">{{empresa.diretorioArquivos}}</th>
                     <th>
 
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/cadempresa', empresa.codigo]"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/cadempresa', empresa.cdEmpresa]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="confirmarExclusao(empresa)"></button>
 
                     </th>

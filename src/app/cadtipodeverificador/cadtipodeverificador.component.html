@@ -7,25 +7,25 @@
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" name="cdTipoVerificador" pInputText style="width: 50px" [(ngModel)]="tipodeverificadoraSalvar.cdTipoVerificador"/>
+          <input type="text" name="cdTipoVerificador" pInputText style="width: 50px" [(ngModel)]="tipodeverificadoraSalvar.cdTipoDeVerificador"/>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Tipo de Verificador: </label>
-          <input type="text" name="nmTipoVerificador" pInputText  [(ngModel)]="tipodeverificadoraSalvar.nmTipoVerificador"/>
+          <input type="text" name="nmTipoVerificador" pInputText  [(ngModel)]="tipodeverificadoraSalvar.nmTipoDeVerificador"/>
         </div>
 
         <div class="ui-g-12 ui-fluid">
 
           <label style="display: block">Nível 1: </label>
-          <input type="text" name="rotulonivel1" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel1" />
+          <input type="text" name="rotulonivel1" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotuloNivel1" />
           <label style="display: block">Nível 2: </label>
-          <input type="text" name="rotulonivel2" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel2" />
+          <input type="text" name="rotulonivel2" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotuloNivel2" />
           <label style="display: block">Nível 3:</label>
-          <input type="text" name="rotulonivel3" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel3" />
+          <input type="text" name="rotulonivel3" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotuloNivel3" />
           <label style="display: block">Nível 4:</label>
-          <input type="text"name="rotulonivel4" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel4" />
+          <input type="text"name="rotulonivel4" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotuloNivel4" />
           <label style="display: block">Nível 5:</label>
-          <input type="text" name="rotulonivel5" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotulonivel5" />
+          <input type="text" name="rotulonivel5" pInputText  [(ngModel)]="tipodeverificadoraSalvar.rotuloNivel5" />
         </div>
         <div  class="ui-g-2 ui-fluid">
           <br />
@@ -43,7 +43,7 @@
           <form  autocomplete="off" (ngSubmit)="pesquisar()">
             <div class="ui-g-12 ui-fluid">
                 <label style="display: block">Pesquisar Tipo de Verificador: </label>
-                <input type="text" pInputText name="nmTipoVerificador" [(ngModel)]="filtro.nmTipoVerificador">
+                <input type="text" pInputText name="nmTipoVerificador" [(ngModel)]="filtro.nmTipoDeVerificador">
               </div>
         </form>
         </div>
@@ -71,16 +71,16 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-tipodeverificador>
                   <tr>
-                    <th>{{tipodeverificador.cdTipoVerificador}}</th>
-                    <th style="text-align: left">{{tipodeverificador.nmTipoVerificador}}</th>
-                    <th>{{tipodeverificador.nrniveis}}</th>
-                    <th>{{tipodeverificador.rotulonivel1}}</th>
-                    <th>{{tipodeverificador.rotulonivel2}}</th>
-                    <th>{{tipodeverificador.rotulonivel3}}</th>
-                    <th>{{tipodeverificador.rotulonivel4}}</th>
-                    <th>{{tipodeverificador.rotulonivel5}}</th>
+                    <th>{{tipodeverificador.cdTipoDeVerificador}}</th>
+                    <th style="text-align: left">{{tipodeverificador.nmTipoDeVerificador}}</th>
+                    <th>{{tipodeverificador.nrNiveis}}</th>
+                    <th>{{tipodeverificador.rotuloNivel1}}</th>
+                    <th>{{tipodeverificador.rotuloNivel2}}</th>
+                    <th>{{tipodeverificador.rotuloNivel3}}</th>
+                    <th>{{tipodeverificador.rotuloNivel4}}</th>
+                    <th>{{tipodeverificador.rotuloNivel5}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Verificador" tooltipPosition="top" [routerLink]="['/cadtipodeverificador', tipodeverificador.cdTipoVerificador]"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Tipo de Verificador" tooltipPosition="top" [routerLink]="['/cadtipodeverificador', tipodeverificador.cdTipoDeVerificador]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Tipo de Verificador" tooltipPosition="top"></button>
                     </th>
                   </tr>

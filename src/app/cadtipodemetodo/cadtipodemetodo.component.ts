@@ -49,7 +49,7 @@ export class CadtipodemetodoComponent {
   }
 
   get editando(){
-    return Boolean(this.tipodemetodoSalvar.codigo)
+    return Boolean(this.tipodemetodoSalvar.cdTipoDeMetodo)
   }
 
   //Metodo para carregar valores
@@ -90,7 +90,7 @@ export class CadtipodemetodoComponent {
 
   excluir(tipometodo: any){
 
-    this.cadtipodemetodoService.excluir(tipometodo.codigo)
+    this.cadtipodemetodoService.excluir(tipometodo.cdTipoDeMetodo)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

@@ -8,15 +8,15 @@
 
               <div class="ui-g-4 ">
                 <label style="display: block">Listar Verificadores do Tipo: </label>
-                <p-dropdown name="cadtipodeverificador" [style]="{'width':'320px'}" [options]="cadtipodeverificador"  placeholder="Selecione Tipo de Verificador" [showClear]="true" [(ngModel)]="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador" ></p-dropdown>
+                <p-dropdown name="cadtipodeverificador" [style]="{'width':'320px'}" [options]="cadtipodeverificador"  placeholder="Selecione Tipo de Verificador" [showClear]="true" [(ngModel)]="verificadorMSalvar.cdTipoDeVerificador" ></p-dropdown>
               </div>
                 <div class="ui-g-8 ">
                   <br />
-                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 1" type="button" style="width: 200px" pButton label="Buscar Verificadores" (click)="pesquisarMon()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 2" type="button" pButton label="Buscar Verificadores" (click)="pesquisarImp()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 3" type="button" pButton label="Buscar Verificadores" (click)="pesquisarPMFS()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 4" type="button" pButton label="Buscar Verificadores" (click)="pesquisarCerti()"></button>
-                <button *ngIf="verificadorMSalvar.cadTipoDeVerificador.cdTipoVerificador == 5" type="button" pButton label="Buscar Verificadores" (click)="pesquisarSuste()"></button>
+                <button *ngIf="verificadorMSalvar.cdTipoDeVerificador == 1" type="button" style="width: 200px" pButton label="Buscar Verificadores" (click)="pesquisarMon()"></button>
+                <button *ngIf="verificadorMSalvar.cdTipoDeVerificador == 2" type="button" pButton label="Buscar Verificadores" (click)="pesquisarImp()"></button>
+                <button *ngIf="verificadorMSalvar.cdTipoDeVerificador == 3" type="button" pButton label="Buscar Verificadores" (click)="pesquisarPMFS()"></button>
+                <button *ngIf="verificadorMSalvar.cdTipoDeVerificador == 4" type="button" pButton label="Buscar Verificadores" (click)="pesquisarCerti()"></button>
+                <button *ngIf="verificadorMSalvar.cdTipoDeVerificador == 5" type="button" pButton label="Buscar Verificadores" (click)="pesquisarSuste()"></button>
               </div>
               <!--<div class="ui-g-4 ">
                   <br />
@@ -32,7 +32,7 @@
 
               <div class="ui-g-1 ui-fluid">
                   <label style="display: block">Código: </label>
-                  <input name="codigo" type="text" [(ngModel)]="verificadorMSalvar.codigo" pInputText  />
+                  <input name="codigo" type="text" [(ngModel)]="verificadorMSalvar.cdVerificador" pInputText  />
                 </div>
                 <div class="ui-g-3 ui-fluid">
                   <label style="display: block">Código Alfanumérico: </label>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="ui-g-4 ui-fluid">
                     <label style="display: block">Categoria de Avaliação: </label>
-                    <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.nmNivelAvaliacao" pInputText  />
+                    <input name="nmNivelAvaliacao" type="text" [(ngModel)]="verificadorMSalvar.cadNivelDeAvaliacao.nmNivelDeAvaliacao" pInputText  />
                 </div>
                 <div class="ui-g-6 ui-fluid">
                     <label style="display: block">Verificador: </label>
@@ -76,7 +76,7 @@
 
                       <ng-template pTemplate="header">
                         <tr>
-                          <th style="width: 70px">Codigo</th>
+                          <th style="width: 70px">Cód. Ver.</th>
                           <th style="width: 70px">Cód. Alf.</th>
                           <th style="width: 70px">Graco. co. </th>
                           <th>Verificador</th>
@@ -85,12 +85,12 @@
                       </ng-template>
                       <ng-template pTemplate="body" let-verificador>
                         <tr>
-                          <th>{{verificador.codigo}}</th>
+                          <th>{{verificador.cdVerificador}}</th>
                           <th>{{verificador.codalfa}}</th>
                           <th>{{verificador.p01_graco}}</th>
                           <th style="text-align: left">{{verificador.nmverificador}}</th>
                           <th>
-                              <a pButton icon="pi pi-pencil" pTooltip="Editar Verificador" tooltipPosition="top"  [routerLink]="['/verificador_m', verificador.id]"></a>
+                              <a pButton icon="pi pi-pencil" pTooltip="Editar Verificador" tooltipPosition="top"  [routerLink]="['/verificador_m', verificador.cdVerificador]"></a>
                               <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Verificador
                               " tooltipPosition="top"></button>
                           </th>

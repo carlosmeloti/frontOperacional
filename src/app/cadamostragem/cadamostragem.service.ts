@@ -6,7 +6,7 @@ import { Cadamostragem } from '../core/model';
 
 
 export class CadamostragemFiltro {
-  nmamostragem : string;
+  nmAmostragem : string;
   page = 0;
   size = 5;
 }
@@ -14,7 +14,7 @@ export class CadamostragemFiltro {
 @Injectable()
 export class CadamostragemService {
 
-  cadamostragemurl = 'http://locahost:8080/cadamostragem';
+  cadamostragemurl = 'http://10.132.90.58:8080/cadamostragem';
 
   constructor(private http: Http) { }
 
@@ -24,8 +24,8 @@ export class CadamostragemService {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    if (filtro.nmamostragem){
-      params.set('nmamostragem', filtro.nmamostragem);
+    if (filtro.nmAmostragem){
+      params.set('nmAmostragem', filtro.nmAmostragem);
     }
 
     return this.http.get(`${this.cadamostragemurl}?resumo`, {  headers, search: filtro })
@@ -43,11 +43,11 @@ export class CadamostragemService {
 
     };
 
-    excluir(codigo: number): Promise<void> {
+    excluir(cdAmostragem: number): Promise<void> {
       const headers = new Headers;
       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-      return this.http.delete(`${this.cadamostragemurl}/${codigo}`, { headers })
+      return this.http.delete(`${this.cadamostragemurl}/${cdAmostragem}`, { headers })
         .toPromise()
         .then(() => null);
     }
@@ -77,7 +77,7 @@ export class CadamostragemService {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.cadamostragemurl}/${cadamostragem.codigo}`,
+     return this.http.put(`${this.cadamostragemurl}/${cadamostragem.cdAmostragem}`,
          JSON.stringify(cadamostragem), { headers })
        .toPromise()
        .then(response => {
@@ -88,11 +88,11 @@ export class CadamostragemService {
        });
  }
 
-   buscarPorCodigo(codigo: number): Promise<Cadamostragem> {
+   buscarPorCodigo(cdAmostragem: number): Promise<Cadamostragem> {
      const headers = new Headers();
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-     return this.http.get(`${this.cadamostragemurl}/${codigo}`, { headers })
+     return this.http.get(`${this.cadamostragemurl}/${cdAmostragem}`, { headers })
        .toPromise()
        .then(response => {
          const cadamostragem = response.json() as Cadamostragem;

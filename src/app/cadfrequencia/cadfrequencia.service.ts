@@ -12,7 +12,7 @@ export class CadfrequenciaFiltro{
 @Injectable()
 export class CadfrequenciaService {
 
-  cadfrequenciaURL = 'http://localhost:8080/cadfrequencia';
+  cadfrequenciaURL = 'http://10.132.90.58:8080/cadfrequencia';
 
 
   constructor(private http: Http) { }
@@ -77,7 +77,7 @@ export class CadfrequenciaService {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.cadfrequenciaURL}/${cadfrequencia.codigo}`,
+     return this.http.put(`${this.cadfrequenciaURL}/${cadfrequencia.cdFrequencia}`,
          JSON.stringify(cadfrequencia), { headers })
        .toPromise()
        .then(response => {

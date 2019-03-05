@@ -10,7 +10,7 @@ export class CadverificadorFiltro{
 @Injectable()
 export class VerificadorMService {
 
-  verificadormURL = 'http://localhost:8080/verificador_m';
+  verificadormURL = 'http://10.132.90.58:8080/verificador_m';
 
 
 
@@ -23,7 +23,7 @@ export class VerificadorMService {
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
 
-    return this.http.get(`${this.verificadormURL}?nmTipoVerificador=Mon`, {  headers })
+    return this.http.get(`${this.verificadormURL}?nmTipoDeVerificador=Mon`, {  headers })
     .toPromise()
       .then(response => response.json());
 
@@ -35,7 +35,7 @@ export class VerificadorMService {
       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
 
-      return this.http.get(`${this.verificadormURL}?nmTipoVerificador=Impac`, {  headers })
+      return this.http.get(`${this.verificadormURL}?nmTipoDeVerificador=Impac`, {  headers })
       .toPromise()
         .then(response => response.json());
 
@@ -48,7 +48,7 @@ export class VerificadorMService {
         headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
 
-        return this.http.get(`${this.verificadormURL}?nmTipoVerificador=PMFS`, {  headers })
+        return this.http.get(`${this.verificadormURL}?nmTipoDeVerificador=PMFS`, {  headers })
         .toPromise()
           .then(response => response.json());
 
@@ -60,7 +60,7 @@ export class VerificadorMService {
           headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
 
-          return this.http.get(`${this.verificadormURL}?nmTipoVerificador=Certi`, {  headers })
+          return this.http.get(`${this.verificadormURL}?nmTipoDeVerificador=Certi`, {  headers })
           .toPromise()
             .then(response => response.json());
 
@@ -73,7 +73,7 @@ export class VerificadorMService {
             headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
 
-            return this.http.get(`${this.verificadormURL}?nmTipoVerificador=Suste`, {  headers })
+            return this.http.get(`${this.verificadormURL}?nmTipoDeVerificador=Suste`, {  headers })
             .toPromise()
               .then(response => response.json());
 

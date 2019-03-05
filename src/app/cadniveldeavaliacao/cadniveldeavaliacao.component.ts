@@ -17,7 +17,7 @@ export class CadniveldeavaliacaoComponent  {
 
   tatalRegistros = 0;
   filtro = new CadniveldeavaliacaoFiltro();
-  nmnivelavaliacao: string;
+  nmNivelDeAvaliacao: string;
   cadnivelavaliacao = []
 
   cadnivelavaliacaoSalvar = new Cadniveldeavaliacao();
@@ -41,12 +41,12 @@ export class CadniveldeavaliacaoComponent  {
   }
   }
   get editando(){
-    return Boolean(this.cadnivelavaliacaoSalvar.codigo)
+    return Boolean(this.cadnivelavaliacaoSalvar.cdNivelDeAvaliacao)
   }
 
   //Metodo para carregar valores
-  carregarNivelDeAvaliacao(codigo: number){
-    this.cadniveldeavaliacaoService.buscarPorCodigo(codigo)
+  carregarNivelDeAvaliacao(cdNivelDeAvaliacao: number){
+    this.cadniveldeavaliacaoService.buscarPorCodigo(cdNivelDeAvaliacao)
       .then(niveldeavaliacao => {
         this.cadnivelavaliacaoSalvar = niveldeavaliacao;
       })

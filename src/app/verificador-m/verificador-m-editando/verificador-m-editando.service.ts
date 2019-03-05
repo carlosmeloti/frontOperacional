@@ -11,7 +11,7 @@ export class CadverificadorFiltro{
 @Injectable()
 export class VerificadorMEditandoService {
 
-  verificadormURL = 'http://localhost:8080/verificador_m';
+  verificadormURL = 'http://10.132.90.58:8080/verificador_m';
 
 
 
@@ -83,12 +83,12 @@ export class VerificadorMEditandoService {
             buscarPorCodigo(id: number): Promise<Verificador_m> {
               const headers = new Headers();
               headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
-         
+
               return this.http.get(`${this.verificadormURL}/${id}`, { headers })
                 .toPromise()
                 .then(response => {
                   const cadverificadorm = response.json() as Verificador_m;
-         
+
                   return cadverificadorm;
                 });
           }
@@ -97,14 +97,14 @@ export class VerificadorMEditandoService {
             const headers = new Headers;
             headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
             headers.append('Content-Type', 'application/json');
-        
-            return this.http.put(`${this.verificadormURL}/${verificador_m.id}`,
+
+            return this.http.put(`${this.verificadormURL}/${verificador_m.cdVerificador}`,
                 JSON.stringify(verificador_m), { headers })
               .toPromise()
               .then(response => {
                 const verificador_mAlterada = response.json() as Verificador_m;
-        
-        
+
+
                 return verificador_mAlterada;
               });
         }

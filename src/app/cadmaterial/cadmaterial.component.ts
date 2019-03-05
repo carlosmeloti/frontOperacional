@@ -47,7 +47,7 @@ export class CadmaterialComponent {
 }
 
 get editando(){
- return Boolean(this.materialSalvar.codigo)
+ return Boolean(this.materialSalvar.cdMaterial)
 }
 
 //Metodo para carregar valores
@@ -86,7 +86,7 @@ carregarMaterial(codigo: number){
 
   excluir(material: any){
 
-    this.cadmaterialService.excluir(material.codigo)
+    this.cadmaterialService.excluir(material.cdMaterial)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

@@ -7,11 +7,11 @@
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" name="codigo" pInputText style="width: 50px"  [(ngModel)]="cadnivelavaliacaoSalvar.codigo" />
+          <input type="text" name="cdNivelDeAvaliacao" pInputText style="width: 50px"  [(ngModel)]="cadnivelavaliacaoSalvar.cdNivelDeAvaliacao" />
         </div>
         <div class="ui-g-10 ui-fluid">
           <label style="display: block">Categoria de Avaliação: </label>
-          <input type="text" name="nmnivelavaliacao" pInputText [(ngModel)]="cadnivelavaliacaoSalvar.nmnivelavaliacao" />
+          <input type="text" name="nmnivelavaliacao" pInputText [(ngModel)]="cadnivelavaliacaoSalvar.nmNivelDeAvaliacao" />
         </div>
         <div class="ui-g-2 ui-fluid">
           <label style="display: block">Sigla: </label>
@@ -19,7 +19,7 @@
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Descrição: </label>
-          <textarea pInputTextarea name="txdescricao" [(ngModel)]="cadnivelavaliacaoSalvar.txdescricao"></textarea>
+          <textarea pInputTextarea name="txdescricao" [(ngModel)]="cadnivelavaliacaoSalvar.txDescricao"></textarea>
         </div>
 
 
@@ -38,7 +38,7 @@
         <form  autocomplete="off" (ngSubmit)="pesquisar()">
             <div class="ui-g-12 ui-fluid">
                 <label style="display: block">Pesquisar por Nome: </label>
-                <input type="text" pInputText name="nmnivelavaliacao" [(ngModel)]="filtro.nmnivelavaliacao">
+                <input type="text" pInputText name="nmnivelavaliacao" [(ngModel)]="filtro.nmNivelDeAvaliacao">
               </div>
 
         <div class="ui-g-12">
@@ -57,12 +57,12 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-nivelavaliacao>
                   <tr>
-                    <th>{{nivelavaliacao.codigo}}</th>
-                    <th style="text-align: left">{{nivelavaliacao.nmnivelavaliacao}}</th>
+                    <th>{{nivelavaliacao.cdNivelDeAvaliacao}}</th>
+                    <th style="text-align: left">{{nivelavaliacao.nmNivelDeAvaliacao}}</th>
                     <th>{{nivelavaliacao.sigla}}</th>
-                    <th style="text-align: left">{{nivelavaliacao.txdescricao}}</th>
+                    <th style="text-align: left">{{nivelavaliacao.txDescricao}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Categoria de Avaliação" tooltipPosition="top" [routerLink]="['/cadniveldeavaliacao', nivelavaliacao.codigo]"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Categoria de Avaliação" tooltipPosition="top" [routerLink]="['/cadniveldeavaliacao', nivelavaliacao.cdNivelDeAvaliacao]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Categoria de Avaliação" tooltipPosition="top"></button>
                     </th>
                   </tr>

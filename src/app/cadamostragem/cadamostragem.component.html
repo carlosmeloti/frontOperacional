@@ -7,26 +7,26 @@
         </div>
         <div class="ui-g-4 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="amostragemSalvar.codigo" />
+          <input type="text" name="cdAmostragem" pInputText style="width: 50px" [(ngModel)]="amostragemSalvar.cdAmostragem" />
         </div>
         <div class="ui-g-8 ui-fluid">
           <label>Empresa</label>
           <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-            [autoWidth]="false" [(ngModel)]="amostragemSalvar.cadEmpresa.codigo" required></p-dropdown>
+            [autoWidth]="false"  [(ngModel)]="amostragemSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>
          </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Amostragem: </label>
-          <input type="text" name="nmamostragem" pInputText [(ngModel)]="amostragemSalvar.nmamostragem" />
+          <input type="text" name="nmAmostragem" pInputText [(ngModel)]="amostragemSalvar.nmAmostragem" />
         </div>
         <div class="ui-g-2 ui-fluid">
             <br />
-            <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!amostragemSalvar.nmamostragem"></button>
+            <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success" [disabled]="!amostragemSalvar.nmAmostragem"></button>
           </div>
 
         <div *ngIf="editando" class="ui-g-2 ui-fluid ">
           <br />
           <h3><strong><a routerLink="/cadamostragem">Sair da edição</a></strong></h3>
-          
+
         </div>
     </div>
     </form>
@@ -35,7 +35,7 @@
         <form  autocomplete="off" (ngSubmit)="pesquisar()">
           <div class="ui-g-12 ui-fluid">
               <label style="display: block">Pesquisar Amostragem: </label>
-              <input type="text" pInputText name="nmamostragem" [(ngModel)]="filtro.nmamostragem">
+              <input type="text" pInputText name="nmAmostragem" [(ngModel)]="filtro.nmAmostragem">
             </div>
       </form>
       </div>
@@ -54,10 +54,10 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-amostragem>
                   <tr>
-                    <th>{{amostragem.codigo}}</th>
-                    <th style="text-align: left">{{amostragem.nmamostragem}}</th>
+                    <th>{{amostragem.cdAmostragem}}</th>
+                    <th style="text-align: left">{{amostragem.nmAmostragem}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Amostragem" tooltipPosition="top" [routerLink]="['/cadamostragem', amostragem.codigo]"></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Amostragem" tooltipPosition="top" [routerLink]="['/cadamostragem', amostragem.cdAmostragem]"></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Amostragem" tooltipPosition="top" (click)="confirmarExclusao(amostragem)"></button>
                     </th>
                   </tr>

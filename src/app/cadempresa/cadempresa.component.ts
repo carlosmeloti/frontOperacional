@@ -45,11 +45,11 @@ export class CadempresaComponent implements OnInit{
   }
 
   get editando(){
-    return Boolean(this.empresasSalvar.codigo)
+    return Boolean(this.empresasSalvar.cdEmpresa)
   }
 //Metodo para carregar valores
-  carregarEmpresa(codigo: number){
-    this.cadempresaService.buscarPorCodigo(codigo)
+  carregarEmpresa(cdEmpresa: number){
+    this.cadempresaService.buscarPorCodigo(cdEmpresa)
       .then(empresa => {
         this.empresasSalvar = empresa;
       })
@@ -75,7 +75,7 @@ export class CadempresaComponent implements OnInit{
 
     excluir(empresa: any){
 
-      this.cadempresaService.excluir(empresa.codigo)
+      this.cadempresaService.excluir(empresa.cdEmpresa)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();
