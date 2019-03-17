@@ -14,7 +14,7 @@ export class Modlocal2Filtro{
 
 @Injectable()
 export class Modlocal2Service {
-  modlocal2URL = 'http://10.132.90.58:8080/localdeavaliacao';
+  modlocal2URL = 'http://10.132.90.58:8080/sublocaldeavaliacao';
 
 
   constructor(private http: Http) { }
@@ -53,15 +53,19 @@ export class Modlocal2Service {
         .then(() => null);
     }
 
-    adicionar(filtro: Modlocal2Filtro): Promise<Modlocal2>{
+    adicionar(modlocal2: Modlocal2): Promise<Modlocal2>{
       const headers = new Headers;
       headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
       headers.append('Content-Type', 'application/json');
 
-      return this.http.post(`${this.modlocal2URL}?cdLocal1=${filtro.nmlocal1}`, { headers })
+      return this.http.post(this.modlocal2URL, JSON.stringify(modlocal2), { headers })
         .toPromise()
-        .then(response => response.json().content);
+        .then(response => response.json());
     }
+
+
+
+
 
     listarTodas(): Promise<any> {
       const headers = new Headers;
@@ -78,7 +82,7 @@ export class Modlocal2Service {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.modlocal2URL}/${modlocal2.codigo}`,
+     return this.http.put(`${this.modlocal2URL}/${modlocal2.cdLocal2}`,
          JSON.stringify(modlocal2), { headers })
        .toPromise()
        .then(response => {

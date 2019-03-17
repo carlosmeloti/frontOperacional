@@ -28,6 +28,9 @@ export class VerificadorMService {
       .then(response => response.json());
 
     }
+
+
+
     pesquisarImp(): Promise<any> {
 
       const headers = new Headers;

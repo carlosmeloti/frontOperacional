@@ -3,10 +3,10 @@ import { Modlocal1Filtro, Modlocal1Service } from './modlocal1.service';
 import { LazyLoadEvent } from 'src/primeng/api';
 import { ToastyService } from 'ng2-toasty/src/toasty.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
-import { Modlocal1 } from '../core/model';
 import { FormControl } from '@angular/forms';
-import { ErrorHandlerService } from '../core/error-handler.service';
 import { ActivatedRoute } from '@angular/router';
+import { Modlocal1 } from 'src/app/core/model';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 
 @Component({
   selector: 'app-modlocal1',
@@ -23,6 +23,7 @@ export class Modlocal1Component implements OnInit {
   empresas = [
     {label: 'Exemplo', value: 1}
   ];
+
   @ViewChild('tabela') grid;
 
   modlocal1=[]
@@ -47,7 +48,7 @@ export class Modlocal1Component implements OnInit {
   }
 
   get editando(){
-    return Boolean(this.modLocal1Salvar.codigo)
+    return Boolean(this.modLocal1Salvar.cdLocal1)
   }
 
   //Metodo para carregar valores
@@ -87,7 +88,7 @@ export class Modlocal1Component implements OnInit {
 
   excluir(modlocal1: any){
 
-    this.modLocal1Service.excluir(modlocal1.codigo)
+    this.modLocal1Service.excluir(modlocal1.cdLocal1)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

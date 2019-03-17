@@ -65,6 +65,7 @@ import { Modlocal1Component } from './modlocal1/modlocal1.component';
 import { Modlocal1Service } from './modlocal1/modlocal1.service';
 import { Modlocal2Component } from './modlocal2/modlocal2.component';
 import { Modlocal2Service } from './modlocal2/modlocal2.service';
+import { Modlocal2EditandoComponent } from './modlocal2/modlocal2-editando/modlocal2-editando.component';
 
 
 const routes: Routes = [
@@ -95,7 +96,7 @@ const routes: Routes = [
   { path: 'modlocal1', component:Modlocal1Component},
   { path: 'modlocal1/:codigo', component:Modlocal1Component},
   { path: 'modlocal2', component:Modlocal2Component},
-  { path: 'modlocal2/:codigo', component:Modlocal2Component},
+  { path: 'modlocal2/:codigo', component:Modlocal2EditandoComponent},
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
 
@@ -123,7 +124,8 @@ const routes: Routes = [
     VerificadorMEditandoComponent,
     VerificadorMAssociarComponent,
     Modlocal1Component,
-    Modlocal2Component
+    Modlocal2Component,
+    Modlocal2EditandoComponent
 
   ],
   imports: [

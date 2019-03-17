@@ -1,20 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LazyLoadEvent } from 'src/primeng/api';
-import { ToastyService } from 'ng2-toasty/src/toasty.service';
+import { Modlocal2 } from 'src/app/core/model';
 import { FormControl } from '@angular/forms';
-import { ErrorHandlerService } from '../core/error-handler.service';
+import { LazyLoadEvent, ConfirmationService } from 'primeng/api';
+import { Modlocal1Service } from 'src/app/modlocal1/modlocal1.service';
+import { Modlocal2Service, Modlocal2Filtro } from '../modlocal2.service';
+import { ToastyService } from 'ng2-toasty';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { ActivatedRoute } from '@angular/router';
-import { ConfirmationService } from 'primeng/components/common/confirmationservice';
-import { Modlocal2Filtro, Modlocal2Service } from './modlocal2.service';
-import { Modlocal2 } from '../core/model';
-import { Modlocal1Service } from '../modlocal1/modlocal1.service';
 
 @Component({
-  selector: 'app-modlocal2',
-  templateUrl: './modlocal2.component.html',
-  styleUrls: ['./modlocal2.component.css']
+  selector: 'app-modlocal2-editando',
+  templateUrl: './modlocal2-editando.component.html',
+  styleUrls: ['./modlocal2-editando.component.css']
 })
-export class Modlocal2Component implements OnInit {
+export class Modlocal2EditandoComponent implements OnInit {
 
   tatalRegistros = 0;
   filtro = new Modlocal2Filtro();
@@ -142,7 +141,6 @@ export class Modlocal2Component implements OnInit {
           })
           .catch(erro => this.errorHandler.handle(erro));
     }
-
 
 
 }

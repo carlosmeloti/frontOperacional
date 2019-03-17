@@ -7,12 +7,12 @@
         </div>
         <div class="ui-g-4 ui-fluid">
           <label style="display: block">Código: </label>
-          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="modLocal1Salvar.codigo" />
+          <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="modLocal1Salvar.cdLocal1" />
         </div>
         <div class="ui-g-8 ui-fluid">
             <label>Empresa</label>
             <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-              [autoWidth]="false" [(ngModel)]="modLocal1Salvar.cadEmpresa.codigo" required></p-dropdown>
+              [autoWidth]="false" [(ngModel)]="modLocal1Salvar.cdEmpresa.cdEmpresa" required></p-dropdown>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Unidade de Avaliação: </label>
@@ -55,12 +55,11 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-modlocal1>
                   <tr>
-                    <th>{{modlocal1.codigo}}</th>
+                    <th>{{modlocal1.cdLocal1}}</th>
                     <th style="text-align: left">{{modlocal1.nmlocal1}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/modlocal1', modlocal1.codigo]" ></a>
-                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Unidade de Avaliação" tooltipPosition="top" (click)="confirmarExclusao(modlocal1)"></button>
-                    </th>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/modlocal1', modlocal1.cdLocal1]" ></a>
+                        <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="confirmarExclusao(modlocal1)"></button>
                   </tr>
                 </ng-template>
               </p-table>
