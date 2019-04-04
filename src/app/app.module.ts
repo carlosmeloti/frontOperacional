@@ -1,3 +1,5 @@
+import { NiveishierarquicosService } from './niveishierarquicos/niveishierarquicos.service';
+import { UnidadelocalsublocalService } from './unidadelocalsublocal/unidadelocalsublocal.service';
 import { CadtipodeverificadorService } from './cadtipodeverificador/cadtipodeverificador.service';
 import { CadmaterialService } from './cadmaterial/cadmaterial.service';
 import { CadtipodemetodoService } from './cadtipodemetodo/cadtipodemetodo.service';
@@ -28,6 +30,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {DropdownModule} from 'primeng/dropdown';
 import {TabViewModule} from 'primeng/tabview';
 import {TreeModule} from 'primeng/tree';
+
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 
@@ -45,14 +48,9 @@ import { CadtipodemetodoComponent } from './cadtipodemetodo/cadtipodemetodo.comp
 import { CadmaterialComponent } from './cadmaterial/cadmaterial.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { VerificadorMComponent } from './verificador-m/verificador-m.component';
-import { ArvorelocaisComponent } from './arvorelocais/arvorelocais.component';
 import { NodeService } from 'src/service/nodeservice';
 import { UnidadelocalsublocalComponent } from './unidadelocalsublocal/unidadelocalsublocal.component';
 import { NiveishierarquicosComponent } from './niveishierarquicos/niveishierarquicos.component';
-import { ModmonitoramentoComponent } from './modmonitoramento/modmonitoramento.component';
-import { AppmonitoramentoComponent } from './appmonitoramento/appmonitoramento.component';
-import { AppmonitoramentoverificadorComponent } from './appmonitoramentoverificador/appmonitoramentoverificador.component';
-import { AppavaliacaoComponent } from './appavaliacao/appavaliacao.component';
 import { CadniveldeavaliacaoService } from './cadniveldeavaliacao/cadniveldeavaliacao.service';
 import { ErrorHandlerService } from './core/error-handler.service';
 import { VerificadorMService } from './verificador-m/verificador-m.service';
@@ -89,14 +87,13 @@ const routes: Routes = [
   { path: 'verificador_m/associar/:codigo', component:VerificadorMAssociarComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
   { path: 'niveishierarquicos', component:NiveishierarquicosComponent},
-  { path: 'modmonitoramento', component:ModmonitoramentoComponent},
-  { path: 'appmonitoramento', component:AppmonitoramentoComponent},
-  { path: 'appmonitoramentoverificador', component:AppmonitoramentoverificadorComponent},
-  { path: 'appavaliacao', component:AppavaliacaoComponent},
+  { path: 'niveishierarquicos/:codigo', component:NiveishierarquicosComponent},
   { path: 'modlocal1', component:Modlocal1Component},
   { path: 'modlocal1/:codigo', component:Modlocal1Component},
   { path: 'modlocal2', component:Modlocal2Component},
   { path: 'modlocal2/:codigo', component:Modlocal2EditandoComponent},
+  { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
+  { path: 'unidadelocalsublocal/:codigo', component:UnidadelocalsublocalComponent},
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
 
@@ -114,13 +111,8 @@ const routes: Routes = [
     CadmaterialComponent,
     InicioComponent,
     VerificadorMComponent,
-    ArvorelocaisComponent,
     UnidadelocalsublocalComponent,
     NiveishierarquicosComponent,
-    ModmonitoramentoComponent,
-    AppmonitoramentoComponent,
-    AppmonitoramentoverificadorComponent,
-    AppavaliacaoComponent,
     VerificadorMEditandoComponent,
     VerificadorMAssociarComponent,
     Modlocal1Component,
@@ -169,6 +161,8 @@ const routes: Routes = [
     VerificadorMAssociarService,
     Modlocal1Service,
     Modlocal2Service,
+    UnidadelocalsublocalService,
+    NiveishierarquicosService,
     ErrorHandlerService
 
   ],

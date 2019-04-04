@@ -66,11 +66,12 @@ export class Modlocal2Component implements OnInit {
   }
 
 
-  pesquisar(page = 0){
+
+  pesquisarFOD(page = 0){
 
     this.filtro.page = page;
 
-    this.modLocal2Service.pesquisar(this.filtro)
+    this.modLocal2Service.pesquisarFOD(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modlocal2 = resultado.modlocal2;
@@ -78,6 +79,113 @@ export class Modlocal2Component implements OnInit {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
+
+  pesquisarFOA(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarFOA(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarPEO(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarPEO(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarPATRANS(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarPATRANS(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarINFRA(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarINFRA(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarMON(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarMON(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarACAM(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarACAM(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarESCRI(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarESCRI(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarENTOR(page = 0){
+
+    this.filtro.page = page;
+
+    this.modLocal2Service.pesquisarENTOR(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modlocal2 = resultado.modlocal2;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+
+
 
 
   aoMudarPagina(event: LazyLoadEvent){
@@ -89,20 +197,20 @@ export class Modlocal2Component implements OnInit {
     this.confirmation.confirm( {
       message: 'Tem certeza que deseja excluir?',
       accept: () =>{
-        this.excluir(modlocal2);
+     this.excluir(modlocal2);
       }
     });
   }
 
-  excluir(modlocal2: any){
+ excluir(modlocal2: any){
 
-    this.modLocal1Service.excluir(modlocal2.codigo)
+    this.modLocal2Service.excluir(modlocal2.cdLocal2)
       .then(() => {
         if (this.grid.first === 0) {
-          this.pesquisar();
+          //this.pesquisar();
         } else {
           this.grid.first = 0;
-          this.pesquisar();
+         // this.pesquisar();
         }
         this.toasty.success('Local de Avaliação excluída com sucesso!');
       })
@@ -128,7 +236,7 @@ export class Modlocal2Component implements OnInit {
             this.toasty.success("Local de Avaliação cadastrada com sucesso!");
             form.reset();
             this.modLocal2Salvar = new Modlocal2();
-            this.pesquisar();
+            //this.pesquisar();
           })
           .catch(erro => this.errorHandler.handle(erro));
       }
@@ -138,7 +246,7 @@ export class Modlocal2Component implements OnInit {
       carregarUnidadeDeAvaliacao() {
         return this.modLocal1Service.listarTodas()
           .then(modlocal1 => {
-            this.modlocal1 = modlocal1.map(c => ({ label: c.nmlocal1, value: c.cdLocal1 }));
+            this.modlocal1 = modlocal1.map(c => ({ label: c.cdLocal1 + " - " + c.nmlocal1, value: c.cdLocal1 }));
           })
           .catch(erro => this.errorHandler.handle(erro));
     }

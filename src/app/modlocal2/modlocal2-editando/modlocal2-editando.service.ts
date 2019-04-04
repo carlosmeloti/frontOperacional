@@ -7,7 +7,7 @@ import { Http, Headers } from '@angular/http';
   providedIn: 'root'
 })
 export class Modlocal2EditandoService {
-  modlocal2URL = 'http://10.132.90.58:8080/sublocaldeavaliacao';
+  modlocal2URL = 'http://10.132.90.58:8080/localdeavaliacao';
 
 
   constructor(private http: Http) { }
@@ -22,7 +22,7 @@ export class Modlocal2EditandoService {
 
 
 
-    return this.http.get(`${this.modlocal2URL}?cdLocal1=${filtro.nmlocal1}`, {  headers })
+    return this.http.get(`${this.modlocal2URL}?cdLocal1=${filtro.cdLocal1}`, {  headers })
     .toPromise()
       .then(response => {
 

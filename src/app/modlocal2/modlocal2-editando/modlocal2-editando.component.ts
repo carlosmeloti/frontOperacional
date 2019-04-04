@@ -69,7 +69,7 @@ export class Modlocal2EditandoComponent implements OnInit {
 
     this.filtro.page = page;
 
-    this.modLocal2Service.pesquisar(this.filtro)
+    this.modLocal2Service.pesquisarFOD(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modlocal2 = resultado.modlocal2;

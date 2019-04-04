@@ -11,28 +11,8 @@ import { NodeService } from 'src/service/nodeservice';
 
 
 
-export class ArvorelocaisComponent implements OnInit {
+export class ArvorelocaisComponent {
 
-    files: TreeNode[];
-
-    selectedFiles: TreeNode[];
-    messageService: any;
-
-    constructor(private nodeService: NodeService) {}
-
-    ngOnInit() {
-        this.nodeService.getFiles().then(files => this.files = files);
-    }
-
-
-
-    nodeSelect(event) {
-      this.messageService.add({severity: 'info', summary: 'Node Selected', detail: event.node.label});
-  }
-
-    nodeUnselect(event) {
-        this.messageService.add({severity: 'info', summary: 'Node Unselected', detail: event.node.label});
-    }
 }
 
 
