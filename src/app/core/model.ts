@@ -61,7 +61,6 @@ export class Verificador_m {
   nmverificador: string;
   limiar: string;
   p01_graco: number;
-
 }
 
 export class Modlocal1 {
@@ -75,7 +74,6 @@ export class Modlocal2 {
   cdEmpresa = new Cadempresa();
   cdLocal1 = new Modlocal1();
   nmLocal2: string;
-
 }
 export class Modlocal3 {
   cdLocal3: number;
@@ -83,7 +81,19 @@ export class Modlocal3 {
   cdLocal1 = new Modlocal1();
   cdLocal2 = new Modlocal2();
   nmLocal3: string;
+}
 
+export class ModNivel1{
+  cdNivel1: number;
+  cdEmpresa = new Cadempresa();
+  nmNivel1: string;
+}
+
+export class ModNivel2{
+  cdNivel2: number;
+  cdNivel1 = new ModNivel1();
+  cdEmpresa = new Cadempresa();
+  nmNivel2: string;
 }
 
 

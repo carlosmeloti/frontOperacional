@@ -1,4 +1,5 @@
-import { NiveishierarquicosService } from './niveishierarquicos/niveishierarquicos.service';
+import { Modnivel1Service } from './modnivel1/modnivel1.service';
+
 import { UnidadelocalsublocalService } from './unidadelocalsublocal/unidadelocalsublocal.service';
 import { CadtipodeverificadorService } from './cadtipodeverificador/cadtipodeverificador.service';
 import { CadmaterialService } from './cadmaterial/cadmaterial.service';
@@ -31,6 +32,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import {TabViewModule} from 'primeng/tabview';
 import {TreeModule} from 'primeng/tree';
 
+import {DialogModule} from 'primeng/dialog';
+
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 
@@ -50,7 +53,6 @@ import { InicioComponent } from './inicio/inicio.component';
 import { VerificadorMComponent } from './verificador-m/verificador-m.component';
 import { NodeService } from 'src/service/nodeservice';
 import { UnidadelocalsublocalComponent } from './unidadelocalsublocal/unidadelocalsublocal.component';
-import { NiveishierarquicosComponent } from './niveishierarquicos/niveishierarquicos.component';
 import { CadniveldeavaliacaoService } from './cadniveldeavaliacao/cadniveldeavaliacao.service';
 import { ErrorHandlerService } from './core/error-handler.service';
 import { VerificadorMService } from './verificador-m/verificador-m.service';
@@ -64,6 +66,11 @@ import { Modlocal1Service } from './modlocal1/modlocal1.service';
 import { Modlocal2Component } from './modlocal2/modlocal2.component';
 import { Modlocal2Service } from './modlocal2/modlocal2.service';
 import { Modlocal2EditandoComponent } from './modlocal2/modlocal2-editando/modlocal2-editando.component';
+import { from } from 'rxjs';
+import { Modnivel1Component } from './modnivel1/modnivel1.component';
+import { Modnivel2Component } from './modnivel2/modnivel2.component';
+import { Modnivel3Component } from './modnivel3/modnivel3.component';
+
 
 
 const routes: Routes = [
@@ -86,14 +93,15 @@ const routes: Routes = [
   { path: 'verificador_m/:codigo', component:VerificadorMEditandoComponent},
   { path: 'verificador_m/associar/:codigo', component:VerificadorMAssociarComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
-  { path: 'niveishierarquicos', component:NiveishierarquicosComponent},
-  { path: 'niveishierarquicos/:codigo', component:NiveishierarquicosComponent},
   { path: 'modlocal1', component:Modlocal1Component},
   { path: 'modlocal1/:codigo', component:Modlocal1Component},
   { path: 'modlocal2', component:Modlocal2Component},
   { path: 'modlocal2/:codigo', component:Modlocal2EditandoComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
   { path: 'unidadelocalsublocal/:codigo', component:UnidadelocalsublocalComponent},
+  { path: 'modnivel1', component:Modnivel1Component},
+  { path: 'modnivel1/:codigo', component:Modnivel1Component},
+
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
 
@@ -112,12 +120,15 @@ const routes: Routes = [
     InicioComponent,
     VerificadorMComponent,
     UnidadelocalsublocalComponent,
-    NiveishierarquicosComponent,
     VerificadorMEditandoComponent,
     VerificadorMAssociarComponent,
     Modlocal1Component,
     Modlocal2Component,
-    Modlocal2EditandoComponent
+    Modlocal2EditandoComponent,
+    Modnivel1Component,
+    Modnivel2Component,
+    Modnivel3Component,
+
 
   ],
   imports: [
@@ -162,7 +173,7 @@ const routes: Routes = [
     Modlocal1Service,
     Modlocal2Service,
     UnidadelocalsublocalService,
-    NiveishierarquicosService,
+    Modnivel1Service,
     ErrorHandlerService
 
   ],
