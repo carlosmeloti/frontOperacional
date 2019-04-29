@@ -96,6 +96,23 @@ export class ModNivel2{
   nmNivel2: string;
 }
 
+export class ModNivel3{
+  cdNivel3: number;
+  cdNivel1 = new ModNivel1();
+  cdNivel2 = new ModNivel2();
+  cdEmpresa = new Cadempresa();
+  nmNivel3: string;
+}
+
+export class ModNivel4{
+  cdNivel4: number;
+  cdNivel1 = new ModNivel1();
+  cdNivel2 = new ModNivel2();
+  cdNivel3 = new ModNivel3();
+  cdEmpresa = new Cadempresa();
+  nmNivel4: string;
+}
+
 
 
 

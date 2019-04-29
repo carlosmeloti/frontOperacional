@@ -73,7 +73,7 @@ export class MenuComponent implements OnInit {
               },
               {
                 label: 'Nível Hierárquivo ( Assunto, etapa, Item e subitem)',
-                routerLink: '/niveishierarquicos'
+                routerLink: '/modnivel4'
               },
               {separator: true},
               {

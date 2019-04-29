@@ -70,6 +70,10 @@ import { from } from 'rxjs';
 import { Modnivel1Component } from './modnivel1/modnivel1.component';
 import { Modnivel2Component } from './modnivel2/modnivel2.component';
 import { Modnivel3Component } from './modnivel3/modnivel3.component';
+import { Modnivel2Service } from './modnivel2/modnivel2.service';
+import { Modnivel3Service } from './modnivel3/modnivel3.service';
+import { Modnivel4Component } from './modnivel4/modnivel4.component';
+import { Modnivel4Service } from './modnivel4/modnivel4.service';
 
 
 
@@ -101,6 +105,12 @@ const routes: Routes = [
   { path: 'unidadelocalsublocal/:codigo', component:UnidadelocalsublocalComponent},
   { path: 'modnivel1', component:Modnivel1Component},
   { path: 'modnivel1/:codigo', component:Modnivel1Component},
+  { path: 'modnivel2', component:Modnivel2Component},
+  { path: 'modnivel2/:codigo', component:Modnivel2Component},
+  { path: 'modnivel3', component:Modnivel3Component},
+  { path: 'modnivel3/:codigo', component:Modnivel3Component},
+  { path: 'modnivel4', component:Modnivel4Component},
+  { path: 'modnivel4/:codigo', component:Modnivel4Component},
 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
@@ -128,6 +138,7 @@ const routes: Routes = [
     Modnivel1Component,
     Modnivel2Component,
     Modnivel3Component,
+    Modnivel4Component,
 
 
   ],
@@ -174,6 +185,9 @@ const routes: Routes = [
     Modlocal2Service,
     UnidadelocalsublocalService,
     Modnivel1Service,
+    Modnivel2Service,
+    Modnivel3Service,
+    Modnivel4Service,
     ErrorHandlerService
 
   ],
