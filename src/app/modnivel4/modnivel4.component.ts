@@ -32,6 +32,9 @@ export class Modnivel4Component implements OnInit {
   modnivel1=[];
   modnivel2=[];
   modnivel3=[];
+  modnivel3PreExplo=[];
+  modnivel3Explo=[];
+  modnivel3PosExplo=[];
   modnivel4=[];
 
   constructor(
@@ -49,6 +52,9 @@ export class Modnivel4Component implements OnInit {
     this.carregarModNivel1();
     this.carregarModNivel2();
     this.carregarModNivel3();
+    this.carregarModNivel3PreExplo();
+    this.carregarModNivel3Explo();
+    this.carregarModNivel3PosExplo();
     //console.log(this.route.snapshot.params['codigo']);
 
     const codigoModnivel4 = this.route.snapshot.params['codigo'];
@@ -71,6 +77,175 @@ export class Modnivel4Component implements OnInit {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
+
+  pesquisarMacrozoneamento(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarMacrozoneamento(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarDelimitacaoIdenti(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarDelimitacaoIdenti(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+  pesquisarInventarioFlorestal(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarInventarioFlorestal(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarCorteDeCipos(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarCorteDeCipos(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarInstalacaoInfra(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarInstalacaoInfra(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarDerruba(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarDerruba(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarArraste(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarArraste(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarOperacaoDePatio(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarOperacaoDePatio(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarTransporte(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarTransporte(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarSilviculturaPosExplo(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarSilviculturaPosExplo(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarProtecaoFlorestal(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarProtecaoFlorestal(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarSegurancaNoTrabalho(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarSegurancaNoTrabalho(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+  pesquisarInfraEstruturaAcampamento(page = 0){
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarInfraEstruturaAcampamento(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+
 
   pesquisarModNivel31(page = 0){
 
@@ -205,5 +380,29 @@ export class Modnivel4Component implements OnInit {
           })
           .catch(erro => this.errorHandler.handle(erro));
     }
+
+    carregarModNivel3PreExplo() {
+      return this.modNivel3Service.listarTodasPreExplo()
+        .then(modnivel3 => {
+          this.modnivel3PreExplo = modnivel3.map(c => ({ label: c.cdNivel3 + " - " + c.nmNivel3, value: c.cdNivel3 }));
+        })
+        .catch(erro => this.errorHandler.handle(erro));
+  }
+  carregarModNivel3Explo() {
+    return this.modNivel3Service.listarTodasExplo()
+      .then(modnivel3 => {
+        this.modnivel3Explo = modnivel3.map(c => ({ label: c.cdNivel3 + " - " + c.nmNivel3, value: c.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+    }
+    carregarModNivel3PosExplo() {
+      return this.modNivel3Service.listarTodasPosExplo()
+        .then(modnivel3 => {
+          this.modnivel3PosExplo = modnivel3.map(c => ({ label: c.cdNivel3 + " - " + c.nmNivel3, value: c.cdNivel3 }));
+        })
+        .catch(erro => this.errorHandler.handle(erro));
+    }
+
+
 
 }

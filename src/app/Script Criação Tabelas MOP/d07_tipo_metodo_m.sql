@@ -1,6 +1,6 @@
 ﻿CREATE TABLE d07_tipo_metodo_m(
 	d07_cdtipometodo BIGSERIAL,
-	d07_cdempresa INTEGER,
+	d07_cdempresa BIGINT,
 	d07_nmtipometodo VARCHAR(200),
 
 PRIMARY KEY (d07_cdtipometodo),

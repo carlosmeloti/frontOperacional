@@ -12,7 +12,7 @@ export class CadverificadorFiltro{
 @Injectable()
 export class VerificadorMAssociarService  {
 
-    verificadormURL = 'http://10.132.90.58:8080/verificador_m';
+    verificadormURL = 'http://10.132.90.58localhost:8091/verificador_m';
 
 
 

@@ -113,6 +113,12 @@ export class ModNivel4{
   nmNivel4: string;
 }
 
+export class ModMonitoramentoTemplate{
+   cdTemplate: number;
+   mmTemplate: string;
+   cdTipoDeVerificador = new Cadtipodeverificador();
+}
+
 
 
 

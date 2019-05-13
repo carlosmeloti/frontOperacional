@@ -10,7 +10,7 @@ export class CadverificadorFiltro{
 @Injectable()
 export class VerificadorMService {
 
-  verificadormURL = 'http://10.132.90.58:8080/verificador_m';
+  verificadormURL = 'http://localhost:8091/verificador_m';
 
 
 
@@ -84,11 +84,11 @@ export class VerificadorMService {
 
 
 
-            buscarPorCodigo(id: number): Promise<Verificador_m> {
+            buscarPorCodigo(codigo: number): Promise<Verificador_m> {
               const headers = new Headers();
               headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-              return this.http.get(`${this.verificadormURL}/${id}`, { headers })
+              return this.http.get(`${this.verificadormURL}/${codigo}`, { headers })
                 .toPromise()
                 .then(response => {
                   const cadverificadorm = response.json() as Verificador_m;

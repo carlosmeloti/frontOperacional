@@ -77,8 +77,16 @@ export class MenuComponent implements OnInit {
               },
               {separator: true},
               {
-                label: 'Modelo de Monitoramento',
-                routerLink: '/modmonitoramento'
+                label: 'Template Monitoramento',
+                items: [{
+                  label: 'Modelo de Monitoramento',
+                  routerLink: '/modmonitoramentotemplate'
+                },
+                {
+                  label: 'Verificadores do Modelo',
+                  routerLink: '/modverificadoresdomodelo'
+                }]
+
               }
           ]
       },

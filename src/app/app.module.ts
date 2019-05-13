@@ -1,3 +1,4 @@
+import { ModmonitoramentoComponent } from './modmonitoramento/modmonitoramento.component';
 import { Modnivel1Service } from './modnivel1/modnivel1.service';
 
 import { UnidadelocalsublocalService } from './unidadelocalsublocal/unidadelocalsublocal.service';
@@ -74,6 +75,10 @@ import { Modnivel2Service } from './modnivel2/modnivel2.service';
 import { Modnivel3Service } from './modnivel3/modnivel3.service';
 import { Modnivel4Component } from './modnivel4/modnivel4.component';
 import { Modnivel4Service } from './modnivel4/modnivel4.service';
+import { ModmonitoramentotemplateComponent } from './modmonitoramentotemplate/modmonitoramentotemplate.component';
+import { ModmonitoramentotemplateService } from './modmonitoramentotemplate/modmonitoramentotemplate.service';
+import { ModmonitoramentoService } from './modmonitoramento/modmonitoramento.service';
+import { ModverificadoresdomodeloComponent } from './modverificadoresdomodelo/modverificadoresdomodelo.component';
 
 
 
@@ -111,6 +116,8 @@ const routes: Routes = [
   { path: 'modnivel3/:codigo', component:Modnivel3Component},
   { path: 'modnivel4', component:Modnivel4Component},
   { path: 'modnivel4/:codigo', component:Modnivel4Component},
+  { path: 'modmonitoramentotemplate', component:ModmonitoramentotemplateComponent},
+  { path: 'modmonitoramentotemplate/:codigo', component:ModmonitoramentotemplateComponent},
 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
@@ -139,6 +146,9 @@ const routes: Routes = [
     Modnivel2Component,
     Modnivel3Component,
     Modnivel4Component,
+    ModmonitoramentotemplateComponent,
+    ModverificadoresdomodeloComponent,
+
 
 
   ],
@@ -188,6 +198,7 @@ const routes: Routes = [
     Modnivel2Service,
     Modnivel3Service,
     Modnivel4Service,
+    ModmonitoramentotemplateService,
     ErrorHandlerService
 
   ],

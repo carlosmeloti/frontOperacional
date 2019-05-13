@@ -18,10 +18,12 @@ export class Modnivel3Filtro{
 @Injectable()
 export class Modnivel3Service {
 
-  modnivel3URL = 'http://10.132.90.58:8080/modnivel3';
+  modnivel3URL = 'http://localhost:8091/modnivel3';
 
 
   constructor(private http: Http) { }
+
+
 
   pesquisarNivel31(filtro: Modnivel3Filtro): Promise<any> {
 
@@ -148,6 +150,35 @@ export class Modnivel3Service {
          .toPromise()
          .then(response => response.json().content);
    }
+
+   listarTodasPreExplo(): Promise<any> {
+    const headers = new Headers;
+     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+     headers.append('Content-Type', 'application/json');
+
+     return this.http.get(`${this.modnivel3URL}?cdNivel2=1`, { headers })
+       .toPromise()
+       .then(response => response.json().content);
+ }
+
+    listarTodasExplo(): Promise<any> {
+      const headers = new Headers;
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+      headers.append('Content-Type', 'application/json');
+
+      return this.http.get(`${this.modnivel3URL}?cdNivel2=2`, { headers })
+        .toPromise()
+        .then(response => response.json().content);
+    }
+    listarTodasPosExplo(): Promise<any> {
+      const headers = new Headers;
+      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+      headers.append('Content-Type', 'application/json');
+
+      return this.http.get(`${this.modnivel3URL}?cdNivel2=3`, { headers })
+        .toPromise()
+        .then(response => response.json().content);
+    }
 
    atualizar(modnivel3: ModNivel3): Promise<ModNivel3>{
      const headers = new Headers;

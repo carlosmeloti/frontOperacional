@@ -94,8 +94,8 @@ export class VerificadorMComponent implements OnInit  {
 }
 
 //Metodo para carregar valores
-carregarVerificadorM(id: number){
-  this.verificadorMService.buscarPorCodigo(id)
+carregarVerificadorM(codigo: number){
+  this.verificadorMService.buscarPorCodigo(codigo)
     .then(verificador => {
       this.verificadorMSalvar = verificador;
     })

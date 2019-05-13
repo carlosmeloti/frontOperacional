@@ -13,7 +13,7 @@ export class CadtipodeverificadorFiltro{
 @Injectable()
 export class CadtipodeverificadorService {
 
-  cadtipodeverificadorURL = 'http://10.132.90.58:8080/cadtipodeverificador';
+  cadtipodeverificadorURL = 'http://localhost:8091/cadtipodeverificador';
 
 
   constructor(private http: Http) { }
