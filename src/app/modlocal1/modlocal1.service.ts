@@ -13,7 +13,7 @@ export class Modlocal1Filtro{
 @Injectable()
 export class Modlocal1Service {
 
-  modlocal1URL = 'http://localhost:8091/unidadedeavaliacao';
+  modlocal1URL = 'http://localhost:8086/unidadedeavaliacao';
 
 
   constructor(private http: Http) { }
@@ -30,7 +30,7 @@ export class Modlocal1Service {
 
   }
 
-    return this.http.get(`${this.modlocal1URL}?resumo`, {  headers, search: filtro })
+    return this.http.get(`${this.modlocal1URL}`, {  headers, search: filtro })
     .toPromise()
       .then(response => {
 
@@ -79,7 +79,7 @@ export class Modlocal1Service {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.modlocal1URL}/${modlocal1.cdLocal1}`,
+     return this.http.put(`${this.modlocal1URL}/${modlocal1.pkLocal1.cdLocal1}/${modlocal1.pkLocal1.cdEmpresa.cdEmpresa}`,
          JSON.stringify(modlocal1), { headers })
        .toPromise()
        .then(response => {
@@ -90,11 +90,11 @@ export class Modlocal1Service {
        });
  }
 
-   buscarPorCodigo(codigo: number): Promise<Modlocal1> {
+   buscarPorCodigo(codigo: number, cdempresa: number): Promise<Modlocal1> {
      const headers = new Headers();
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-     return this.http.get(`${this.modlocal1URL}/${codigo}`, { headers })
+     return this.http.get(`${this.modlocal1URL}/${codigo}/${cdempresa}`, { headers })
        .toPromise()
        .then(response => {
          const modlocal1 = response.json() as Modlocal1;

@@ -33,4 +33,4 @@ INSERT INTO d04_local2_m ( d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmloca
 INSERT INTO d04_local2_m ( d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2)   VALUES ('1','8','1','Geral');
 INSERT INTO d04_local2_m ( d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2)   VALUES ('1','8','2','PMFS/POA');
 INSERT INTO d04_local2_m ( d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2)   VALUES ('1','9','0','Em todos os locais');
-INSERT INTO d04_local2_m ( d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2)   VALUES ('1','9','1','Geral');
+INSERT INTO d04_local2_m ( d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES ('1','9','1','Geral');

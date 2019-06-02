@@ -11,7 +11,7 @@ export class ModmonitoramentotemplateFiltro{
 @Injectable()
 export class ModmonitoramentotemplateService {
 
-  modmonitoramentotemplateurl = 'http://localhost:8091/modmonitoramentotemplate';
+  modmonitoramentotemplateurl = 'http://localhost:8086/modmonitoramentotemplate';
 
   constructor(private http: Http){}
 

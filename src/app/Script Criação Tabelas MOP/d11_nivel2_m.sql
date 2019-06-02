@@ -1,6 +1,6 @@
 ﻿CREATE TABLE d11_nivel2_m(
-	d11_cdempresa INTEGER,
-	d11_cdnivel1 INTEGER,
+	d11_cdempresa BIGINT,
+	d11_cdnivel1 BIGINT,
 	d11_cdnivel2 BIGSERIAL,
 	d11_nmnivel2 VARCHAR(200),
 

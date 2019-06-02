@@ -17,7 +17,7 @@ export class Modlocal3Filtro{
 @Injectable()
 export class UnidadelocalsublocalService {
 
-  modLocal3URL = 'http://localhost:8091/sublocaldeavaliacao';
+  modLocal3URL = 'http://localhost:8086/sublocaldeavaliacao';
 
 
 

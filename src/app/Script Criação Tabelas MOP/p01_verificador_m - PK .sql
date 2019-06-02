@@ -6,7 +6,7 @@
 	p01_cdnivelavaliacao INTEGER,	
 	p01_nmverificador VARCHAR(1000),
 	p01_limiar VARCHAR(1000),
-	p01_graco DOUBLE(5,2),
+	p01_graco NUMERIC(5,2),
 
 CONSTRAINT pk_p01_verificador_m PRIMARY KEY(p01_cdempresa, p01_cdverificador, p01_cdtipoverificador),
 

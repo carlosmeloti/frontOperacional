@@ -1,5 +1,4 @@
 ﻿CREATE TABLE p01_verificador_m (
-	p01_id_Verificador_m BIGSERIAL,
 	p01_cdempresa BIGINT,
 	p01_cdverificador BIGINT,
 	p01_cdtipoverificador BIGINT,
@@ -7,9 +6,9 @@
 	p01_cdnivelavaliacao INTEGER,	
 	p01_nmverificador VARCHAR(1000),
 	p01_limiar VARCHAR(1000),
-	p01_graco NUMERIC(5,2),
+	p01_graco DOUBLE(5,2),
 
-PRIMARY KEY(p01_id_Verificador_m),
+CONSTRAINT pk_p01_verificador_m PRIMARY KEY(p01_cdempresa, p01_cdverificador, p01_cdtipoverificador),
 
 CONSTRAINT empresa_fk FOREIGN KEY (p01_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
 CONSTRAINT tipoverificador_fk FOREIGN KEY (p01_cdtipoverificador) REFERENCES d02_tipo_verificador(d02_cdtipoverificador),
@@ -1696,4 +1695,4 @@ INSERT INTO p01_verificador_m (p01_cdempresa, p01_cdverificador, p01_cdtipoverif
 INSERT INTO p01_verificador_m (p01_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco)     VALUES('1','691','5','V691','1','O final de cada ramal de arraste é marcado com sinalização especial, indicando ao operador da máquina onde parar.','.','100.0000');
 INSERT INTO p01_verificador_m (p01_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco)     VALUES('1','692','5','V692','1','As árvores caídas situadas nas trilhas de arraste são traçadas para facilitar o deslocamento do trator.','.','100.0000');
 INSERT INTO p01_verificador_m (p01_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco)     VALUES('1','693','5','V693','1','Nenhuma trilha de arraste é localizada em áreas de preservação permanente','.','100.0000');
-INSERT INTO p01_verificador_m (p01_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco)     VALUES('1','694','5','V694','1','A qualidade d’água para beber para os trabalhadores e atores locais é adequada.','.','100.0000');
+INSERT INTO p01_verificador_m (p01_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco) VALUES('1','694','5','V694','1','A qualidade d’água para beber para os trabalhadores e atores locais é adequada.','.','100.0000');

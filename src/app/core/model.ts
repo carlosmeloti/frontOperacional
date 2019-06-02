@@ -64,17 +64,27 @@ export class Verificador_m {
 }
 
 export class Modlocal1 {
-  cdLocal1: number;
-  cdEmpresa = new Cadempresa();
+  pkLocal1 = new Modlocal1_PK();
   nmlocal1: string;
 }
 
-export class Modlocal2 {
-  cdLocal2: number;
+export class Modlocal1_PK {
+  cdLocal1: number;
   cdEmpresa = new Cadempresa();
-  cdLocal1 = new Modlocal1();
+}
+
+export class Modlocal2 {
+  pkLocal2 = new Modlocal2_PK();
   nmLocal2: string;
 }
+
+export class Modlocal2_PK {
+  cdLocal2: number;
+  cdEmpresa = new Modlocal1_PK();
+  cdLocal1 = new Modlocal1_PK();
+}
+
+
 export class Modlocal3 {
   cdLocal3: number;
   cdEmpresa = new Cadempresa();

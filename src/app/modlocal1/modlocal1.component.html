@@ -12,7 +12,7 @@
         <div class="ui-g-8 ui-fluid">
             <label>Empresa</label>
             <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-              [autoWidth]="false" [(ngModel)]="modLocal1Salvar.cdEmpresa.cdEmpresa" required></p-dropdown>
+              [autoWidth]="false" [(ngModel)]="modLocal1Salvar.pkLocal1.cdEmpresa.cdEmpresa" required></p-dropdown>
         </div>
         <div class="ui-g-12 ui-fluid">
           <label style="display: block">Unidade de Avaliação: </label>
@@ -49,16 +49,18 @@
                 <ng-template pTemplate="header">
                   <tr>
                     <th style="width: 70px">Codigo</th>
+                   <th style="width: 70px">Codigo Empresa</th>
                     <th>Unidade de Avaliação</th>
                     <th style=" width: 140px"></th>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-modlocal1>
                   <tr>
-                    <th>{{modlocal1.cdLocal1}}</th>
+                    <th>{{modlocal1.pkLocal1.cdLocal1}}</th>
+                    <th>{{modlocal1.pkLocal1.cdEmpresa.cdEmpresa}}</th>
                     <th style="text-align: left">{{modlocal1.nmlocal1}}</th>
                     <th>
-                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/modlocal1', modlocal1.cdLocal1]" ></a>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" ></a>
                         <button pButton icon="pi pi-trash" style="margin-left: 10px" pTooltip="Excluir Empresa" tooltipPosition="top" (click)="confirmarExclusao(modlocal1)"></button>
                   </tr>
                 </ng-template>

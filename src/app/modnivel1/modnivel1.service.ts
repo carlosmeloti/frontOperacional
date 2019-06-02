@@ -11,7 +11,7 @@ export class ModNivel1Filtro{
 @Injectable()
 export class Modnivel1Service {
 
-  modnivel1url = 'http://localhost:8091/modnivel1';
+  modnivel1url = 'http://localhost:8086/modnivel1';
 
   constructor(private http: Http){}
 

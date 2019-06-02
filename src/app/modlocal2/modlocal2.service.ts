@@ -15,7 +15,7 @@ export class Modlocal2Filtro{
 
 @Injectable()
 export class Modlocal2Service {
-  modlocal2URL = 'http://localhost:8091/localdeavaliacao';
+  modlocal2URL = 'http://localhost:8086/localdeavaliacao';
 
 
   constructor(private http: Http) { }

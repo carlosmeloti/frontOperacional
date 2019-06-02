@@ -7,7 +7,7 @@ import { Http, Headers } from '@angular/http';
   providedIn: 'root'
 })
 export class Modlocal2EditandoService {
-  modlocal2URL = 'http://localhost:8091/localdeavaliacao';
+  modlocal2URL = 'http://localhost:8086/localdeavaliacao';
 
 
   constructor(private http: Http) { }

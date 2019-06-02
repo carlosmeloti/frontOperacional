@@ -116,4 +116,4 @@ INSERT INTO d05_local3_m ( d05_cdempresa, d05_cdlocal1, d05_cdlocal2, d05_cdloca
 INSERT INTO d05_local3_m ( d05_cdempresa, d05_cdlocal1, d05_cdlocal2, d05_cdlocal3, d05_nmlocal3)   VALUES ('1','9','1','5','Saúde pública');
 INSERT INTO d05_local3_m ( d05_cdempresa, d05_cdlocal1, d05_cdlocal2, d05_cdlocal3, d05_nmlocal3)   VALUES ('1','9','1','6','Economia');
 INSERT INTO d05_local3_m ( d05_cdempresa, d05_cdlocal1, d05_cdlocal2, d05_cdlocal3, d05_nmlocal3)   VALUES ('1','9','1','7','Empresas locais');
-INSERT INTO d05_local3_m ( d05_cdempresa, d05_cdlocal1, d05_cdlocal2, d05_cdlocal3, d05_nmlocal3)   VALUES ('1','9','1','8','Ecologia regional');
+INSERT INTO d05_local3_m ( d05_cdempresa, d05_cdlocal1, d05_cdlocal2, d05_cdlocal3, d05_nmlocal3) VALUES ('1','9','1','8','Ecologia regional');

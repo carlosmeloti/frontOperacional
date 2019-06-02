@@ -12,7 +12,7 @@ export class CadniveldeavaliacaoFiltro {
 @Injectable()
 export class CadniveldeavaliacaoService {
 
-  cadniveldeavaliacaourl = "http://localhost:8091/cadniveldeavaliacao";
+  cadniveldeavaliacaourl = "http://localhost:8086/cadniveldeavaliacao";
   constructor(private http : Http) { }
 
   pesquisar(filtro: CadniveldeavaliacaoFiltro): Promise<any> {
