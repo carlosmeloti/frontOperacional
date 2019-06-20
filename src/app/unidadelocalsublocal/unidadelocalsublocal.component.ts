@@ -88,7 +88,7 @@ ngOnInit(){
 }
 
 get editando(){
-  return Boolean(this.modLocal3Salvar.cdLocal3)
+  return Boolean(this.modLocal3Salvar.pkLocal3.cdLocal3)
 }
 
 //Metodo para carregar valores
@@ -100,6 +100,18 @@ carregarModlocal3(codigo: number){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
+pesquisarEmTodosOsLocais(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
 
 
 pesquisarPicadasInventario(page = 0){
@@ -128,12 +140,39 @@ pesquisarDerruba(page = 0){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
+pesquisarEmTodosOsLocais2(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais2(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
 
 pesquisarTrilhasDeArraste(page = 0){
 
   this.filtro.page = page;
 
   this.unidadelocalsublocalService.pesquisarTrilhasDeArraste(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
+
+pesquisarEmTodosOsLocais3(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais3(this.filtro)
     .then(resultado => {
       this.tatalRegistros = resultado.total;
       this.modlocal3 = resultado.modlocal3;
@@ -181,6 +220,19 @@ pesquisarSaidaPatio(page = 0){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
+pesquisarEmTodosOsLocais4(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais4(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
 pesquisarTodoPatioTransportado(page = 0){
 
   this.filtro.page = page;
@@ -194,11 +246,37 @@ pesquisarTodoPatioTransportado(page = 0){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
+pesquisarEmTodosOsLocais5(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais5(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
 pesquisareEstradasPrincipais(page = 0){
 
   this.filtro.page = page;
 
   this.unidadelocalsublocalService.pesquisareEstradasPrincipais(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
+pesquisarEmTodosOsLocais6(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais6(this.filtro)
     .then(resultado => {
       this.tatalRegistros = resultado.total;
       this.modlocal3 = resultado.modlocal3;
@@ -259,6 +337,19 @@ pesquisarGeral(page = 0){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
+pesquisarEmTodosOsLocais7(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais7(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
 pesquisarGeralAcam(page = 0){
 
   this.filtro.page = page;
@@ -277,6 +368,19 @@ pesquisarAlojamento(page = 0){
   this.filtro.page = page;
 
   this.unidadelocalsublocalService.pesquisarAlojamento(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
+pesquisarEmTodosOsLocais8(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais8(this.filtro)
     .then(resultado => {
       this.tatalRegistros = resultado.total;
       this.modlocal3 = resultado.modlocal3;
@@ -311,6 +415,19 @@ pesquisarPmfs(page = 0){
     .catch(erro => this.errorHandler.handle(erro));
 }
 
+pesquisarEmTodosOsLocais9(page = 0){
+
+  this.filtro.page = page;
+
+  this.unidadelocalsublocalService.pesquisarEmTodosOsLocais9(this.filtro)
+    .then(resultado => {
+      this.tatalRegistros = resultado.total;
+      this.modlocal3 = resultado.modlocal3;
+
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
 pesquisarGeralEntor(page = 0){
 
   this.filtro.page = page;
@@ -330,7 +447,7 @@ pesquisarGeralEntor(page = 0){
 carregarUnidadeDeAvaliacao() {
   return this.modLocal1Service.listarTodas()
     .then(modlocal1 => {
-      this.modlocal1 = modlocal1.map(c => ({ label: c.cdLocal1 + " - " + c.nmlocal1, value: c.cdLocal1 }));
+      this.modlocal1 = modlocal1.map(c => ({ label: c.pkLocal1.cdLocal1 + " - " + c.nmlocal1, value: c.pkLocal1.cdLocal1 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -341,7 +458,7 @@ carregarUnidadeDeAvaliacao() {
 carregarLocalDeAvaliacaoFOD() {
   return this.modLocal2Service.listarFOD()
     .then(modlocal2 => {
-      this.modlocalFOD = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalFOD = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -349,7 +466,7 @@ carregarLocalDeAvaliacaoFOD() {
 carregarLocalDeAvaliacaoFOA() {
   return this.modLocal2Service.listarFOA()
     .then(modlocal2 => {
-      this.modlocalFOA = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalFOA = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -357,7 +474,7 @@ carregarLocalDeAvaliacaoFOA() {
 carregarLocalDeAvaliacaoPEO() {
   return this.modLocal2Service.listarPEO()
     .then(modlocal2 => {
-      this.modlocalPEO = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalPEO = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -365,7 +482,7 @@ carregarLocalDeAvaliacaoPEO() {
 carregarLocalDeAvaliacaoPATRANS() {
   return this.modLocal2Service.listarPATRANS()
     .then(modlocal2 => {
-      this.modlocalPATRANS = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalPATRANS = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -373,7 +490,7 @@ carregarLocalDeAvaliacaoPATRANS() {
 carregarLocalDeAvaliacaoINFRA() {
   return this.modLocal2Service.listarINFRA()
     .then(modlocal2 => {
-      this.modlocalINFRA = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalINFRA = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -381,7 +498,7 @@ carregarLocalDeAvaliacaoINFRA() {
 carregarLocalDeAvaliacaoMON() {
   return this.modLocal2Service.listarMON()
     .then(modlocal2 => {
-      this.modlocalMON=[] = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalMON=[] = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -389,7 +506,7 @@ carregarLocalDeAvaliacaoMON() {
 carregarLocalDeAvaliacaoACAM() {
   return this.modLocal2Service.listarACAM()
     .then(modlocal2 => {
-      this.modlocalACAM = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalACAM = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -397,7 +514,7 @@ carregarLocalDeAvaliacaoACAM() {
 carregarLocalDeAvaliacaoESCRI() {
   return this.modLocal2Service.listarESCRI()
     .then(modlocal2 => {
-      this.modlocalESCRI = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalESCRI = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }
@@ -405,7 +522,7 @@ carregarLocalDeAvaliacaoESCRI() {
 carregarLocalDeAvaliacaoENTOR() {
   return this.modLocal2Service.listarENTOR()
     .then(modlocal2 => {
-      this.modlocalENTOR = modlocal2.map(c => ({ label: c.cdLocal2 + " - " + c.nmLocal2, value: c.cdLocal2 }));
+      this.modlocalENTOR = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }

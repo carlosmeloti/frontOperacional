@@ -13,12 +13,13 @@
         <div class="ui-g-8 ui-fluid">
           <label>Empresa</label>
           <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1" required></p-dropdown>
+            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.pkLocal2.cdEmpresa.cdEmpresa.cdEmpresa" required></p-dropdown>
       </div>
         <div class="ui-g-4 ui-fluid">
           <label>Unidade de Avaliação</label>
           <p-dropdown name="modlocal1" [options]="modlocal1" placeholder="Selecione"
-            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.pkLocal2.cdEmpresa.cdEmpresa.cdEmpresa" required></p-dropdown>
+            [autoWidth]="false" [(ngModel)]="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1"  required></p-dropdown>
+
       </div>
       <div class="ui-g-2 ui-fluid">
         <!-- [(ngModel)]="modLocal2Salvar.pkLocal2.cdLocal1" <br />
@@ -35,7 +36,7 @@
         <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 7" type="button" pButton label="Buscar Local" (click)="pesquisarACAM()"></button>
         <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 8" type="button" pButton label="Buscar Local" (click)="pesquisarESCRI()"></button>
         <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 9" type="button" pButton label="Buscar Local" (click)="pesquisarENTOR()"></button>
-       
+
 
       </div>
 
@@ -72,7 +73,7 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-modlocal2>
                   <tr>
-                    <th>{{modlocal2.cdLocal2}}</th>
+                    <th>{{modlocal2.pkLocal2.cdLocal2}}</th>
                     <th style="text-align: left">{{modlocal2.nmLocal2}}</th>
                     <th>
                         <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top" [routerLink]="['/modlocal2', modlocal2.cdLocal2]" ></a>

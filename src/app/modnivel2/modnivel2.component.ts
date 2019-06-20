@@ -52,7 +52,7 @@ export class Modnivel2Component implements OnInit {
   }
 
   get editando(){
-    return Boolean(this.modNivel2Salvar.cdNivel2)
+    return Boolean(this.modNivel2Salvar.pkNivel2.cdNivel2)
   }
 
   //Metodo para carregar valores

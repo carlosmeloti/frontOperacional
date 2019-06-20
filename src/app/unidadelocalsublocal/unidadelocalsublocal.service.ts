@@ -24,6 +24,31 @@ export class UnidadelocalsublocalService {
   constructor(private http: Http) {}
 
 
+  pesquisarEmTodosOsLocais(filtro: Modlocal3Filtro): Promise<any> {
+
+    const params = new URLSearchParams;
+    const headers = new Headers;
+
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+    return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=1`, {  headers })
+    .toPromise()
+      .then(response => {
+
+          const responseJson = response.json();
+          const modlocal3 = responseJson.content;
+
+          const resultado = {
+            modlocal3,
+            total: responseJson.totalElements
+          };
+          return resultado;
+    })
+
+    };
+
   pesquisarPicadasInventario(filtro: Modlocal3Filtro): Promise<any> {
 
     const params = new URLSearchParams;
@@ -33,7 +58,7 @@ export class UnidadelocalsublocalService {
 
 
 
-    return this.http.get(`${this.modLocal3URL}?cdLocal2=2`, {  headers })
+    return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=1`, {  headers })
     .toPromise()
       .then(response => {
 
@@ -58,7 +83,7 @@ export class UnidadelocalsublocalService {
 
 
 
-      return this.http.get(`${this.modLocal3URL}?cdLocal2=3`, {  headers })
+      return this.http.get(`${this.modLocal3URL}?cdLocal2=2&cdLocal1=1`, {  headers })
       .toPromise()
         .then(response => {
 
@@ -73,7 +98,9 @@ export class UnidadelocalsublocalService {
       })
 
       };
-      pesquisarTrilhasDeArraste(filtro: Modlocal3Filtro): Promise<any> {
+
+
+      pesquisarEmTodosOsLocais2(filtro: Modlocal3Filtro): Promise<any> {
 
         const params = new URLSearchParams;
         const headers = new Headers;
@@ -82,7 +109,7 @@ export class UnidadelocalsublocalService {
 
 
 
-        return this.http.get(`${this.modLocal3URL}?cdLocal2=5`, {  headers })
+        return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=2`, {  headers })
         .toPromise()
           .then(response => {
 
@@ -98,6 +125,56 @@ export class UnidadelocalsublocalService {
 
         };
 
+      pesquisarTrilhasDeArraste(filtro: Modlocal3Filtro): Promise<any> {
+
+        const params = new URLSearchParams;
+        const headers = new Headers;
+
+        headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+        return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=2`, {  headers })
+        .toPromise()
+          .then(response => {
+
+              const responseJson = response.json();
+              const modlocal3 = responseJson.content;
+
+              const resultado = {
+                modlocal3,
+                total: responseJson.totalElements
+              };
+              return resultado;
+        })
+
+        };
+
+        pesquisarEmTodosOsLocais3(filtro: Modlocal3Filtro): Promise<any> {
+
+          const params = new URLSearchParams;
+          const headers = new Headers;
+
+          headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+          return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=3`, {  headers })
+          .toPromise()
+            .then(response => {
+
+                const responseJson = response.json();
+                const modlocal3 = responseJson.content;
+
+                const resultado = {
+                  modlocal3,
+                  total: responseJson.totalElements
+                };
+                return resultado;
+          })
+
+          };
+
         pesquisarTodoPatio(filtro: Modlocal3Filtro): Promise<any> {
 
           const params = new URLSearchParams;
@@ -107,7 +184,7 @@ export class UnidadelocalsublocalService {
 
 
 
-          return this.http.get(`${this.modLocal3URL}?cdLocal2=7`, {  headers })
+          return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=3`, {  headers })
           .toPromise()
             .then(response => {
 
@@ -132,7 +209,7 @@ export class UnidadelocalsublocalService {
 
 
 
-            return this.http.get(`${this.modLocal3URL}?cdLocal2=8`, {  headers })
+            return this.http.get(`${this.modLocal3URL}?cdLocal2=2&cdLocal1=3`, {  headers })
             .toPromise()
               .then(response => {
 
@@ -158,7 +235,7 @@ export class UnidadelocalsublocalService {
 
 
 
-              return this.http.get(`${this.modLocal3URL}?cdLocal2=9`, {  headers })
+              return this.http.get(`${this.modLocal3URL}?cdLocal2=3&cdLocal1=3`, {  headers })
               .toPromise()
                 .then(response => {
 
@@ -174,7 +251,7 @@ export class UnidadelocalsublocalService {
 
               };
 
-              pesquisarTodoPatioTransportado(filtro: Modlocal3Filtro): Promise<any> {
+              pesquisarEmTodosOsLocais4(filtro: Modlocal3Filtro): Promise<any> {
 
                 const params = new URLSearchParams;
                 const headers = new Headers;
@@ -183,7 +260,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                return this.http.get(`${this.modLocal3URL}?cdLocal2=11`, {  headers })
+                return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=4`, {  headers })
                 .toPromise()
                   .then(response => {
 
@@ -198,6 +275,55 @@ export class UnidadelocalsublocalService {
                 })
 
                 };
+
+              pesquisarTodoPatioTransportado(filtro: Modlocal3Filtro): Promise<any> {
+
+                const params = new URLSearchParams;
+                const headers = new Headers;
+
+                headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+                return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=4`, {  headers })
+                .toPromise()
+                  .then(response => {
+
+                      const responseJson = response.json();
+                      const modlocal3 = responseJson.content;
+
+                      const resultado = {
+                        modlocal3,
+                        total: responseJson.totalElements
+                      };
+                      return resultado;
+                })
+
+                };
+                pesquisarEmTodosOsLocais5(filtro: Modlocal3Filtro): Promise<any> {
+
+                  const params = new URLSearchParams;
+                  const headers = new Headers;
+
+                  headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+                  return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=5`, {  headers })
+                  .toPromise()
+                    .then(response => {
+
+                        const responseJson = response.json();
+                        const modlocal3 = responseJson.content;
+
+                        const resultado = {
+                          modlocal3,
+                          total: responseJson.totalElements
+                        };
+                        return resultado;
+                  })
+
+                  };
                 pesquisareEstradasPrincipais(filtro: Modlocal3Filtro): Promise<any> {
 
                   const params = new URLSearchParams;
@@ -207,7 +333,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                  return this.http.get(`${this.modLocal3URL}?cdLocal2=13`, {  headers })
+                  return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=5`, {  headers })
                   .toPromise()
                     .then(response => {
 
@@ -232,7 +358,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                    return this.http.get(`${this.modLocal3URL}?cdLocal2=14`, {  headers })
+                    return this.http.get(`${this.modLocal3URL}?cdLocal2=2&cdLocal1=5`, {  headers })
                     .toPromise()
                       .then(response => {
 
@@ -257,7 +383,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                      return this.http.get(`${this.modLocal3URL}?cdLocal2=15`, {  headers })
+                      return this.http.get(`${this.modLocal3URL}?cdLocal2=3&cdLocal1=5`, {  headers })
                       .toPromise()
                         .then(response => {
 
@@ -272,6 +398,30 @@ export class UnidadelocalsublocalService {
                       })
 
                       };
+                      pesquisarEmTodosOsLocais6(filtro: Modlocal3Filtro): Promise<any> {
+
+                        const params = new URLSearchParams;
+                        const headers = new Headers;
+
+                        headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+                        return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=6`, {  headers })
+                        .toPromise()
+                          .then(response => {
+
+                              const responseJson = response.json();
+                              const modlocal3 = responseJson.content;
+
+                              const resultado = {
+                                modlocal3,
+                                total: responseJson.totalElements
+                              };
+                              return resultado;
+                        })
+
+                        };
 
                       pesquisarParcela(filtro: Modlocal3Filtro): Promise<any> {
 
@@ -282,7 +432,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                        return this.http.get(`${this.modLocal3URL}?cdLocal2=17`, {  headers })
+                        return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=6`, {  headers })
                         .toPromise()
                           .then(response => {
 
@@ -307,7 +457,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                          return this.http.get(`${this.modLocal3URL}?cdLocal2=18`, {  headers })
+                          return this.http.get(`${this.modLocal3URL}?cdLocal2=2&cdLocal1=6`, {  headers })
                           .toPromise()
                             .then(response => {
 
@@ -323,6 +473,31 @@ export class UnidadelocalsublocalService {
 
                           };
 
+                          pesquisarEmTodosOsLocais7(filtro: Modlocal3Filtro): Promise<any> {
+
+                            const params = new URLSearchParams;
+                            const headers = new Headers;
+
+                            headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+                            return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=7`, {  headers })
+                            .toPromise()
+                              .then(response => {
+
+                                  const responseJson = response.json();
+                                  const modlocal3 = responseJson.content;
+
+                                  const resultado = {
+                                    modlocal3,
+                                    total: responseJson.totalElements
+                                  };
+                                  return resultado;
+                            })
+
+                            };
+
                           pesquisarGeralAcam(filtro: Modlocal3Filtro): Promise<any> {
 
                             const params = new URLSearchParams;
@@ -332,7 +507,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                            return this.http.get(`${this.modLocal3URL}?cdLocal2=20`, {  headers })
+                            return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=7`, {  headers })
                             .toPromise()
                               .then(response => {
 
@@ -357,7 +532,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                              return this.http.get(`${this.modLocal3URL}?cdLocal2=21`, {  headers })
+                              return this.http.get(`${this.modLocal3URL}?cdLocal2=2&cdLocal1=7`, {  headers })
                               .toPromise()
                                 .then(response => {
 
@@ -373,6 +548,31 @@ export class UnidadelocalsublocalService {
 
                               };
 
+                              pesquisarEmTodosOsLocais8(filtro: Modlocal3Filtro): Promise<any> {
+
+                                const params = new URLSearchParams;
+                                const headers = new Headers;
+
+                                headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+                                return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=8`, {  headers })
+                                .toPromise()
+                                  .then(response => {
+
+                                      const responseJson = response.json();
+                                      const modlocal3 = responseJson.content;
+
+                                      const resultado = {
+                                        modlocal3,
+                                        total: responseJson.totalElements
+                                      };
+                                      return resultado;
+                                })
+
+                                };
+
                               pesquisarGeralEscri(filtro: Modlocal3Filtro): Promise<any> {
 
                                 const params = new URLSearchParams;
@@ -382,7 +582,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                                return this.http.get(`${this.modLocal3URL}?cdLocal2=23`, {  headers })
+                                return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=8`, {  headers })
                                 .toPromise()
                                   .then(response => {
 
@@ -407,7 +607,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                                  return this.http.get(`${this.modLocal3URL}?cdLocal2=24`, {  headers })
+                                  return this.http.get(`${this.modLocal3URL}?cdLocal2=2&cdLocal1=8`, {  headers })
                                   .toPromise()
                                     .then(response => {
 
@@ -423,6 +623,31 @@ export class UnidadelocalsublocalService {
 
                                   };
 
+                                  pesquisarEmTodosOsLocais9(filtro: Modlocal3Filtro): Promise<any> {
+
+                                    const params = new URLSearchParams;
+                                    const headers = new Headers;
+
+                                    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+
+
+
+                                    return this.http.get(`${this.modLocal3URL}?cdLocal2=0&cdLocal1=9`, {  headers })
+                                    .toPromise()
+                                      .then(response => {
+
+                                          const responseJson = response.json();
+                                          const modlocal3 = responseJson.content;
+
+                                          const resultado = {
+                                            modlocal3,
+                                            total: responseJson.totalElements
+                                          };
+                                          return resultado;
+                                    })
+
+                                    };
+
                                   pesquisarGeralEntor(filtro: Modlocal3Filtro): Promise<any> {
 
                                     const params = new URLSearchParams;
@@ -432,7 +657,7 @@ export class UnidadelocalsublocalService {
 
 
 
-                                    return this.http.get(`${this.modLocal3URL}?cdLocal2=26`, {  headers })
+                                    return this.http.get(`${this.modLocal3URL}?cdLocal2=1&cdLocal1=9`, {  headers })
                                     .toPromise()
                                       .then(response => {
 

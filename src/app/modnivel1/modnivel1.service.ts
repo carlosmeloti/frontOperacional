@@ -81,7 +81,7 @@ export class Modnivel1Service {
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.put(`${this.modnivel1url}/${modNivel1.cdNivel1}`,
+    return this.http.put(`${this.modnivel1url}/${modNivel1.pkNivel1.cdNivel1}`,
         JSON.stringify(modNivel1), { headers })
       .toPromise()
       .then(response => {

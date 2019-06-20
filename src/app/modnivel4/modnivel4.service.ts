@@ -409,7 +409,7 @@ export class Modnivel4Service {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.modnivel4URL}/${modnivel4.cdNivel4}`,
+     return this.http.put(`${this.modnivel4URL}/${modnivel4.pkNivel4.cdNivel4}`,
          JSON.stringify(modnivel4), { headers })
        .toPromise()
        .then(response => {

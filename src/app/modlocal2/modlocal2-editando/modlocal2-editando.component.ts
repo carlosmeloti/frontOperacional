@@ -52,7 +52,7 @@ export class Modlocal2EditandoComponent implements OnInit {
   }
 
   get editando(){
-    return Boolean(this.modLocal2Salvar.cdLocal2)
+    return Boolean(this.modLocal2Salvar.pkLocal2.cdLocal2)
   }
 
   //Metodo para carregar valores

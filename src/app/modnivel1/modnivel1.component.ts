@@ -49,7 +49,7 @@ export class Modnivel1Component implements OnInit {
   }
 
   get editando(){
-    return Boolean(this.modNivel1Salvar.cdNivel1)
+    return Boolean(this.modNivel1Salvar.pkNivel1.cdNivel1)
   }
 
   //Metodo para carregar valores
@@ -89,7 +89,7 @@ export class Modnivel1Component implements OnInit {
 
   excluir(modnivel1: any){
 
-    this.modNivel1Service.excluir(modnivel1.cdNivel1)
+    this.modNivel1Service.excluir(modnivel1.pkNivel1.cdNivel1)
       .then(() => {
         if (this.grid.first === 0) {
           this.pesquisar();

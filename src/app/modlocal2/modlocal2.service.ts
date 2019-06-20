@@ -280,7 +280,7 @@ export class Modlocal2Service {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.modlocal2URL}/${modlocal2.cdLocal2}`,
+     return this.http.put(`${this.modlocal2URL}/${modlocal2.pkLocal2.cdLocal2}`,
          JSON.stringify(modlocal2), { headers })
        .toPromise()
        .then(response => {
