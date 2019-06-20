@@ -28,6 +28,17 @@ export class Modnivel3Service {
 
   URLmodnivel3_cdNivel1_2_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=2&cdNivel2=1';
 
+  URLmodnivel3_cdNivel1_3_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=3&cdNivel2=1';
+  URLmodnivel3_cdNivel1_3_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=3&cdNivel2=2';
+
+  URLmodnivel3_cdNivel1_4_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=4&cdNivel2=1';
+  URLmodnivel3_cdNivel1_4_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=4&cdNivel2=2';
+
+  URLmodnivel3_cdNivel1_5_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=5&cdNivel2=1';
+  URLmodnivel3_cdNivel1_5_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=5&cdNivel2=2';
+
+  URLmodnivel3_cdNivel1_6_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=6&cdNivel2=1';
+  URLmodnivel3_cdNivel1_6_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=6&cdNivel2=2';
 
   constructor(private http: Http) { }
 
@@ -199,6 +210,85 @@ export class Modnivel3Service {
       .then(response => response.json().content);
   }
 
+  listarTodas_cdNivel1_3_cdNivel2_1(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_1}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_3_cdNivel2_2(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_2}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_4_cdNivel2_1(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_1}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_4_cdNivel2_2(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_2}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_5_cdNivel2_1(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_1}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_5_cdNivel2_2(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_2}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_6_cdNivel2_1(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_1}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  listarTodas_cdNivel1_6_cdNivel2_2(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_2}`, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
   listarTodasPreExplo(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');

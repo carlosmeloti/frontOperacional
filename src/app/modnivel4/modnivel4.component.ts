@@ -44,6 +44,18 @@ export class Modnivel4Component implements OnInit {
 
   modnivel3_cdNivel1_2_cdNivel2_1 = [];
 
+  modnivel3_cdNivel1_3_cdNivel2_1 = [];
+  modnivel3_cdNivel1_3_cdNivel2_2 = [];
+
+  modnivel3_cdNivel1_4_cdNivel2_1 = [];
+  modnivel3_cdNivel1_4_cdNivel2_2 = [];
+
+  modnivel3_cdNivel1_5_cdNivel2_1 = [];
+  modnivel3_cdNivel1_5_cdNivel2_2 = [];
+
+  modnivel3_cdNivel1_6_cdNivel2_1 = [];
+  modnivel3_cdNivel1_6_cdNivel2_2 = [];
+
   modnivel3 = [];
 
   modnivel3PreExplo = [];
@@ -77,6 +89,18 @@ export class Modnivel4Component implements OnInit {
     this.carregarModNivel3_cdNivel1_1_cdNivel2_3();
 
     this.carregarModNivel3_cdNivel1_2_cdNivel2_1();
+
+    this.carregarModNivel3_cdNivel1_3_cdNivel2_1();
+    this.carregarModNivel3_cdNivel1_3_cdNivel2_2();
+
+    this.carregarModNivel3_cdNivel1_4_cdNivel2_1();
+    this.carregarModNivel3_cdNivel1_4_cdNivel2_2();
+
+    this.carregarModNivel3_cdNivel1_5_cdNivel2_1();
+    this.carregarModNivel3_cdNivel1_5_cdNivel2_2();
+
+    this.carregarModNivel3_cdNivel1_6_cdNivel2_1();
+    this.carregarModNivel3_cdNivel1_6_cdNivel2_2();
 
     this.carregarModNivel3PreExplo();
     this.carregarModNivel3Explo();
@@ -464,6 +488,70 @@ export class Modnivel4Component implements OnInit {
     return this.modNivel3Service.listarTodas_cdNivel1_2_cdNivel2_1()
       .then(modnivel3 => {
         this.modnivel3_cdNivel1_2_cdNivel2_1 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_3_cdNivel2_1() {
+    return this.modNivel3Service.listarTodas_cdNivel1_3_cdNivel2_1()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_3_cdNivel2_1 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_3_cdNivel2_2() {
+    return this.modNivel3Service.listarTodas_cdNivel1_3_cdNivel2_2()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_3_cdNivel2_2 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_4_cdNivel2_1() {
+    return this.modNivel3Service.listarTodas_cdNivel1_4_cdNivel2_1()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_4_cdNivel2_1 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_4_cdNivel2_2() {
+    return this.modNivel3Service.listarTodas_cdNivel1_4_cdNivel2_2()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_4_cdNivel2_2 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_5_cdNivel2_1() {
+    return this.modNivel3Service.listarTodas_cdNivel1_5_cdNivel2_1()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_5_cdNivel2_1 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_5_cdNivel2_2() {
+    return this.modNivel3Service.listarTodas_cdNivel1_5_cdNivel2_2()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_5_cdNivel2_2 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_6_cdNivel2_1() {
+    return this.modNivel3Service.listarTodas_cdNivel1_6_cdNivel2_1()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_6_cdNivel2_1 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarModNivel3_cdNivel1_6_cdNivel2_2() {
+    return this.modNivel3Service.listarTodas_cdNivel1_6_cdNivel2_2()
+      .then(modnivel3 => {
+        this.modnivel3_cdNivel1_6_cdNivel2_2 = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
