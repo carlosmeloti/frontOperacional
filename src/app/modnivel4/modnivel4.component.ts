@@ -128,11 +128,571 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarMacrozoneamento(page = 0) {
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_1(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarMacrozoneamento(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_3(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_3(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_4(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_4(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_5(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_1_cdNivel3_5(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_3(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_3(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_4(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_2_cdNivel3_4(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_3(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_3(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_4(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_4(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_3(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_3(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_4(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_4(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_5(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_5(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_6(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_6(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_7(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_7(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_8(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_8(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_9(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_9(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_10(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_10(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_11(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_11(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_12(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_12(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_13(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_2_cdNivel2_1_cdNivel3_13(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+
+  pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_3(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_3(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_4(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_3_cdNivel2_1_cdNivel3_4(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_3_cdNivel2_2_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_3_cdNivel2_2_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_3_cdNivel2_2_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_3_cdNivel2_2_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_3(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_3(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_4(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_4(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_2(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_2(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_1(this.filtro)
+      .then(resultado => {
+        this.tatalRegistros = resultado.total;
+        this.modnivel4 = resultado.modnivel4;
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  pesquisarModnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_1(page = 0) {
+
+    this.filtro.page = page;
+
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_1(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
