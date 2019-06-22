@@ -855,63 +855,6 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-
-
-  pesquisarModNivel31(page = 0) {
-
-    this.filtro.page = page;
-
-    this.modNivel3Service.pesquisarNivel31(this.filtro)
-      .then(resultado => {
-        this.tatalRegistros = resultado.total;
-        this.modnivel3 = resultado.modnivel3;
-
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-  pesquisarModNivel32(page = 0) {
-
-    this.filtro.page = page;
-
-    this.modNivel3Service.pesquisarNivel32(this.filtro)
-      .then(resultado => {
-        this.tatalRegistros = resultado.total;
-        this.modnivel3 = resultado.modnivel3;
-
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-
-  pesquisarModNivel33(page = 0) {
-
-    this.filtro.page = page;
-
-    this.modNivel3Service.pesquisarNivel33(this.filtro)
-      .then(resultado => {
-        this.tatalRegistros = resultado.total;
-        this.modnivel3 = resultado.modnivel3;
-
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-
-  pesquisarModNivel34(page = 0) {
-
-    this.filtro.page = page;
-
-    this.modNivel3Service.pesquisarNivel34(this.filtro)
-      .then(resultado => {
-        this.tatalRegistros = resultado.total;
-        this.modnivel3 = resultado.modnivel3;
-
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-
   aoMudarPagina(event: LazyLoadEvent) {
     const page = event.first / event.rows;
 

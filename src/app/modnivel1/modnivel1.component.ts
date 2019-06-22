@@ -19,9 +19,9 @@ export class Modnivel1Component implements OnInit {
 
   modNivel1Salvar = new ModNivel1();
 
-  modnivel1=[];
+  modnivel1 = [];
   empresas = [
-    {label: 'Exemplo', value: 1}
+    { label: 'Exemplo', value: 1 }
   ];
 
   @ViewChild('tabela') grid;
@@ -34,26 +34,25 @@ export class Modnivel1Component implements OnInit {
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-    )
-  {}
+  ) { }
 
   ngOnInit() {
-  //console.log(this.route.snapshot.params['codigo']);
+    //console.log(this.route.snapshot.params['codigo']);
 
-  const codigoModnivel1 = this.route.snapshot.params['codigo'];
+    const codigoModnivel1 = this.route.snapshot.params['codigo'];
 
-  //se houver um id entra no metodo de carregar valores
-  if(codigoModnivel1){
-    this.carregarModNivel1(codigoModnivel1);
+    //se houver um id entra no metodo de carregar valores
+    if (codigoModnivel1) {
+      this.carregarModNivel1(codigoModnivel1);
+    }
   }
-  }
 
-  get editando(){
+  get editando() {
     return Boolean(this.modNivel1Salvar.pkNivel1.cdNivel1)
   }
 
   //Metodo para carregar valores
-  carregarModNivel1(codigo: number){
+  carregarModNivel1(codigo: number) {
     this.modNivel1Service.buscarPorCodigo(codigo)
       .then(modnivel1 => {
         this.modNivel1Salvar = modnivel1;
@@ -61,7 +60,7 @@ export class Modnivel1Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisar(page = 0){
+  pesquisar(page = 0) {
 
     this.filtro.page = page;
 
@@ -73,21 +72,21 @@ export class Modnivel1Component implements OnInit {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const page = event.first / event.rows;
     this.pesquisar(page);
   }
 
   confirmarExclusao(modnivel1: any) {
-    this.confirmation.confirm( {
+    this.confirmation.confirm({
       message: 'Tem certeza que deseja excluir?',
-      accept: () =>{
+      accept: () => {
         this.excluir(modnivel1);
       }
     });
   }
 
-  excluir(modnivel1: any){
+  excluir(modnivel1: any) {
 
     this.modNivel1Service.excluir(modnivel1.pkNivel1.cdNivel1)
       .then(() => {
@@ -102,9 +101,9 @@ export class Modnivel1Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
 
   }
-  salvar(form: FormControl){
+  salvar(form: FormControl) {
 
-    if(this.editando){
+    if (this.editando) {
       this.confirmarAlterar(form);
     } else {
       this.confirmarSalvar(form);
@@ -113,44 +112,44 @@ export class Modnivel1Component implements OnInit {
   }
 
 
-      confirmarSalvar(modnivel1: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja salvar?',
-          accept: () =>{
-            this.adicionarModNivel1(modnivel1);
-          }
-        });
+  confirmarSalvar(modnivel1: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja salvar?',
+      accept: () => {
+        this.adicionarModNivel1(modnivel1);
       }
+    });
+  }
 
-      confirmarAlterar(modnivel1: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja alterar?',
-          accept: () =>{
-            this.atualizarModNivel1(modnivel1);
-          }
-        });
+  confirmarAlterar(modnivel1: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja alterar?',
+      accept: () => {
+        this.atualizarModNivel1(modnivel1);
       }
+    });
+  }
 
-      adicionarModNivel1(form: FormControl){
-        this.modNivel1Service.adicionar(this.modNivel1Salvar)
-          .then(() => {
-            this.toasty.success("Assunto cadastrado com sucesso!");
-            form.reset();
-            this.modNivel1Salvar = new ModNivel1();
-            this.pesquisar();
-          })
-          .catch(erro => this.errorHandler.handle(erro));
-      }
-
-      atualizarModNivel1(form: FormControl){
-        this.modNivel1Service.atualizar(this.modNivel1Salvar)
-        .then(modnivel1 => {
-          this.modNivel1Salvar = modnivel1;
-
-          this.toasty.success('Assunto alterado com sucesso!');
-
-        })
+  adicionarModNivel1(form: FormControl) {
+    this.modNivel1Service.adicionar(this.modNivel1Salvar)
+      .then(() => {
+        this.toasty.success("Assunto cadastrado com sucesso!");
+        form.reset();
+        this.modNivel1Salvar = new ModNivel1();
+        this.pesquisar();
+      })
       .catch(erro => this.errorHandler.handle(erro));
-      }
+  }
+
+  atualizarModNivel1(form: FormControl) {
+    this.modNivel1Service.atualizar(this.modNivel1Salvar)
+      .then(modnivel1 => {
+        this.modNivel1Salvar = modnivel1;
+
+        this.toasty.success('Assunto alterado com sucesso!');
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 }
