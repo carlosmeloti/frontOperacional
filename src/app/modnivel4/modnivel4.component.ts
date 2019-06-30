@@ -9,6 +9,7 @@ import { ErrorHandlerService } from '../core/error-handler.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ModNivel4 } from '../core/model';
+import { CadempresaService } from '../cadempresa/cadempresa.service';
 
 @Component({
   selector: 'app-modnivel4',
@@ -23,9 +24,7 @@ export class Modnivel4Component implements OnInit {
 
   modNivel4Salvar = new ModNivel4();
 
-  empresas = [
-    { label: 'Exemplo', value: 1 }
-  ];
+  empresas = [];
 
   @ViewChild('tabela') grid;
 
@@ -68,6 +67,7 @@ export class Modnivel4Component implements OnInit {
     private modNivel2Service: Modnivel2Service,
     private modNivel3Service: Modnivel3Service,
     private modNivel4Service: Modnivel4Service,
+    private cadEmpresaService: CadempresaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
@@ -105,6 +105,8 @@ export class Modnivel4Component implements OnInit {
     this.carregarModNivel3PreExplo();
     this.carregarModNivel3Explo();
     this.carregarModNivel3PosExplo();
+
+    this.carregarEmpresas();
     //console.log(this.route.snapshot.params['codigo']);
 
     const codigoModnivel4 = this.route.snapshot.params['codigo'];
@@ -1077,6 +1079,14 @@ export class Modnivel4Component implements OnInit {
     return this.modNivel3Service.listarTodasPosExplo()
       .then(modnivel3 => {
         this.modnivel3PosExplo = modnivel3.map(c => ({ label: c.pkNivel3.cdNivel3 + " - " + c.nmNivel3, value: c.pkNivel3.cdNivel3 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

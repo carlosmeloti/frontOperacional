@@ -20,25 +20,25 @@ export class Modnivel3Service {
 
 
 
-  modnivel3URL = 'http://localhost:8086/modnivel3';
+  modnivel3URL = 'http://10.132.90.58:8086/modnivel3';
 
-  URLmodnivel3_cdNivel1_1_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=1&cdNivel2=1';
-  URLmodnivel3_cdNivel1_1_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=1&cdNivel2=2';
-  URLmodnivel3_cdNivel1_1_cdNivel2_3 = 'http://localhost:8086/modnivel3?cdNivel1=1&cdNivel2=3';
+  URLmodnivel3_cdNivel1_1_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=1&cdNivel2=1';
+  URLmodnivel3_cdNivel1_1_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=1&cdNivel2=2';
+  URLmodnivel3_cdNivel1_1_cdNivel2_3 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=1&cdNivel2=3';
 
-  URLmodnivel3_cdNivel1_2_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=2&cdNivel2=1';
+  URLmodnivel3_cdNivel1_2_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=2&cdNivel2=1';
 
-  URLmodnivel3_cdNivel1_3_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=3&cdNivel2=1';
-  URLmodnivel3_cdNivel1_3_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=3&cdNivel2=2';
+  URLmodnivel3_cdNivel1_3_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=3&cdNivel2=1';
+  URLmodnivel3_cdNivel1_3_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=3&cdNivel2=2';
 
-  URLmodnivel3_cdNivel1_4_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=4&cdNivel2=1';
-  URLmodnivel3_cdNivel1_4_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=4&cdNivel2=2';
+  URLmodnivel3_cdNivel1_4_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=4&cdNivel2=1';
+  URLmodnivel3_cdNivel1_4_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=4&cdNivel2=2';
 
-  URLmodnivel3_cdNivel1_5_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=5&cdNivel2=1';
-  URLmodnivel3_cdNivel1_5_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=5&cdNivel2=2';
+  URLmodnivel3_cdNivel1_5_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=5&cdNivel2=1';
+  URLmodnivel3_cdNivel1_5_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=5&cdNivel2=2';
 
-  URLmodnivel3_cdNivel1_6_cdNivel2_1 = 'http://localhost:8086/modnivel3?cdNivel1=6&cdNivel2=1';
-  URLmodnivel3_cdNivel1_6_cdNivel2_2 = 'http://localhost:8086/modnivel3?cdNivel1=6&cdNivel2=2';
+  URLmodnivel3_cdNivel1_6_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=6&cdNivel2=1';
+  URLmodnivel3_cdNivel1_6_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=6&cdNivel2=2';
 
   constructor(private http: Http) { }
 

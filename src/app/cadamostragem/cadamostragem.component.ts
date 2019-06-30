@@ -1,3 +1,4 @@
+import { Cadempresa } from './../core/model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CadamostragemService, CadamostragemFiltro } from './cadamostragem.service';
 import { LazyLoadEvent } from 'src/primeng/api';
@@ -21,39 +22,41 @@ export class CadamostragemComponent {
   nmAmostragem: string;
 
   amostragemSalvar = new Cadamostragem();
-  cadamostragem=[]
-  empresas = [
-    {label: 'Exemplo', value: 1}
-  ];
+  cadamostragem = [];
+
+  empresas = [];
+
+
   @ViewChild('tabela') grid;
 
   constructor(
     private cadamostragemService: CadamostragemService,
+    private cadEmpresaService: CadempresaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private route: ActivatedRoute,
     private errorHandler: ErrorHandlerService
 
 
-    ) {}
+  ) { }
 
   ngOnInit() {
-    //console.log(this.route.snapshot.params['codigo']);
 
+    this.carregarEmpresas();
     const codigoAmostragem = this.route.snapshot.params['codigo'];
 
-   //se houver um id entra no metodo de carregar valores
-   if(codigoAmostragem){
+
+    if (codigoAmostragem) {
       this.carregarAmostragem(codigoAmostragem);
-   }
+    }
   }
 
-  get editando(){
+  get editando() {
     return Boolean(this.amostragemSalvar.cdAmostragem)
   }
 
   //Metodo para carregar valores
-  carregarAmostragem(cdAmostragem: number){
+  carregarAmostragem(cdAmostragem: number) {
     this.cadamostragemService.buscarPorCodigo(cdAmostragem)
       .then(amostragem => {
         this.amostragemSalvar = amostragem;
@@ -61,7 +64,7 @@ export class CadamostragemComponent {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisar(page = 0){
+  pesquisar(page = 0) {
 
     this.filtro.page = page;
 
@@ -73,21 +76,21 @@ export class CadamostragemComponent {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const page = event.first / event.rows;
     this.pesquisar(page);
   }
 
   confirmarExclusao(amostragem: any) {
-    this.confirmation.confirm( {
+    this.confirmation.confirm({
       message: 'Tem certeza que deseja excluir?',
-      accept: () =>{
+      accept: () => {
         this.excluir(amostragem);
       }
     });
   }
 
-  excluir(amostragem: any){
+  excluir(amostragem: any) {
 
     this.cadamostragemService.excluir(amostragem.cdAmostragem)
       .then(() => {
@@ -103,9 +106,9 @@ export class CadamostragemComponent {
 
   }
 
-  salvar(form: FormControl){
+  salvar(form: FormControl) {
 
-    if(this.editando){
+    if (this.editando) {
       this.confirmarAlterar(form);
     } else {
       this.confirmarSalvar(form);
@@ -114,44 +117,61 @@ export class CadamostragemComponent {
   }
 
 
-      confirmarSalvar(amostragem: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja salvar?',
-          accept: () =>{
-            this.adicionarAmostragem(amostragem);
-          }
-        });
+  confirmarSalvar(amostragem: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja salvar?',
+      accept: () => {
+        this.adicionarAmostragem(amostragem);
       }
+    });
+  }
 
-      confirmarAlterar(amostragem: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja alterar?',
-          accept: () =>{
-            this.atualizarAmostragem(amostragem);
-          }
-        });
+  confirmarAlterar(amostragem: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja alterar?',
+      accept: () => {
+        this.atualizarAmostragem(amostragem);
       }
+    });
+  }
 
-      adicionarAmostragem(form: FormControl){
-        this.cadamostragemService.adicionar(this.amostragemSalvar)
-          .then(() => {
-            this.toasty.success("Amostragem cadastrada com sucesso!");
-            form.reset();
-            this.amostragemSalvar = new Cadamostragem();
-            this.pesquisar();
-          })
-          .catch(erro => this.errorHandler.handle(erro));
-      }
-
-      atualizarAmostragem(form: FormControl){
-        this.cadamostragemService.atualizar(this.amostragemSalvar)
-        .then(amostragem => {
-          this.amostragemSalvar = amostragem;
-
-          this.toasty.success('Amostragem alterada com sucesso!');
-
-        })
+  adicionarAmostragem(form: FormControl) {
+    this.cadamostragemService.adicionar(this.amostragemSalvar)
+      .then(() => {
+        this.toasty.success("Amostragem cadastrada com sucesso!");
+        form.reset();
+        this.amostragemSalvar = new Cadamostragem();
+        this.pesquisar();
+      })
       .catch(erro => this.errorHandler.handle(erro));
-      }
+  }
+
+  atualizarAmostragem(form: FormControl) {
+    this.cadamostragemService.atualizar(this.amostragemSalvar)
+      .then(amostragem => {
+        this.amostragemSalvar = amostragem;
+
+        this.toasty.success('Amostragem alterada com sucesso!');
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+ /* carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.cdEmpresa.nmEmpresa, value: c.cdEmpresa }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+ } */
+
+  carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
 
 }

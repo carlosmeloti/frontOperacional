@@ -7,6 +7,7 @@ import { Modlocal3 } from '../core/model';
 import { Modlocal3Filtro, UnidadelocalsublocalService } from './unidadelocalsublocal.service';
 import { Modlocal2Service } from '../modlocal2/modlocal2.service';
 import { ActivatedRoute } from '@angular/router';
+import { CadempresaService } from '../cadempresa/cadempresa.service';
 
 
 
@@ -35,9 +36,7 @@ export class UnidadelocalsublocalComponent implements OnInit {
 
   modLocal3Salvar = new Modlocal3();
 
-  empresas = [
-    {label: 'Exemplo', value: 1}
-  ];
+  empresas = [];
 
   @ViewChild('tabela') grid;
 
@@ -54,8 +53,10 @@ export class UnidadelocalsublocalComponent implements OnInit {
   modlocal3=[];
 
 
+
   constructor(
     private nodeService: NodeService,
+    private cadEmpresaService: CadempresaService,
     private modLocal1Service: Modlocal1Service,
     private modLocal2Service: Modlocal2Service,
     private errorHandler: ErrorHandlerService,
@@ -77,6 +78,7 @@ ngOnInit(){
   this.carregarLocalDeAvaliacaoACAM();
   this.carregarLocalDeAvaliacaoESCRI();
   this.carregarLocalDeAvaliacaoENTOR();
+  this.carregarEmpresas();
 
   const codigoModlocal3 = this.route.snapshot.params['codigo'];
 
@@ -523,6 +525,14 @@ carregarLocalDeAvaliacaoENTOR() {
   return this.modLocal2Service.listarENTOR()
     .then(modlocal2 => {
       this.modlocalENTOR = modlocal2.map(c => ({ label: c.pkLocal2.cdLocal2 + " - " + c.nmLocal2, value: c.pkLocal2.cdLocal2 }));
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+}
+
+carregarEmpresas() {
+  return this.cadEmpresaService.listarTodas()
+    .then(empresas => {
+      this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
     })
     .catch(erro => this.errorHandler.handle(erro));
 }

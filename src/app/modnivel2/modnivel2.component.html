@@ -10,7 +10,7 @@
           <input type="text" name="codigo" pInputText style="width: 50px" [(ngModel)]="modNivel2Salvar.cdNivel2" />
         </div>
         <div class="ui-g-8 ui-fluid">
-          
+
         </div>
 
         <!--<div class="ui-g-8 ui-fluid">
@@ -18,6 +18,16 @@
           <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
             [autoWidth]="false" [(ngModel)]="modNivel2Salvar.pkNivel2.cdEmpresa.cdEmpresa" required></p-dropdown>
       </div> -->
+
+      <div class="ui-g-3 ui-fluid">
+        <label>Empresa</label>
+        <!--<p-dropdown name="empresa" [options]="empresas" [autoWidth]="false"  [(ngModel)]="amostragemSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>-->
+
+        <p-selectButton name="empresa" [options]="empresas"
+         [(ngModel)]="modNivel2Salvar.pkNivel2.cdEmpresa.cdEmpresa.cdEmpresa">
+        </p-selectButton>
+      </div>
+      <div class="ui-g-7 ui-fluid"></div>
         <div class="ui-g-4 ui-fluid">
 
           <label>Assunto: <strong><a routerLink="/modnivel1"> Adicionar</a></strong></label>

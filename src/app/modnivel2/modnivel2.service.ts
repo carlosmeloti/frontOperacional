@@ -15,14 +15,14 @@ export class Modnivel2Filtro {
 @Injectable()
 export class Modnivel2Service {
 
-  modnivel2URL = 'http://localhost:8086/modnivel2';
+  modnivel2URL = 'http://10.132.90.58:8086/modnivel2';
 
-  URLlistarTodascdNivel1_1 = 'http://localhost:8086/modnivel2?cdNivel1=1';
-  URLlistarTodascdNivel1_2 = 'http://localhost:8086/modnivel2?cdNivel1=2';
-  URLlistarTodascdNivel1_3 = 'http://localhost:8086/modnivel2?cdNivel1=3';
-  URLlistarTodascdNivel1_4 = 'http://localhost:8086/modnivel2?cdNivel1=4';
-  URLlistarTodascdNivel1_5 = 'http://localhost:8086/modnivel2?cdNivel1=5';
-  URLlistarTodascdNivel1_6 = 'http://localhost:8086/modnivel2?cdNivel1=6';
+  URLlistarTodascdNivel1_1 = 'http://10.132.90.58:8086/modnivel2?cdNivel1=1';
+  URLlistarTodascdNivel1_2 = 'http://10.132.90.58:8086/modnivel2?cdNivel1=2';
+  URLlistarTodascdNivel1_3 = 'http://10.132.90.58:8086/modnivel2?cdNivel1=3';
+  URLlistarTodascdNivel1_4 = 'http://10.132.90.58:8086/modnivel2?cdNivel1=4';
+  URLlistarTodascdNivel1_5 = 'http://10.132.90.58:8086/modnivel2?cdNivel1=5';
+  URLlistarTodascdNivel1_6 = 'http://10.132.90.58:8086/modnivel2?cdNivel1=6';
 
 
   constructor(private http: Http) { }
@@ -69,7 +69,7 @@ export class Modnivel2Service {
         return resultado;
       })
   };
- 
+
   pesquisarModNivel2_cdNivel1_2(filtro: Modnivel2Filtro): Promise<any> {
 
     const params = new URLSearchParams;

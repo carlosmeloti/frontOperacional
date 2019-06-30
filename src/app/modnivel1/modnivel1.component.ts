@@ -1,3 +1,4 @@
+import { CadempresaService } from './../cadempresa/cadempresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModNivel1 } from '../core/model';
 import { Modnivel1Service, ModNivel1Filtro } from './modnivel1.service';
@@ -20,9 +21,7 @@ export class Modnivel1Component implements OnInit {
   modNivel1Salvar = new ModNivel1();
 
   modnivel1 = [];
-  empresas = [
-    { label: 'Exemplo', value: 1 }
-  ];
+  empresas = [];
 
   @ViewChild('tabela') grid;
 
@@ -30,6 +29,7 @@ export class Modnivel1Component implements OnInit {
 
   constructor(
     private modNivel1Service: Modnivel1Service,
+    private cadEmpresaService: CadempresaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
@@ -39,6 +39,7 @@ export class Modnivel1Component implements OnInit {
   ngOnInit() {
     //console.log(this.route.snapshot.params['codigo']);
 
+    this.carregarEmpresas();
     const codigoModnivel1 = this.route.snapshot.params['codigo'];
 
     //se houver um id entra no metodo de carregar valores
@@ -148,6 +149,14 @@ export class Modnivel1Component implements OnInit {
 
         this.toasty.success('Assunto alterado com sucesso!');
 
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

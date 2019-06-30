@@ -8,6 +8,7 @@ import { ConfirmationService, LazyLoadEvent } from 'primeng/api';
 import { ErrorHandlerService } from '../core/error-handler.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { CadempresaService } from '../cadempresa/cadempresa.service';
 
 @Component({
   selector: 'app-modnivel3',
@@ -22,9 +23,7 @@ export class Modnivel3Component implements OnInit {
 
   modNivel3Salvar = new ModNivel3();
 
-  empresas = [
-    { label: 'Exemplo', value: 1 }
-  ];
+  empresas = [];
 
   @ViewChild('tabela') grid;
 
@@ -43,6 +42,7 @@ export class Modnivel3Component implements OnInit {
     private modNivel1Service: Modnivel1Service,
     private modNivel2Service: Modnivel2Service,
     private modNivel3Service: Modnivel3Service,
+    private cadEmpresaService: CadempresaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
@@ -59,6 +59,9 @@ export class Modnivel3Component implements OnInit {
     this.carregarModNivel2_cdNivel1_4();
     this.carregarModNivel2_cdNivel1_5();
     this.carregarModNivel2_cdNivel1_6();
+
+
+    this.carregarEmpresas();
     //console.log(this.route.snapshot.params['codigo']);
 
     const codigoModnivel3 = this.route.snapshot.params['codigo'];
@@ -352,6 +355,14 @@ export class Modnivel3Component implements OnInit {
     return this.modNivel2Service.listarTodas()
       .then(modnivel2 => {
         this.modnivel2 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

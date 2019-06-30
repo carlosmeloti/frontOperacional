@@ -1,3 +1,4 @@
+import { CadempresaService } from './../cadempresa/cadempresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CadfrequenciaFiltro, CadfrequenciaService } from './cadfrequencia.service';
 import { LazyLoadEvent } from 'src/primeng/api';
@@ -7,6 +8,7 @@ import { Cadfrequencia } from '../core/model';
 import { FormControl } from '@angular/forms';
 import { ErrorHandlerService } from '../core/error-handler.service';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-cadfrequencia',
@@ -20,14 +22,13 @@ export class CadfrequenciaComponent {
   nmFrequencia: string;
 
   frequenciaSalvar = new Cadfrequencia();
-  empresas = [
-    {label: 'Exemplo', value: 1}
-  ];
+  empresas = [];
   @ViewChild('tabela') grid;
 
   cadfrequencia=[]
 
   constructor(
+    private cadEmpresaService: CadempresaService,
     private cadfrequenciaService: CadfrequenciaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
@@ -37,6 +38,8 @@ export class CadfrequenciaComponent {
 
   ngOnInit() {
     //console.log(this.route.snapshot.params['codigo']);
+
+    this.carregarEmpresas();
 
     const codigoFrequencia = this.route.snapshot.params['codigo'];
 
@@ -149,6 +152,14 @@ export class CadfrequenciaComponent {
 
         })
       .catch(erro => this.errorHandler.handle(erro));
+      }
+
+      carregarEmpresas() {
+        return this.cadEmpresaService.listarTodas()
+          .then(empresas => {
+            this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
+          })
+          .catch(erro => this.errorHandler.handle(erro));
       }
 
 

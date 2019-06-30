@@ -1,3 +1,4 @@
+import { CadempresaService } from './../cadempresa/cadempresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CadmaterialFiltro, CadmaterialService } from './cadmaterial.service';
 import { Cadmaterial } from '../core/model';
@@ -20,45 +21,44 @@ export class CadmaterialComponent {
   nmmaterial: string;
 
   materialSalvar = new Cadmaterial();
-  empresas = [
-    {label: 'Exemplo', value: 1}
-  ];
+  empresas = [];
   @ViewChild('tabela') grid;
 
-  cadmaterial=[]
+  cadmaterial = []
 
   constructor(
     private cadmaterialService: CadmaterialService,
+    private cadEmpresaService: CadempresaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-  ){}
+  ) { }
 
   ngOnInit() {
- //console.log(this.route.snapshot.params['codigo']);
+    //console.log(this.route.snapshot.params['codigo']);
+    this.carregarEmpresas();
+    const codigoMaterial = this.route.snapshot.params['codigo'];
 
- const codigoMaterial = this.route.snapshot.params['codigo'];
+    //se houver um id entra no metodo de carregar valores
+    if (codigoMaterial) {
+      this.carregarMaterial(codigoMaterial);
+    }
+  }
 
- //se houver um id entra no metodo de carregar valores
- if(codigoMaterial){
-   this.carregarMaterial(codigoMaterial);
- }
-}
+  get editando() {
+    return Boolean(this.materialSalvar.cdMaterial)
+  }
 
-get editando(){
- return Boolean(this.materialSalvar.cdMaterial)
-}
-
-//Metodo para carregar valores
-carregarMaterial(codigo: number){
- this.cadmaterialService.buscarPorCodigo(codigo)
-   .then(meterial => {
-     this.materialSalvar = meterial;
-   })
-   .catch(erro => this.errorHandler.handle(erro));
-}
-  pesquisar(page = 0){
+  //Metodo para carregar valores
+  carregarMaterial(codigo: number) {
+    this.cadmaterialService.buscarPorCodigo(codigo)
+      .then(meterial => {
+        this.materialSalvar = meterial;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+  pesquisar(page = 0) {
 
     this.filtro.page = page;
 
@@ -70,21 +70,21 @@ carregarMaterial(codigo: number){
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const page = event.first / event.rows;
     this.pesquisar(page);
   }
 
   confirmarExclusao(material: any) {
-    this.confirmation.confirm( {
+    this.confirmation.confirm({
       message: 'Tem certeza que deseja excluir?',
-      accept: () =>{
+      accept: () => {
         this.excluir(material);
       }
     });
   }
 
-  excluir(material: any){
+  excluir(material: any) {
 
     this.cadmaterialService.excluir(material.cdMaterial)
       .then(() => {
@@ -100,9 +100,9 @@ carregarMaterial(codigo: number){
 
   }
 
-  salvar(form: FormControl){
+  salvar(form: FormControl) {
 
-    if(this.editando){
+    if (this.editando) {
       this.confirmarAlterar(form);
     } else {
       this.confirmarSalvar(form);
@@ -111,44 +111,51 @@ carregarMaterial(codigo: number){
   }
 
 
-      confirmarSalvar(material: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja salvar?',
-          accept: () =>{
-            this.adicionarMaterial(material);
-          }
-        });
+  confirmarSalvar(material: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja salvar?',
+      accept: () => {
+        this.adicionarMaterial(material);
       }
+    });
+  }
 
-      confirmarAlterar(material: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja alterar?',
-          accept: () =>{
-            this.atualizarMaterial(material);
-          }
-        });
+  confirmarAlterar(material: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja alterar?',
+      accept: () => {
+        this.atualizarMaterial(material);
       }
-      adicionarMaterial(form: FormControl){
-        this.cadmaterialService.adicionar(this.materialSalvar)
-          .then(() => {
-            this.toasty.success("Material cadastrado com sucesso!");
-            form.reset();
-            this.materialSalvar = new Cadmaterial();
-            this.pesquisar();
-          })
-          .catch(erro => this.errorHandler.handle(erro));
-      }
-
-      atualizarMaterial(form: FormControl){
-        this.cadmaterialService.atualizar(this.materialSalvar)
-        .then(material => {
-          this.materialSalvar = material;
-
-          this.toasty.success('Material alterado com sucesso!');
-
-        })
+    });
+  }
+  adicionarMaterial(form: FormControl) {
+    this.cadmaterialService.adicionar(this.materialSalvar)
+      .then(() => {
+        this.toasty.success("Material cadastrado com sucesso!");
+        form.reset();
+        this.materialSalvar = new Cadmaterial();
+        this.pesquisar();
+      })
       .catch(erro => this.errorHandler.handle(erro));
-      }
+  }
 
+  atualizarMaterial(form: FormControl) {
+    this.cadmaterialService.atualizar(this.materialSalvar)
+      .then(material => {
+        this.materialSalvar = material;
+
+        this.toasty.success('Material alterado com sucesso!');
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 }

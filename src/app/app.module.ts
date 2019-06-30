@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {SelectButtonModule} from 'primeng/selectbutton';
+
 import { ToastyModule } from 'ng2-toasty';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -160,6 +162,7 @@ const routes: Routes = [
     MenubarModule,
     InputTextModule,
     CardModule,
+    SelectButtonModule,
     BrowserAnimationsModule,
     InputMaskModule,
     FileUploadModule,

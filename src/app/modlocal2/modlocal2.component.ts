@@ -23,13 +23,13 @@ export class Modlocal2Component implements OnInit {
   modLocal2Salvar = new Modlocal2();
 
   empresas = [
-    {label: 'Exemplo', value: 1}
+    { label: 'Exemplo', value: 1 }
   ];
 
   @ViewChild('tabela') grid;
 
-  modlocal1=[];
-  modlocal2=[];
+  modlocal1 = [];
+  modlocal2 = [];
 
   constructor(
     private modLocal1Service: Modlocal1Service,
@@ -38,7 +38,7 @@ export class Modlocal2Component implements OnInit {
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-  ){}
+  ) { }
 
   ngOnInit() {
     this.carregarUnidadeDeAvaliacao();
@@ -47,17 +47,17 @@ export class Modlocal2Component implements OnInit {
     const codigoModlocal2 = this.route.snapshot.params['codigo'];
 
     //se houver um id entra no metodo de carregar valores
-    if(codigoModlocal2){
+    if (codigoModlocal2) {
       this.carregarModlocal2(codigoModlocal2);
     }
   }
 
-  get editando(){
+  get editando() {
     return Boolean(this.modLocal2Salvar.pkLocal2.cdLocal2)
   }
 
   //Metodo para carregar valores
-  carregarModlocal2(codigo: number){
+  carregarModlocal2(codigo: number) {
     this.modLocal2Service.buscarPorCodigo(codigo)
       .then(modlocal2 => {
         this.modLocal2Salvar = modlocal2;
@@ -67,7 +67,7 @@ export class Modlocal2Component implements OnInit {
 
 
 
-  pesquisarFOD(page = 0){
+  pesquisarFOD(page = 0) {
 
     this.filtro.page = page;
 
@@ -80,7 +80,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarFOA(page = 0){
+  pesquisarFOA(page = 0) {
 
     this.filtro.page = page;
 
@@ -93,7 +93,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarPEO(page = 0){
+  pesquisarPEO(page = 0) {
 
     this.filtro.page = page;
 
@@ -106,7 +106,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarPATRANS(page = 0){
+  pesquisarPATRANS(page = 0) {
 
     this.filtro.page = page;
 
@@ -119,7 +119,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarINFRA(page = 0){
+  pesquisarINFRA(page = 0) {
 
     this.filtro.page = page;
 
@@ -132,7 +132,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarMON(page = 0){
+  pesquisarMON(page = 0) {
 
     this.filtro.page = page;
 
@@ -145,7 +145,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarACAM(page = 0){
+  pesquisarACAM(page = 0) {
 
     this.filtro.page = page;
 
@@ -158,7 +158,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarESCRI(page = 0){
+  pesquisarESCRI(page = 0) {
 
     this.filtro.page = page;
 
@@ -171,7 +171,7 @@ export class Modlocal2Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarENTOR(page = 0){
+  pesquisarENTOR(page = 0) {
 
     this.filtro.page = page;
 
@@ -188,21 +188,21 @@ export class Modlocal2Component implements OnInit {
 
 
 
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const page = event.first / event.rows;
 
   }
 
   confirmarExclusao(modlocal2: any) {
-    this.confirmation.confirm( {
+    this.confirmation.confirm({
       message: 'Tem certeza que deseja excluir?',
-      accept: () =>{
-     this.excluir(modlocal2);
+      accept: () => {
+        this.excluir(modlocal2);
       }
     });
   }
 
- excluir(modlocal2: any){
+  excluir(modlocal2: any) {
 
     this.modLocal2Service.excluir(modlocal2.cdLocal2)
       .then(() => {
@@ -210,18 +210,18 @@ export class Modlocal2Component implements OnInit {
           //this.pesquisar();
         } else {
           this.grid.first = 0;
-         // this.pesquisar();
+          // this.pesquisar();
         }
         this.toasty.success('Local de Avaliação excluída com sucesso!');
       })
       .catch(erro => this.errorHandler.handle(erro));
 
   }
-  salvar(modlocal2: any){
+  salvar(modlocal2: any) {
 
-    this.confirmation.confirm( {
+    this.confirmation.confirm({
       message: 'Tem certeza que deseja salvar?',
-      accept: () =>{
+      accept: () => {
         this.adicionarModLocal2(modlocal2);
       }
     });
@@ -230,26 +230,26 @@ export class Modlocal2Component implements OnInit {
 
 
 
-      adicionarModLocal2(form: FormControl){
-        this.modLocal2Service.adicionar(this.modLocal2Salvar)
-          .then(() => {
-            this.toasty.success("Local de Avaliação cadastrada com sucesso!");
-            form.reset();
-            this.modLocal2Salvar = new Modlocal2();
-            //this.pesquisar();
-          })
-          .catch(erro => this.errorHandler.handle(erro));
-      }
+  adicionarModLocal2(form: FormControl) {
+    this.modLocal2Service.adicionar(this.modLocal2Salvar)
+      .then(() => {
+        this.toasty.success("Local de Avaliação cadastrada com sucesso!");
+        form.reset();
+        this.modLocal2Salvar = new Modlocal2();
+        //this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 
 
-      carregarUnidadeDeAvaliacao() {
-        return this.modLocal1Service.listarTodas()
-          .then(modlocal1 => {
-            this.modlocal1 = modlocal1.map(c => ({ label: c.pkLocal1.cdLocal1 + " - " + c.nmlocal1, value: c.pkLocal1.cdLocal1 }));
-          })
-          .catch(erro => this.errorHandler.handle(erro));
-    }
+  carregarUnidadeDeAvaliacao() {
+    return this.modLocal1Service.listarTodas()
+      .then(modlocal1 => {
+        this.modlocal1 = modlocal1.map(c => ({ label: c.pkLocal1.cdLocal1 + " - " + c.nmlocal1, value: c.pkLocal1.cdLocal1 }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 
 

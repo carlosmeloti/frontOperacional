@@ -15,87 +15,85 @@ export class Cadamostragem {
   nmAmostragem: string;
 }
 
-
 export class Cadfrequencia {
-cdFrequencia: number;
-cdEmpresa = new Cadempresa();
-nmFrequencia: string;
+  cdFrequencia: number;
+  cdEmpresa = new Cadempresa();
+  nmFrequencia: string;
 }
 
 export class Cadtipodemetodo {
-cdTipoDeMetodo: number;
-cdEmpresa = new Cadempresa();
-nmTipoDeMetodo: string;
+  cdTipoDeMetodo: number;
+  cdEmpresa = new Cadempresa();
+  nmTipoDeMetodo: string;
 }
 
 export class Cadmaterial {
-cdMaterial: number;
-cdEmpresa = new Cadempresa();
-nmMaterial: string;
+  cdMaterial: number;
+  cdEmpresa = new Cadempresa();
+  nmMaterial: string;
 }
 
 export class Cadtipodeverificador {
-cdTipoDeVerificador: number;
-nmTipoDeVerificador: string;
-nrNiveis: number;
-rotuloNivel1: string;
-rotuloNivel2: string;
-rotuloNivel3: string;
-rotuloNivel4: string;
-rotuloNivel5: string;
+  cdTipoDeVerificador: number;
+  nmTipoDeVerificador: string;
+  nrNiveis: number;
+  rotuloNivel1: string;
+  rotuloNivel2: string;
+  rotuloNivel3: string;
+  rotuloNivel4: string;
+  rotuloNivel5: string;
 }
 
 export class Cadniveldeavaliacao {
-cdNivelDeAvaliacao: number;
-nmNivelDeAvaliacao: string;
-sigla: string;
-txDescricao: string;
+  cdNivelDeAvaliacao: number;
+  nmNivelDeAvaliacao: string;
+  sigla: string;
+  txDescricao: string;
 }
 
-
 export class Verificador_m {
-cdEmpresa = new Cadempresa();
-cdTipoDeVerificador =  new Cadtipodeverificador();
-cdVerificador: number;
-cadNivelDeAvaliacao = new Cadniveldeavaliacao();
-codalfa: string;
-nmverificador: string;
-limiar: string;
-p01_graco: number;
+  cdEmpresa = new Cadempresa();
+  cdTipoDeVerificador = new Cadtipodeverificador();
+  cdVerificador: number;
+  cadNivelDeAvaliacao = new Cadniveldeavaliacao();
+  codalfa: string;
+  nmverificador: string;
+  limiar: string;
+  p01_graco: number;
 }
 
 export class Modlocal1 {
-pkLocal1 = new Modlocal1_PK();
-nmlocal1: string;
+  pkLocal1 = new Modlocal1_PK();
+  nmlocal1: string;
 }
 
 export class Modlocal1_PK {
-cdLocal1: number;
-cdEmpresa = new Cadempresa();
+  cdLocal1: number;
+  cdEmpresa = new Cadempresa();
 }
 
 export class Modlocal2 {
-pkLocal2 = new Modlocal2_PK();
-nmLocal2: string;
+  pkLocal2 = new Modlocal2_PK();
+  nmLocal2: string;
 }
 
 export class Modlocal2_PK {
-cdLocal2: number;
-cdEmpresa = new Modlocal1_PK();
-cdLocal1 = new Modlocal1_PK();
+  cdLocal2: number;
+  cdEmpresa = new Modlocal1_PK();
+  cdLocal1 = new Modlocal1_PK();
 }
 
 
 export class Modlocal3 {
-pkLocal3 = new Modlocal3_PK();
-nmLocal3: string;
+  pkLocal3 = new Modlocal3_PK();
+  nmLocal3: string;
 }
 
 export class Modlocal3_PK {
-cdLocal3: number;
-cdEmpresa = new Cadempresa();
-cdLocal1 = new Modlocal2_PK();
-cdLocal2 = new Modlocal2_PK();
+  cdLocal3: number;
+  cdEmpresa = new Modlocal2_PK();
+  cdLocal1 = new Modlocal2_PK();
+  cdLocal2 = new Modlocal2_PK();
 }
 
 
@@ -146,9 +144,9 @@ export class ModNivel4_PK {
 }
 
 export class ModMonitoramentoTemplate {
- cdTemplate: number;
- mmTemplate: string;
- cdTipoDeVerificador = new Cadtipodeverificador();
+  cdTemplate: number;
+  mmTemplate: string;
+  cdTipoDeVerificador = new Cadtipodeverificador();
 }
 
 

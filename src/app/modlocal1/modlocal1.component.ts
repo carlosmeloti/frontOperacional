@@ -1,3 +1,4 @@
+import { CadempresaService } from './../cadempresa/cadempresa.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Modlocal1Filtro, Modlocal1Service } from './modlocal1.service';
 import { LazyLoadEvent } from 'src/primeng/api';
@@ -20,40 +21,39 @@ export class Modlocal1Component implements OnInit {
 
 
   modLocal1Salvar = new Modlocal1();
-  empresas = [
-    {label: 'Exemplo', value: 1}
-  ];
+  empresas = [];
 
   @ViewChild('tabela') grid;
 
-  modlocal1=[]
+  modlocal1 = []
 
   constructor(
     private modLocal1Service: Modlocal1Service,
+    private cadEmpresaService: CadempresaService,
     private toasty: ToastyService,
     private confirmation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-  ){}
+  ) { }
 
   ngOnInit() {
     //console.log(this.route.snapshot.params['codigo']);
-
-    const codigoModlocal1 =  this.route.snapshot.params['codigo'];
-    const cdempresaModlocal1 =  this.route.snapshot.params['cdempresa'];
+    this.carregarEmpresas();
+    const codigoModlocal1 = this.route.snapshot.params['codigo'];
+    const cdempresaModlocal1 = this.route.snapshot.params['cdempresa'];
 
     //se houver um id entra no metodo de carregar valores
-    if(codigoModlocal1 + cdempresaModlocal1){
+    if (codigoModlocal1 + cdempresaModlocal1) {
       this.carregarModlocal1(codigoModlocal1, cdempresaModlocal1);
     }
   }
 
-  get editando(){
+  get editando() {
     return Boolean(this.modLocal1Salvar.pkLocal1.cdLocal1)
   }
 
   //Metodo para carregar valores
-  carregarModlocal1(codigo: number, cdempresa: number){
+  carregarModlocal1(codigo: number, cdempresa: number) {
     this.modLocal1Service.buscarPorCodigo(codigo, cdempresa)
       .then(modlocal1 => {
         this.modLocal1Salvar = modlocal1;
@@ -61,7 +61,7 @@ export class Modlocal1Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisar(page = 0){
+  pesquisar(page = 0) {
 
     this.filtro.page = page;
 
@@ -73,21 +73,21 @@ export class Modlocal1Component implements OnInit {
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
-  aoMudarPagina(event: LazyLoadEvent){
+  aoMudarPagina(event: LazyLoadEvent) {
     const page = event.first / event.rows;
     this.pesquisar(page);
   }
 
   confirmarExclusao(modlocal1: any) {
-    this.confirmation.confirm( {
+    this.confirmation.confirm({
       message: 'Tem certeza que deseja excluir?',
-      accept: () =>{
+      accept: () => {
         this.excluir(modlocal1);
       }
     });
   }
 
-  excluir(modlocal1: any){
+  excluir(modlocal1: any) {
 
     this.modLocal1Service.excluir(modlocal1.cdLocal1)
       .then(() => {
@@ -102,9 +102,9 @@ export class Modlocal1Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
 
   }
-  salvar(form: FormControl){
+  salvar(form: FormControl) {
 
-    if(this.editando){
+    if (this.editando) {
       this.confirmarAlterar(form);
     } else {
       this.confirmarSalvar(form);
@@ -113,46 +113,53 @@ export class Modlocal1Component implements OnInit {
   }
 
 
-      confirmarSalvar(modLocal1: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja salvar?',
-          accept: () =>{
-            this.adicionarModLocal1(modLocal1);
-          }
-        });
+  confirmarSalvar(modLocal1: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja salvar?',
+      accept: () => {
+        this.adicionarModLocal1(modLocal1);
       }
+    });
+  }
 
-      confirmarAlterar(modLocal1: any) {
-        this.confirmation.confirm( {
-          message: 'Tem certeza que deseja alterar?',
-          accept: () =>{
-            this.atualizarModLocal1(modLocal1);
-          }
-        });
+  confirmarAlterar(modLocal1: any) {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja alterar?',
+      accept: () => {
+        this.atualizarModLocal1(modLocal1);
       }
+    });
+  }
 
-      adicionarModLocal1(form: FormControl){
-        this.modLocal1Service.adicionar(this.modLocal1Salvar)
-          .then(() => {
-            this.toasty.success("Unidade de Avaliação cadastrada com sucesso!");
-            form.reset();
-            this.modLocal1Salvar = new Modlocal1();
-            this.pesquisar();
-          })
-          .catch(erro => this.errorHandler.handle(erro));
-      }
-
-      atualizarModLocal1(form: FormControl){
-        this.modLocal1Service.atualizar(this.modLocal1Salvar)
-        .then(modlocal1 => {
-          this.modLocal1Salvar = modlocal1;
-
-          this.toasty.success('Unidade de Avaliação alterada com sucesso!');
-
-        })
+  adicionarModLocal1(form: FormControl) {
+    this.modLocal1Service.adicionar(this.modLocal1Salvar)
+      .then(() => {
+        this.toasty.success("Unidade de Avaliação cadastrada com sucesso!");
+        form.reset();
+        this.modLocal1Salvar = new Modlocal1();
+        this.pesquisar();
+      })
       .catch(erro => this.errorHandler.handle(erro));
-      }
+  }
 
+  atualizarModLocal1(form: FormControl) {
+    this.modLocal1Service.atualizar(this.modLocal1Salvar)
+      .then(modlocal1 => {
+        this.modLocal1Salvar = modlocal1;
+
+        this.toasty.success('Unidade de Avaliação alterada com sucesso!');
+
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  carregarEmpresas() {
+    return this.cadEmpresaService.listarTodas()
+      .then(empresas => {
+        this.empresas = empresas.map(c => ({ label: c.cdEmpresa + " - " + c.nmEmpresa, value: c.cdEmpresa }));
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 
 }

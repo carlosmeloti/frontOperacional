@@ -6,7 +6,7 @@ import { Cadempresa } from 'src/app/core/model';
 
 
 export class CadempresaFiltro {
-  nmEmpresa : string;
+  nmEmpresa: string;
   page = 0;
   size = 5;
 }
@@ -15,7 +15,7 @@ export class CadempresaFiltro {
 @Injectable()
 export class CadempresaService {
 
-  cadempresaurl = 'http://localhost:8086/cadempresa';
+  cadempresaurl = 'http://10.132.90.58:8086/cadempresa';
 
   constructor(private http: Http) { }
 
@@ -29,62 +29,64 @@ export class CadempresaService {
     params.set('page', filtro.page.toString());
     params.set('size', filtro.size.toString());
 
-    if (filtro.nmEmpresa){
+    if (filtro.nmEmpresa) {
       params.set('nmEmpresa', filtro.nmEmpresa);
     }
 
-    return this.http.get(`${this.cadempresaurl}`, {  headers, search: filtro })
+    return this.http.get(`${this.cadempresaurl}`, { headers, search: filtro })
       .toPromise()
       .then(response => {
-          const responseJson = response.json();
-          const cadempresa = responseJson.content;
+        const responseJson = response.json();
+        const cadempresa = responseJson.content;
 
-          const resultado = {
-            cadempresa,
-            total: responseJson.totalElements
-          };
-          return resultado;
+        const resultado = {
+          cadempresa,
+          total: responseJson.totalElements
+        };
+        return resultado;
       })
 
-    };
+  };
 
 
-    excluir(cdEmpresa: number): Promise<void> {
-      const headers = new Headers;
-      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+  excluir(cdEmpresa: number): Promise<void> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-      return this.http.delete(`${this.cadempresaurl}/${cdEmpresa}`, { headers})
-        .toPromise()
-        .then(() => null);
-    }
-
-    adicionar(cadempresa: Cadempresa): Promise<Cadempresa>{
-      const headers = new Headers;
-      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
-      headers.append('Content-Type', 'application/json');
-
-      return this.http.post(this.cadempresaurl, JSON.stringify(cadempresa), { headers })
-        .toPromise()
-        .then(response => response.json());
-    }
-
-    listarTodas(): Promise<any> {
-     const headers = new Headers;
-      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
-      headers.append('Content-Type', 'application/json');
-
-      return this.http.get(this.cadempresaurl, { headers })
-        .toPromise()
-        .then(response => response.json());
+    return this.http.delete(`${this.cadempresaurl}/${cdEmpresa}`, { headers })
+      .toPromise()
+      .then(() => null);
   }
 
-  atualizar(cadempresa: Cadempresa): Promise<Cadempresa>{
+  adicionar(cadempresa: Cadempresa): Promise<Cadempresa> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post(this.cadempresaurl, JSON.stringify(cadempresa), { headers })
+      .toPromise()
+      .then(response => response.json());
+  }
+
+
+
+  listarTodas(): Promise<any> {
+    const headers = new Headers;
+    headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.get(this.cadempresaurl, { headers })
+      .toPromise()
+      .then(response => response.json().content);
+  }
+
+  atualizar(cadempresa: Cadempresa): Promise<Cadempresa> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
     return this.http.put(`${this.cadempresaurl}/${cadempresa.cdEmpresa}`,
-        JSON.stringify(cadempresa), { headers })
+      JSON.stringify(cadempresa), { headers })
       .toPromise()
       .then(response => {
         const cadempresaAlterada = response.json() as Cadempresa;
@@ -92,7 +94,7 @@ export class CadempresaService {
 
         return cadempresaAlterada;
       });
-}
+  }
 
   buscarPorCodigo(cdEmpresa: number): Promise<Cadempresa> {
     const headers = new Headers();
@@ -105,6 +107,6 @@ export class CadempresaService {
 
         return cadempresa;
       });
-}
+  }
 
 }
