@@ -7,7 +7,7 @@ import { Http, Headers } from '@angular/http';
   providedIn: 'root'
 })
 export class Modlocal2EditandoService {
-  modlocal2URL = 'http://10.132.90.58:8086/localdeavaliacao';
+  modlocal2URL = 'http://localhost:8081/localdeavaliacao';
 
 
   constructor(private http: Http) { }
@@ -72,7 +72,7 @@ export class Modlocal2EditandoService {
      headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
      headers.append('Content-Type', 'application/json');
 
-     return this.http.put(`${this.modlocal2URL}/${modlocal2.pkLocal2.cdLocal2}`,
+     return this.http.put(`${this.modlocal2URL}/${modlocal2.cdLocal2}`,
          JSON.stringify(modlocal2), { headers })
        .toPromise()
        .then(response => {

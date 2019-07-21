@@ -53,7 +53,7 @@ export class Modlocal2Component implements OnInit {
   }
 
   get editando() {
-    return Boolean(this.modLocal2Salvar.pkLocal2.cdLocal2)
+    return Boolean(this.modLocal2Salvar.cdLocal2)
   }
 
   //Metodo para carregar valores
@@ -233,10 +233,11 @@ export class Modlocal2Component implements OnInit {
   adicionarModLocal2(form: FormControl) {
     this.modLocal2Service.adicionar(this.modLocal2Salvar)
       .then(() => {
-        this.toasty.success("Local de Avaliação cadastrada com sucesso!");
+        this.toasty.success("Local de Avaliação cadastrado com sucesso!");
         form.reset();
         this.modLocal2Salvar = new Modlocal2();
-        //this.pesquisar();
+
+
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -246,7 +247,7 @@ export class Modlocal2Component implements OnInit {
   carregarUnidadeDeAvaliacao() {
     return this.modLocal1Service.listarTodas()
       .then(modlocal1 => {
-        this.modlocal1 = modlocal1.map(c => ({ label: c.pkLocal1.cdLocal1 + " - " + c.nmlocal1, value: c.pkLocal1.cdLocal1 }));
+        this.modlocal1 = modlocal1.map(c => ({ label: c.cdLocal1 + " - " + c.nmlocal1, value: c.cdLocal1 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

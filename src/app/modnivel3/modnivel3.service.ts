@@ -20,25 +20,25 @@ export class Modnivel3Service {
 
 
 
-  modnivel3URL = 'http://10.132.90.58:8086/modnivel3';
+  modnivel3URL = 'http://localhost:8081/modnivel3';
 
-  URLmodnivel3_cdNivel1_1_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=1&cdNivel2=1';
-  URLmodnivel3_cdNivel1_1_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=1&cdNivel2=2';
-  URLmodnivel3_cdNivel1_1_cdNivel2_3 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=1&cdNivel2=3';
+  URLmodnivel3_cdNivel1_1_cdNivel2_1 = 'http://localhost:8081/modnivel3?cdNivel1=1&cdNivel2=1';
+  URLmodnivel3_cdNivel1_1_cdNivel2_2 = 'http://localhost:8081/modnivel3?cdNivel1=1&cdNivel2=2';
+  URLmodnivel3_cdNivel1_1_cdNivel2_3 = 'http://localhost:8081/modnivel3?cdNivel1=1&cdNivel2=3';
 
-  URLmodnivel3_cdNivel1_2_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=2&cdNivel2=1';
+  URLmodnivel3_cdNivel1_2_cdNivel2_4 = 'http://localhost:8081/modnivel3?cdNivel1=2&cdNivel2=4';
 
-  URLmodnivel3_cdNivel1_3_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=3&cdNivel2=1';
-  URLmodnivel3_cdNivel1_3_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=3&cdNivel2=2';
+  URLmodnivel3_cdNivel1_3_cdNivel2_5 = 'http://localhost:8081/modnivel3?cdNivel1=3&cdNivel2=5';
+  URLmodnivel3_cdNivel1_3_cdNivel2_6 = 'http://localhost:8081/modnivel3?cdNivel1=3&cdNivel2=6';
 
-  URLmodnivel3_cdNivel1_4_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=4&cdNivel2=1';
-  URLmodnivel3_cdNivel1_4_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=4&cdNivel2=2';
+  URLmodnivel3_cdNivel1_4_cdNivel2_7 = 'http://localhost:8081/modnivel3?cdNivel1=4&cdNivel2=7';
+  URLmodnivel3_cdNivel1_4_cdNivel2_8 = 'http://localhost:8081/modnivel3?cdNivel1=4&cdNivel2=8';
 
-  URLmodnivel3_cdNivel1_5_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=5&cdNivel2=1';
-  URLmodnivel3_cdNivel1_5_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=5&cdNivel2=2';
+  URLmodnivel3_cdNivel1_5_cdNivel2_9 = 'http://localhost:8081/modnivel3?cdNivel1=5&cdNivel2=9';
+  URLmodnivel3_cdNivel1_5_cdNivel2_10 = 'http://localhost:8081/modnivel3?cdNivel1=5&cdNivel2=10';
 
-  URLmodnivel3_cdNivel1_6_cdNivel2_1 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=6&cdNivel2=1';
-  URLmodnivel3_cdNivel1_6_cdNivel2_2 = 'http://10.132.90.58:8086/modnivel3?cdNivel1=6&cdNivel2=2';
+  URLmodnivel3_cdNivel1_6_cdNivel2_11 = 'http://localhost:8081/modnivel3?cdNivel1=6&cdNivel2=11';
+  URLmodnivel3_cdNivel1_6_cdNivel2_12 = 'http://localhost:8081/modnivel3?cdNivel1=6&cdNivel2=12';
 
   constructor(private http: Http) { }
 
@@ -117,7 +117,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_2_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_2_cdNivel2_4}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -139,7 +139,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_5}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -161,7 +161,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_6}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -183,7 +183,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_7}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -205,7 +205,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_8}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -227,7 +227,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_9}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -249,7 +249,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_10}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -271,7 +271,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_11}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -293,7 +293,7 @@ export class Modnivel3Service {
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_12}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -367,92 +367,92 @@ export class Modnivel3Service {
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_2_cdNivel2_1(): Promise<any> {
+  listarTodas_cdNivel1_2_cdNivel2_4(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_2_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_2_cdNivel2_4}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_3_cdNivel2_1(): Promise<any> {
+  listarTodas_cdNivel1_3_cdNivel2_5(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_5}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_3_cdNivel2_2(): Promise<any> {
+  listarTodas_cdNivel1_3_cdNivel2_6(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_3_cdNivel2_6}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_4_cdNivel2_1(): Promise<any> {
+  listarTodas_cdNivel1_4_cdNivel2_7(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_7}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_4_cdNivel2_2(): Promise<any> {
+  listarTodas_cdNivel1_4_cdNivel2_8(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_4_cdNivel2_8}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_5_cdNivel2_1(): Promise<any> {
+  listarTodas_cdNivel1_5_cdNivel2_9(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_9}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_5_cdNivel2_2(): Promise<any> {
+  listarTodas_cdNivel1_5_cdNivel2_10(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_5_cdNivel2_10}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_6_cdNivel2_1(): Promise<any> {
+  listarTodas_cdNivel1_6_cdNivel2_11(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_1}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_11}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
 
-  listarTodas_cdNivel1_6_cdNivel2_2(): Promise<any> {
+  listarTodas_cdNivel1_6_cdNivel2_12(): Promise<any> {
     const headers = new Headers;
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_2}`, { headers })
+    return this.http.get(`${this.URLmodnivel3_cdNivel1_6_cdNivel2_12}`, { headers })
       .toPromise()
       .then(response => response.json().content);
   }
@@ -490,7 +490,7 @@ export class Modnivel3Service {
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
     headers.append('Content-Type', 'application/json');
 
-    return this.http.put(`${this.modnivel3URL}/${modnivel3.pkNivel3.cdNivel3}`,
+    return this.http.put(`${this.modnivel3URL}/${modnivel3.cdNivel3}`,
       JSON.stringify(modnivel3), { headers })
       .toPromise()
       .then(response => {

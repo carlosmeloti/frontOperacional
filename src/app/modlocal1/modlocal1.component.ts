@@ -43,18 +43,18 @@ export class Modlocal1Component implements OnInit {
     const cdempresaModlocal1 = this.route.snapshot.params['cdempresa'];
 
     //se houver um id entra no metodo de carregar valores
-    if (codigoModlocal1 + cdempresaModlocal1) {
-      this.carregarModlocal1(codigoModlocal1, cdempresaModlocal1);
+    if (codigoModlocal1) {
+      this.carregarModlocal1(codigoModlocal1);
     }
   }
 
   get editando() {
-    return Boolean(this.modLocal1Salvar.pkLocal1.cdLocal1)
+    return Boolean(this.modLocal1Salvar.cdLocal1)
   }
 
   //Metodo para carregar valores
-  carregarModlocal1(codigo: number, cdempresa: number) {
-    this.modLocal1Service.buscarPorCodigo(codigo, cdempresa)
+  carregarModlocal1(codigo: number) {
+    this.modLocal1Service.buscarPorCodigo(codigo)
       .then(modlocal1 => {
         this.modLocal1Salvar = modlocal1;
       })

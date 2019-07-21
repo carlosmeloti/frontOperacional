@@ -105,7 +105,7 @@ const routes: Routes = [
   { path: 'verificador_m/associar/:codigo', component:VerificadorMAssociarComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
   { path: 'modlocal1', component:Modlocal1Component},
-  { path: 'modlocal1/:codigo/:cdempresa', component:Modlocal1Component},
+  { path: 'modlocal1/:codigo', component:Modlocal1Component},
   { path: 'modlocal2', component:Modlocal2Component},
   { path: 'modlocal2/:codigo', component:Modlocal2EditandoComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},

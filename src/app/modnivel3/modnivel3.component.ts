@@ -73,7 +73,7 @@ export class Modnivel3Component implements OnInit {
   }
 
   get editando() {
-    return Boolean(this.modNivel3Salvar.pkNivel3.cdNivel3)
+    return Boolean(this.modNivel3Salvar.cdNivel3)
   }
 
   //Metodo para carregar valores
@@ -244,7 +244,7 @@ export class Modnivel3Component implements OnInit {
   carregarModNivel2_cdNivel1_1() {
     return this.modNivel2Service.listarTodascdNivel1_1()
       .then(modnivel2 => {
-        this.modnivel2_cdNivel1_1 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2_cdNivel1_1 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -253,7 +253,7 @@ export class Modnivel3Component implements OnInit {
   carregarModNivel2_cdNivel1_2() {
     return this.modNivel2Service.listarTodascdNivel1_2()
       .then(modnivel2 => {
-        this.modnivel2_cdNivel1_2 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2_cdNivel1_2 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -261,28 +261,28 @@ export class Modnivel3Component implements OnInit {
   carregarModNivel2_cdNivel1_3() {
     return this.modNivel2Service.listarTodascdNivel1_3()
       .then(modnivel2 => {
-        this.modnivel2_cdNivel1_3 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2_cdNivel1_3 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
   carregarModNivel2_cdNivel1_4() {
     return this.modNivel2Service.listarTodascdNivel1_4()
       .then(modnivel2 => {
-        this.modnivel2_cdNivel1_4 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2_cdNivel1_4 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
   carregarModNivel2_cdNivel1_5() {
     return this.modNivel2Service.listarTodascdNivel1_5()
       .then(modnivel2 => {
-        this.modnivel2_cdNivel1_5 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2_cdNivel1_5 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
   carregarModNivel2_cdNivel1_6() {
     return this.modNivel2Service.listarTodascdNivel1_6()
       .then(modnivel2 => {
-        this.modnivel2_cdNivel1_6 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2_cdNivel1_6 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -346,7 +346,7 @@ export class Modnivel3Component implements OnInit {
   carregarModNivel1() {
     return this.modNivel1Service.listarTodas()
       .then(modnivel1 => {
-        this.modnivel1 = modnivel1.map(c => ({ label: c.pkNivel1.cdNivel1 + " - " + c.nmNivel1, value: c.pkNivel1.cdNivel1 }));
+        this.modnivel1 = modnivel1.map(c => ({ label: c.cdNivel1 + " - " + c.nmNivel1, value: c.cdNivel1 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }
@@ -354,7 +354,7 @@ export class Modnivel3Component implements OnInit {
   carregarModNivel2() {
     return this.modNivel2Service.listarTodas()
       .then(modnivel2 => {
-        this.modnivel2 = modnivel2.map(c => ({ label: c.pkNivel2.cdNivel2 + " - " + c.nmNivel2, value: c.pkNivel2.cdNivel2 }));
+        this.modnivel2 = modnivel2.map(c => ({ label: c.cdNivel2 + " - " + c.nmNivel2, value: c.cdNivel2 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

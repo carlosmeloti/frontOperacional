@@ -10,7 +10,7 @@ export class NodeService {
     constructor(private http: Http) {}
 
     getFiles() {
-        return this.http.get('http://localhost:4200/assets/json/files.json')
+        return this.http.get('http://localhostt:4200/assets/json/files.json')
                     .toPromise()
                     .then(res => <TreeNode[]> res.json().data);
     }

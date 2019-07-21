@@ -15,7 +15,7 @@
           <!--<p-dropdown name="empresa" [options]="empresas" [autoWidth]="false"  [(ngModel)]="amostragemSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>-->
 
           <p-selectButton name="empresa" [options]="empresas"
-            [(ngModel)]="modLocal2Salvar.pkLocal2.cdEmpresa.cdEmpresa.cdEmpresa">
+            [(ngModel)]="modLocal2Salvar.cdEmpresa.cdEmpresa">
           </p-selectButton>
         </div>
 
@@ -27,32 +27,32 @@
         <div class="ui-g-4 ui-fluid">
           <label>Unidade de Avaliação</label>
           <p-dropdown name="modlocal1" [options]="modlocal1" placeholder="Selecione" [autoWidth]="false"
-            [(ngModel)]="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1" required></p-dropdown>
+            [(ngModel)]="modLocal2Salvar.cdLocal1.cdLocal1" required></p-dropdown>
 
         </div>
         <div class="ui-g-2 ui-fluid">
-          <!-- [(ngModel)]="modLocal2Salvar.pkLocal2.cdLocal1" <br />
+          <!-- [(ngModel)]="modLocal2Salvar.cdLocal1" <br />
         <button  type="button"  pButton label="Buscar" (click)="pesquisar(filtro.nmlocal1)"></button>-->
 
 
           <br />
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 1" type="button" style="width: 200px" pButton
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 1" type="button" style="width: 200px" pButton
             label="Buscar Local" (click)="pesquisarFOD()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 2" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 2" type="button" pButton label="Buscar Local"
             (click)="pesquisarFOA()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 3" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 3" type="button" pButton label="Buscar Local"
             (click)="pesquisarPEO()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 4" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 4" type="button" pButton label="Buscar Local"
             (click)="pesquisarPATRANS()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 5" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 5" type="button" pButton label="Buscar Local"
             (click)="pesquisarINFRA()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 6" type="button" style="width: 200px" pButton
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 6" type="button" style="width: 200px" pButton
             label="Buscar Local" (click)="pesquisarMON()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 7" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 7" type="button" pButton label="Buscar Local"
             (click)="pesquisarACAM()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 8" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 8" type="button" pButton label="Buscar Local"
             (click)="pesquisarESCRI()"></button>
-          <button *ngIf="modLocal2Salvar.pkLocal2.cdLocal1.cdLocal1 == 9" type="button" pButton label="Buscar Local"
+          <button *ngIf="modLocal2Salvar.cdLocal1.cdLocal1 == 9" type="button" pButton label="Buscar Local"
             (click)="pesquisarENTOR()"></button>
 
 
@@ -92,7 +92,7 @@
           </ng-template>
           <ng-template pTemplate="body" let-modlocal2>
             <tr>
-              <th>{{modlocal2.pkLocal2.cdLocal2}}</th>
+              <th>{{modlocal2.cdLocal2}}</th>
               <th style="text-align: left">{{modlocal2.nmLocal2}}</th>
               <th>
                 <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"

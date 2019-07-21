@@ -12,7 +12,7 @@
         <!--<div class="ui-g-8 ui-fluid">
           <label>Empresa</label>
           <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione" [autoWidth]="false"
-            [(ngModel)]="modNivel1Salvar.pkNivel1.cdEmpresa.cdEmpresa" required></p-dropdown>
+            [(ngModel)]="modNivel1Salvar.cdEmpresa.cdEmpresa" required></p-dropdown>
         </div> -->
 
         <div class="ui-g-3 ui-fluid">
@@ -20,7 +20,7 @@
           <!--<p-dropdown name="empresa" [options]="empresas" [autoWidth]="false"  [(ngModel)]="amostragemSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>-->
 
           <p-selectButton name="empresa" [options]="empresas"
-            [(ngModel)]="modNivel1Salvar.pkNivel1.cdEmpresa.cdEmpresa">
+            [(ngModel)]="modNivel1Salvar.cdEmpresa.cdEmpresa">
           </p-selectButton>
         </div>
         <div class="ui-g-12 ui-fluid">
@@ -65,7 +65,7 @@
           </ng-template>
           <ng-template pTemplate="body" let-modnivel1>
             <tr>
-              <th>{{modnivel1.pkNivel1.cdNivel1}}</th>
+              <th>{{modnivel1.cdNivel1}}</th>
               <th style="text-align: left">{{modnivel1.nmNivel1}}</th>
               <th>
                 <a pButton icon="pi pi-pencil" pTooltip="Editar Empresa" tooltipPosition="top"

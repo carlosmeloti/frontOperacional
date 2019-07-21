@@ -6,7 +6,8 @@
 
 PRIMARY KEY(d04_cdlocal2),
 CONSTRAINT local1_fk FOREIGN KEY (d04_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1),
-CONSTRAINT local1_empresa_fk FOREIGN KEY (d04_cdempresa) REFERENCES d24_empresa(d24_cdempresa)
+CONSTRAINT local1_empresafk FOREIGN KEY (d04_cdempresa) REFERENCES d24_empresa(d24_cdempresa)
+
 );
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_nmlocal2) VALUES(1, 1, '-');

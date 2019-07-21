@@ -12,19 +12,10 @@
         <div class="ui-g-8 ui-fluid">
 
         </div>
-
-        <!--<div class="ui-g-8 ui-fluid">
-          <label>Empresa</label>
-          <p-dropdown name="empresa" [options]="empresas" placeholder="Selecione"
-            [autoWidth]="false" [(ngModel)]="modNivel2Salvar.pkNivel2.cdEmpresa.cdEmpresa" required></p-dropdown>
-      </div> -->
-
       <div class="ui-g-3 ui-fluid">
         <label>Empresa</label>
-        <!--<p-dropdown name="empresa" [options]="empresas" [autoWidth]="false"  [(ngModel)]="amostragemSalvar.cdEmpresa.cdEmpresa" required></p-dropdown>-->
 
-        <p-selectButton name="empresa" [options]="empresas"
-         [(ngModel)]="modNivel2Salvar.pkNivel2.cdEmpresa.cdEmpresa.cdEmpresa">
+        <p-selectButton name="empresa" [options]="empresas" [(ngModel)]="modNivel2Salvar.cdEmpresa.cdEmpresa.cdEmpresa">
         </p-selectButton>
       </div>
       <div class="ui-g-7 ui-fluid"></div>
@@ -32,26 +23,26 @@
 
           <label>Assunto: <strong><a routerLink="/modnivel1"> Adicionar</a></strong></label>
           <p-dropdown name="modnivel1" [options]="modnivel1" placeholder="Selecione" [autoWidth]="false"
-            [(ngModel)]="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1" required></p-dropdown>
+            [(ngModel)]="modNivel2Salvar.cdNivel1.cdNivel1" required></p-dropdown>
         </div>
         <div class="ui-g-2 ui-fluid">
           <br />
-          <button *ngIf="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1 == 1" type="button" style="width: 200px" pButton
+          <button *ngIf="modNivel2Salvar.cdNivel1.cdNivel1 == 1" type="button" style="width: 200px" pButton
             label="Buscar Etapa" (click)="pesquisarModNivel2_cdNivel1_1()">
           </button>
-          <button *ngIf="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1 == 2" type="button" style="width: 200px" pButton
+          <button *ngIf="modNivel2Salvar.cdNivel1.cdNivel1 == 2" type="button" style="width: 200px" pButton
             label="Buscar Etapa" (click)="pesquisarModNivel2_cdNivel1_2()">
           </button>
-          <button *ngIf="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1 == 3" type="button" style="width: 200px" pButton
+          <button *ngIf="modNivel2Salvar.cdNivel1.cdNivel1 == 3" type="button" style="width: 200px" pButton
             label="Buscar Etapa" (click)="pesquisarModNivel2_cdNivel1_3()">
           </button>
-          <button *ngIf="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1 == 4" type="button" style="width: 200px" pButton
+          <button *ngIf="modNivel2Salvar.cdNivel1.cdNivel1 == 4" type="button" style="width: 200px" pButton
             label="Buscar Etapa" (click)="pesquisarModNivel2_cdNivel1_4()">
           </button>
-          <button *ngIf="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1 == 5" type="button" style="width: 200px" pButton
+          <button *ngIf="modNivel2Salvar.cdNivel1.cdNivel1 == 5" type="button" style="width: 200px" pButton
             label="Buscar Etapa" (click)="pesquisarModNivel2_cdNivel1_5()">
           </button>
-          <button *ngIf="modNivel2Salvar.pkNivel2.cdNivel1.cdNivel1 == 6" type="button" style="width: 200px" pButton
+          <button *ngIf="modNivel2Salvar.cdNivel1.cdNivel1 == 6" type="button" style="width: 200px" pButton
             label="Buscar Etapa" (click)="pesquisarModNivel2_cdNivel1_6()">
           </button>
 
@@ -92,7 +83,7 @@
           </ng-template>
           <ng-template pTemplate="body" let-modnivel2>
             <tr>
-              <th>{{modnivel2.pkNivel2.cdNivel2}}</th>
+              <th>{{modnivel2.cdNivel2}}</th>
               <th style="text-align: left">{{modnivel2.nmNivel2}}</th>
               <th>
                 <a pButton icon="pi pi-pencil" pTooltip="Editar Etapa" tooltipPosition="top"

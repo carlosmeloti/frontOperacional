@@ -63,85 +63,67 @@ export class Verificador_m {
 }
 
 export class Modlocal1 {
-  pkLocal1 = new Modlocal1_PK();
+  cdLocal1: number;
+  cdEmpresa = new Cadempresa();
   nmlocal1: string;
 }
 
-export class Modlocal1_PK {
-  cdLocal1: number;
-  cdEmpresa = new Cadempresa();
-}
 
 export class Modlocal2 {
-  pkLocal2 = new Modlocal2_PK();
+  cdLocal2: number;
+  cdEmpresa = new Cadempresa();
+  cdLocal1 = new Modlocal1();
   nmLocal2: string;
 }
 
-export class Modlocal2_PK {
-  cdLocal2: number;
-  cdEmpresa = new Modlocal1_PK();
-  cdLocal1 = new Modlocal1_PK();
-}
 
 
 export class Modlocal3 {
-  pkLocal3 = new Modlocal3_PK();
+  cdLocal3: number;
+  cdEmpresa = new Cadempresa();
+  cdLocal1 = new Modlocal1();
+  cdLocal2 = new Modlocal2();
   nmLocal3: string;
 }
 
-export class Modlocal3_PK {
-  cdLocal3: number;
-  cdEmpresa = new Modlocal2_PK();
-  cdLocal1 = new Modlocal2_PK();
-  cdLocal2 = new Modlocal2_PK();
-}
+
 
 
 export class ModNivel1 {
-  pkNivel1 = new ModNivel1_PK();
+  cdNivel1: number;
+  cdEmpresa = new Cadempresa();
   nmNivel1: string;
 }
 
-export class ModNivel1_PK {
-  cdNivel1: number;
-  cdEmpresa = new Cadempresa();
-}
 
 export class ModNivel2 {
-  pkNivel2 = new ModNivel2_PK()
+  cdNivel2: number;
+  cdNivel1 = new ModNivel1();
+  cdEmpresa = new Cadempresa();
   nmNivel2: string;
 }
 
-export class ModNivel2_PK {
-  cdNivel2: number;
-  cdNivel1 = new ModNivel1_PK();
-  cdEmpresa = new ModNivel1_PK();
-}
+
 
 export class ModNivel3 {
-  pkNivel3 = new ModNivel3_PK();
+  cdNivel1 = new ModNivel1();
+  cdNivel2 = new ModNivel2();
+  cdNivel3: number;
+  cdEmpresa = new Cadempresa();
   nmNivel3: string;
 }
 
-export class ModNivel3_PK {
-  cdNivel3: number;
-  cdNivel1 = new ModNivel2_PK();
-  cdNivel2 = new ModNivel2_PK();
-  cdEmpresa = new ModNivel2_PK();
-}
+
 
 export class ModNivel4 {
-  pkNivel4 = new ModNivel4_PK();
+  cdNivel1 = new ModNivel1();
+  cdNivel2 = new ModNivel2();
+  cdNivel3 = new ModNivel3();
+  cdNivel4: number;
+  cdEmpresa = new Cadempresa();
   nmNivel4: string;
 }
 
-export class ModNivel4_PK {
-  cdNivel4: number;
-  cdNivel1 = new ModNivel3_PK();
-  cdNivel2 = new ModNivel3_PK();
-  cdNivel3 = new ModNivel3_PK();
-  cdEmpresa = new ModNivel3_PK();
-}
 
 export class ModMonitoramentoTemplate {
   cdTemplate: number;
