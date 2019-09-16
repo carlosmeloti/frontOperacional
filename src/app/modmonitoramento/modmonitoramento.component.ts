@@ -19,7 +19,7 @@ export class ModmonitoramentoComponent  {
   constructor() {
     this.cities1 = [
       {label:'Tipo de Verificador', value:null},
-      {label:'Monitoramento Operacional', value:{id:1, name: 'New York', code: 'NY'}},
+      {label:'Monitoramento Operaciol', value:{id:1, name: 'New York', code: 'NY'}},
       {label:'Avaliação de Impactos', value:{id:2, name: 'Rome', code: 'RM'}},
       {label:'Vistoria de PMFS', value:{id:3, name: 'London', code: 'LDN'}},
       {label:'Certificação Florestal', value:{id:4, name: 'Istanbul', code: 'IST'}},

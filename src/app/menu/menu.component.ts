@@ -60,6 +60,10 @@ export class MenuComponent implements OnInit {
                 routerLink: '/verificador_m'
               },
               {
+                label: 'Associar Verificador',
+                routerLink: '/associarverificador'
+              },
+              {
                 label: 'Unidade de Avaliação',
                 routerLink: '/modlocal1'
               },

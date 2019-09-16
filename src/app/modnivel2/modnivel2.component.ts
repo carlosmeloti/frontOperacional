@@ -201,7 +201,7 @@ export class Modnivel2Component implements OnInit {
   carregarModNivel1() {
     return this.modNivel1Service.listarTodas()
       .then(modnivel1 => {
-        this.modnivel1 = modnivel1.map(c => ({ label: c.pkNivel1.cdNivel1 + " - " + c.nmNivel1, value: c.pkNivel1.cdNivel1 }));
+        this.modnivel1 = modnivel1.map(c => ({ label: c.cdNivel1 + " - " + c.nmNivel1, value: c.cdNivel1 }));
       })
       .catch(erro => this.errorHandler.handle(erro));
   }

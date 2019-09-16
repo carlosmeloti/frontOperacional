@@ -60,23 +60,24 @@ export class Modnivel4Service {
   URLmodnivel4_cdNivel1_3_cdNivel2_6_cdNivel3_31 = 'http://localhost:8081/modnivel4?cdNivel1=3&cdNivel2=6&cdNivel3=31';
   URLmodnivel4_cdNivel1_3_cdNivel2_6_cdNivel3_32 = 'http://localhost:8081/modnivel4?cdNivel1=3&cdNivel2=6&cdNivel3=32';
 
-  URLmodnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_33 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=1&cdNivel3=33';
-  URLmodnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_34 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=1&cdNivel3=34';
+  URLmodnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_33 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=7&cdNivel3=33';
+  URLmodnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_34 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=7&cdNivel3=34';
 
-  URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_35 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=2&cdNivel3=35';
-  URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_36 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=2&cdNivel3=36';
-  URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_37 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=2&cdNivel3=37';
-  URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_38 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=2&cdNivel3=38';
+  URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_35 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=8&cdNivel3=35';
+  URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_36 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=8&cdNivel3=36';
+  URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_37 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=8&cdNivel3=37';
+  URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_38 = 'http://localhost:8081/modnivel4?cdNivel1=4&cdNivel2=8&cdNivel3=38';
 
-  URLmodnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_39 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=1&cdNivel3=39';
-  URLmodnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_40 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=1&cdNivel3=40';
+  URLmodnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_39 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=9&cdNivel3=39';
+  URLmodnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_40 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=9&cdNivel3=40';
 
-  URLmodnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_41 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=2&cdNivel3=41';
-  URLmodnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_42 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=2&cdNivel3=42';
 
-  URLmodnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_43 = 'http://localhost:8081/modnivel4?cdNivel1=6&cdNivel2=1&cdNivel3=43';
+  URLmodnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_41 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=10&cdNivel3=41';
+  URLmodnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_42 = 'http://localhost:8081/modnivel4?cdNivel1=5&cdNivel2=10&cdNivel3=42';
 
-  URLmodnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_44 = 'http://localhost:8081/modnivel4?cdNivel1=6&cdNivel2=2&cdNivel3=44';
+  URLmodnivel4_cdNivel1_6_cdNivel2_11_cdNivel3_43 = 'http://localhost:8081/modnivel4?cdNivel1=6&cdNivel2=11&cdNivel3=43';
+
+  URLmodnivel4_cdNivel1_6_cdNivel2_12_cdNivel3_44 = 'http://localhost:8081/modnivel4?cdNivel1=6&cdNivel2=12&cdNivel3=44';
 
 
   constructor(private http: Http) { }
@@ -778,14 +779,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_33(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_33(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_33}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_33}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -800,14 +801,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_34(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_34(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_34}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_34}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -822,14 +823,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_35(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_35(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_35}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_35}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -844,14 +845,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_36(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_36(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_36}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_36}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -866,14 +867,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_37(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_37(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_37}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_37}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -888,14 +889,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_38(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_38(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_38}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_38}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -910,14 +911,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_39(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_39(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_39}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_39}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -932,14 +933,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_40(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_40(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_40}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_40}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -954,14 +955,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_41(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_41(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_41}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_41}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -976,14 +977,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_42(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_42(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_42}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_42}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -998,14 +999,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_43(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_6_cdNivel2_11_cdNivel3_43(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_43}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_6_cdNivel2_11_cdNivel3_43}`, { headers })
       .toPromise()
       .then(response => {
 
@@ -1020,14 +1021,14 @@ export class Modnivel4Service {
       })
   };
 
-  pesquisarModnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_44(filtro: Modnivel4Filtro): Promise<any> {
+  pesquisarModnivel4_cdNivel1_6_cdNivel2_12_cdNivel3_44(filtro: Modnivel4Filtro): Promise<any> {
 
     const params = new URLSearchParams;
     const headers = new Headers;
 
     headers.append('Authorization', 'Basic YWRtaW46YWRtaW4=');
 
-    return this.http.get(`${this.URLmodnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_44}`, { headers })
+    return this.http.get(`${this.URLmodnivel4_cdNivel1_6_cdNivel2_12_cdNivel3_44}`, { headers })
       .toPromise()
       .then(response => {
 

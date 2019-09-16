@@ -52,6 +52,7 @@ export class Cadniveldeavaliacao {
 }
 
 export class Verificador_m {
+  codigo: number;
   cdEmpresa = new Cadempresa();
   cdTipoDeVerificador = new Cadtipodeverificador();
   cdVerificador: number;
@@ -60,6 +61,21 @@ export class Verificador_m {
   nmverificador: string;
   limiar: string;
   p01_graco: number;
+}
+
+export class Verificador_Local_m {
+  codigo: number;
+  cdEmpresa = new Cadempresa();
+  r15_id_Verificador_m = new Verificador_m();
+  cdTipoDeVerificador = new Cadtipodeverificador();
+  cdLocal1 = new Modlocal1();
+  cdLocal2 = new Modlocal2();
+  cdLocal3 = new Modlocal3();
+  cdTipoDeMetodo = new Cadtipodemetodo();
+  txMetodologia: string;
+  cdFrequencia = new Cadfrequencia();
+  cdAmostragem = new Cadamostragem();
+  cdMaterial = new Cadmaterial();
 }
 
 export class Modlocal1 {
@@ -131,6 +147,15 @@ export class ModMonitoramentoTemplate {
   cdTipoDeVerificador = new Cadtipodeverificador();
 }
 
+export class AppMonitoramento{
+  cdMonitoramento: number;
+  cdTemplate = new ModMonitoramentoTemplate();
+  cdEmpresa = new Cadempresa();
+  nmMonitoramento: string;
+  cdTipoDeVerificador = new Cadtipodeverificador();
+  dtCriacao: Date;
+  txLocal: string;
+}
 
 
 

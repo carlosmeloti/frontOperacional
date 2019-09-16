@@ -70,7 +70,7 @@ export class CadmaterialService {
 
        return this.http.get(this.cadmaterialURL, { headers })
          .toPromise()
-         .then(response => response.json());
+         .then(response => response.json().content);
    }
 
    atualizar(cadmaterial: Cadmaterial): Promise<Cadmaterial>{

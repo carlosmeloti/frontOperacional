@@ -1,3 +1,5 @@
+import { AppmonitoramentoComponent } from './appmonitoramento/appmonitoramento.component';
+import { AssociarverificadorService } from './associarverificador/associarverificador.service';
 import { ModmonitoramentoComponent } from './modmonitoramento/modmonitoramento.component';
 import { Modnivel1Service } from './modnivel1/modnivel1.service';
 
@@ -81,6 +83,8 @@ import { ModmonitoramentotemplateComponent } from './modmonitoramentotemplate/mo
 import { ModmonitoramentotemplateService } from './modmonitoramentotemplate/modmonitoramentotemplate.service';
 import { ModmonitoramentoService } from './modmonitoramento/modmonitoramento.service';
 import { ModverificadoresdomodeloComponent } from './modverificadoresdomodelo/modverificadoresdomodelo.component';
+import { AssociarverificadorComponent } from './associarverificador/associarverificador.component';
+import { AppmonitoramentoService } from './appmonitoramento/appmonitoramento.service';
 
 
 
@@ -101,8 +105,8 @@ const routes: Routes = [
   { path: 'cadmaterial', component:CadmaterialComponent},
   { path: 'cadmaterial/:codigo', component:CadmaterialComponent},
   { path: 'verificador_m', component:VerificadorMComponent},
-  { path: 'verificador_m/:codigo', component:VerificadorMEditandoComponent},
-  { path: 'verificador_m/associar/:codigo', component:VerificadorMAssociarComponent},
+  { path: 'verificador_m/:codigo', component:VerificadorMComponent},
+  { path: 'verificador_m/associar', component:VerificadorMAssociarComponent},
   { path: 'unidadelocalsublocal', component:UnidadelocalsublocalComponent},
   { path: 'modlocal1', component:Modlocal1Component},
   { path: 'modlocal1/:codigo', component:Modlocal1Component},
@@ -120,6 +124,11 @@ const routes: Routes = [
   { path: 'modnivel4/:codigo', component:Modnivel4Component},
   { path: 'modmonitoramentotemplate', component:ModmonitoramentotemplateComponent},
   { path: 'modmonitoramentotemplate/:codigo', component:ModmonitoramentotemplateComponent},
+  { path: 'associarverificador', component:AssociarverificadorComponent},
+  { path: 'associarverificador/:codigo', component:AssociarverificadorComponent},
+  { path: 'appmonitoramento', component:AppmonitoramentoComponent},
+  { path: 'appmonitoramento/:codigo', component:AppmonitoramentoComponent},
+
 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 ]
@@ -150,6 +159,8 @@ const routes: Routes = [
     Modnivel4Component,
     ModmonitoramentotemplateComponent,
     ModverificadoresdomodeloComponent,
+    AssociarverificadorComponent,
+    AppmonitoramentoComponent,
 
 
 
@@ -202,6 +213,8 @@ const routes: Routes = [
     Modnivel3Service,
     Modnivel4Service,
     ModmonitoramentotemplateService,
+    AppmonitoramentoService,
+    AssociarverificadorService,
     ErrorHandlerService
 
   ],

@@ -69,7 +69,7 @@ export class CadamostragemService {
 
     return this.http.get(this.cadamostragemurl, { headers })
       .toPromise()
-      .then(response => response.json());
+      .then(response => response.json().content);
   }
 
   atualizar(cadamostragem: Cadamostragem): Promise<Cadamostragem> {

@@ -69,7 +69,7 @@ export class CadfrequenciaService {
 
        return this.http.get(this.cadfrequenciaURL, { headers })
          .toPromise()
-         .then(response => response.json());
+         .then(response => response.json().content);
    }
 
    atualizar(cadfrequencia: Cadfrequencia): Promise<Cadfrequencia>{

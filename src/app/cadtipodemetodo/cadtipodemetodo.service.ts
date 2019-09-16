@@ -68,7 +68,7 @@ export class CadtipodemetodoService {
 
        return this.http.get(this.cadtipodemetodoURL, { headers })
          .toPromise()
-         .then(response => response.json());
+         .then(response => response.json().content);
    }
 
    atualizar(cadtipodemetodo: Cadtipodemetodo): Promise<Cadtipodemetodo>{

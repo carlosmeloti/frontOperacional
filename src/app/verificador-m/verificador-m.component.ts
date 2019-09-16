@@ -16,7 +16,7 @@ import { ToastyService } from 'ng2-toasty/src/toasty.service';
   templateUrl: './verificador-m.component.html',
   styleUrls: ['./verificador-m.component.css']
 })
-export class VerificadorMComponent implements OnInit  {
+export class VerificadorMComponent implements OnInit {
 
 
 
@@ -37,50 +37,50 @@ export class VerificadorMComponent implements OnInit  {
     private route: ActivatedRoute
 
 
-  ) {}
+  ) { }
 
   ngOnInit() {
 
-   this.carregarTipoDeVerificadores();
+    this.carregarTipoDeVerificadores();
 
-     // this.pesquisar();
-   const codigoVerificadorM = this.route.snapshot.params['codigo'];
+    // this.pesquisar();
+    const codigoVerificadorM = this.route.snapshot.params['codigo'];
 
-  //  se houver um id entra no metodo de carregar valores
-   if(codigoVerificadorM){
+    //  se houver um id entra no metodo de carregar valores
+    if (codigoVerificadorM) {
       this.carregarVerificadorM(codigoVerificadorM);
-   }
+    }
   }
 
-  get editando(){
+  get editando() {
     return Boolean(this.verificadorMSalvar.cdVerificador)
   }
 
 
-  pesquisarMon(){
-      this.verificadorMService.pesquisarMon()
+  pesquisarMon() {
+    this.verificadorMService.pesquisarMon()
       .then(verificadores => this.verificadorm = verificadores);
   }
 
-  pesquisarImp(){
+  pesquisarImp() {
 
-      this.verificadorMService.pesquisarImp()
+    this.verificadorMService.pesquisarImp()
       .then(verificadores => this.verificadorm = verificadores);
   }
 
-  pesquisarPMFS(){
+  pesquisarPMFS() {
     this.verificadorMService.pesquisarPMFS()
-    .then(verificadores => this.verificadorm = verificadores);
+      .then(verificadores => this.verificadorm = verificadores);
   }
 
-  pesquisarCerti(){
+  pesquisarCerti() {
     this.verificadorMService.pesquisarCerti()
-    .then(verificadores => this.verificadorm = verificadores);
+      .then(verificadores => this.verificadorm = verificadores);
   }
 
-  pesquisarSuste(){
+  pesquisarSuste() {
     this.verificadorMService.pesquisarSuste()
-  .then(verificadores => this.verificadorm = verificadores);
+      .then(verificadores => this.verificadorm = verificadores);
   }
 
 
@@ -91,27 +91,27 @@ export class VerificadorMComponent implements OnInit  {
         this.cadtipodeverificador = tipoDeVerificadores.map(c => ({ label: c.nmTipoDeVerificador, value: c.cdTipoDeVerificador }));
       })
       .catch(erro => this.errorHandler.handle(erro));
-}
+  }
 
-//Metodo para carregar valores
-carregarVerificadorM(codigo: number){
-  this.verificadorMService.buscarPorCodigo(codigo)
-    .then(verificador => {
-      this.verificadorMSalvar = verificador;
-    })
-    .catch(erro => this.errorHandler.handle(erro));
-}
+  //Metodo para carregar valores
+  carregarVerificadorM(codigo: number) {
+    this.verificadorMService.buscarPorCodigo(codigo)
+      .then(verificador => {
+        this.verificadorMSalvar = verificador;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
-salvar(form: FormControl){
-  this.verificadorMService.atualizar(this.verificadorMSalvar)
-  .then(verificador => {
-    this.verificadorMSalvar = verificador;
+  salvar(form: FormControl) {
+    this.verificadorMService.atualizar(this.verificadorMSalvar)
+      .then(verificador => {
+        this.verificadorMSalvar = verificador;
 
-    this.toasty.success('Verificador alterado com sucesso!');
+        this.toasty.success('Verificador alterado com sucesso!');
 
-  })
-.catch(erro => this.errorHandler.handle(erro));
-}
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+  }
 
 
 }

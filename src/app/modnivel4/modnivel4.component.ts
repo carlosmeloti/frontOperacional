@@ -287,7 +287,7 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  
+
   pesquisarModnivel4_cdNivel1_1_cdNivel2_3_cdNivel3_13(page = 0) {
 
     this.filtro.page = page;
@@ -301,7 +301,7 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  
+
   pesquisarModnivel4_cdNivel1_2_cdNivel2_4_cdNivel3_14(page = 0) {
 
     this.filtro.page = page;
@@ -550,11 +550,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_33(page = 0) {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_33(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_33(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_33(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -563,11 +563,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_34(page = 0) {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_34(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_1_cdNivel3_34(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_7_cdNivel3_34(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -576,11 +576,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_35(page = 0) {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_35(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_35(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_35(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -589,11 +589,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_36(page = 0) {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_36(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_36(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_36(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -602,11 +602,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_37(page = 0) {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_37(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_37(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_37(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -615,11 +615,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_38(page = 0) {
+  pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_38(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_2_cdNivel3_38(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_4_cdNivel2_8_cdNivel3_38(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -628,11 +628,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_39(page = 0) {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_39(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_39(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_39(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -641,11 +641,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_40(page = 0) {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_40(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_1_cdNivel3_40(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_9_cdNivel3_40(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -654,11 +654,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_41(page = 0) {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_41(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_41(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_41(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -667,11 +667,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_42(page = 0) {
+  pesquisarModnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_42(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_2_cdNivel3_42(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_5_cdNivel2_10_cdNivel3_42(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -680,11 +680,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_43(page = 0) {
+  pesquisarModnivel4_cdNivel1_6_cdNivel2_11_cdNivel3_43(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_6_cdNivel2_1_cdNivel3_43(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_6_cdNivel2_11_cdNivel3_43(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;
@@ -693,11 +693,11 @@ export class Modnivel4Component implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  pesquisarModnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_44(page = 0) {
+  pesquisarModnivel4_cdNivel1_6_cdNivel2_12_cdNivel3_44(page = 0) {
 
     this.filtro.page = page;
 
-    this.modNivel4Service.pesquisarModnivel4_cdNivel1_6_cdNivel2_2_cdNivel3_44(this.filtro)
+    this.modNivel4Service.pesquisarModnivel4_cdNivel1_6_cdNivel2_12_cdNivel3_44(this.filtro)
       .then(resultado => {
         this.tatalRegistros = resultado.total;
         this.modnivel4 = resultado.modnivel4;

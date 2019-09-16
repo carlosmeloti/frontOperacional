@@ -15,13 +15,13 @@
       <div class="ui-g-3 ui-fluid">
         <label>Empresa</label>
 
-        <p-selectButton name="empresa" [options]="empresas" [(ngModel)]="modNivel2Salvar.cdEmpresa.cdEmpresa.cdEmpresa">
+        <p-selectButton name="empresa" [options]="empresas" [(ngModel)]="modNivel2Salvar.cdEmpresa.cdEmpresa">
         </p-selectButton>
       </div>
       <div class="ui-g-7 ui-fluid"></div>
         <div class="ui-g-4 ui-fluid">
 
-          <label>Assunto: <strong><a routerLink="/modnivel1"> Adicionar</a></strong></label>
+          <label>Assunto: <strong><a routerLink="/modnivel1"> Editar</a></strong></label>
           <p-dropdown name="modnivel1" [options]="modnivel1" placeholder="Selecione" [autoWidth]="false"
             [(ngModel)]="modNivel2Salvar.cdNivel1.cdNivel1" required></p-dropdown>
         </div>
@@ -60,6 +60,12 @@
           <button pButton type="submit" label="Salvar" class="ui-button-raised ui-button-success"
             [disabled]="!modNivel2Salvar.nmNivel2"></button>
         </div>
+        <div class="ui-g-2 ui-fluid ">
+            <br /><br />
+          <label style="display: block"> <strong><a routerLink="/modnivel4">Voltar</a></strong></label>
+        </div>
+
+
 
         <div *ngIf="editando" class="ui-g-2 ui-fluid ">
           <br />
